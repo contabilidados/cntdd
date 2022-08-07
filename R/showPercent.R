@@ -5,7 +5,3 @@ showPercent <- function(value, absolute = T, digits = 2){
     scales::percent_format(1/(10^floor(digits)))(value)
   }
 }
-
-
-
-

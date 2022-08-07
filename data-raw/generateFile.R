@@ -1,5 +1,7 @@
 # Load raw data from .csv file
-exampleData <- read.csv("data-raw/ratio.csv")
+dt_contabil <- read.csv("data-raw/ratio.csv", sep = ";")
+dt_meses <- read.csv("data-raw/meses.csv", sep = ";")
 # Apply preprocessing...
 # Save the cleaned data in the required R package location
-usethis::use_data(exampleData)
+usethis::use_data(dt_contabil, overwrite = T)
+usethis::use_data(dt_meses, overwrite = T)

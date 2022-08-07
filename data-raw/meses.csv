@@ -1,0 +1,13 @@
+"mes.num","mes.nome","mes.abb","month.name","month.abb","mes.chr","bim","trim","quad","sem"
+1,"Janeiro","Jan","January","Jan","01",1,1,1,1
+2,"Fevereiro","Fev","February","Feb","02",1,1,1,1
+3,"Março","Mar","March","Mar","03",2,1,1,1
+4,"Abril","Abr","April","Apr","04",2,2,1,1
+5,"Maio","Mai","May","May","05",3,2,2,1
+6,"Junho","Jun","June","Jun","06",3,2,2,1
+7,"Julho","Jul","July","Jul","07",4,3,2,2
+8,"Agosto","Ago","August","Aug","08",4,3,2,2
+9,"Setembro","Set","September","Sep","09",5,3,3,2
+10,"Outubro","Out","October","Oct","10",5,4,3,2
+11,"Novembro","Nov","November","Nov","11",6,4,3,2
+12,"Dezembro","Dez","December","Dec","12",6,4,3,2

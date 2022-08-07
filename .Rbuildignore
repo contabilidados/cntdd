@@ -1,2 +1,11 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^README\.Rmd$
+^README-.*\.png$
+^data-raw$
+^docs$
+^_pkgdown\.yml$
+^pkgdown$
+^references\.bib$
+^vignettes/Example-article\.Rmd$
+^vignettes/articles$

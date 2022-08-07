@@ -2,9 +2,9 @@
 % Please edit documentation in R/ind_liqSeca.R
 \name{ind_liqSeca}
 \alias{ind_liqSeca}
-\title{Calcular a média geométrica}
+\title{Índice de Liquidez Seca}
 \usage{
-ind_liqSeca(indicador, periodo, estoque, atvCirc, pasCirc)
+ind_liqSeca(indicador, periodo, estoque, atvCirc, pasCirc, atvTotal)
 }
 \arguments{
 \item{indicador}{Um vetor tipo character com o nome do indicador}
@@ -18,16 +18,27 @@ ind_liqSeca(indicador, periodo, estoque, atvCirc, pasCirc)
 \item{pasCirc}{Vetor com os valores do Passivo Circulante}
 }
 \description{
-Esta função calculará a média geométrica de um vetor numérico
+Esse índice corresponde à capacidade de um vetor numérico
 }
 \examples{
 
-ind_liqSeca(indicador = "Liquidez Seca", periodo = 2018:2020, estoque = c(2000,3000,4000), atvCirc = c(5000,6000,7000), pasCirc = c(1000,2000,3000)) # Vetor
+## Usando Vetores
+ind_liqSeca(indicador = "Liquidez Seca",
+periodo = 2018:2020,
+estoque = c(2000,3000,4000),
+atvCirc = c(5000,6000,7000),
+pasCirc = c(1000,2000,3000))
 
-Usando como relatÃ³rio HTML
-analise <- ind_liqSeca(indicador = "Liquidez Seca", periodo = 2018:2020, estoque = c(2000,3000,4000), atvCirc = c(5000,6000,7000), pasCirc = c(1000,2000,3000))
-a$`Como Analisar` \%>\% sjPlot::tab_df(encoding = "Latim-1")
+## Usando como relatório HTML
+analise <-
+ind_liqSeca(indicador = "Liquidez Seca",
+periodo = 2018:2020,
+estoque = c(2000,3000,4000),
+atvCirc = c(5000,6000,7000),
+pasCirc = c(1000,2000,3000))
 
-mtcars \%>\% summarise(media = geomMean(mpg)) # Dplyr
+analise$`Como Analisar` \%>\% sjPlot::tab_df(encoding = "Latim-1")
+
+## Usando um data.frame
 
 }

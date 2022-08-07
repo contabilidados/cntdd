@@ -18,7 +18,7 @@
 #'
 #' @export
 
-testeMedia <- function(value_Y, name_Y, value_X, name_X, pvalor = 0.05){
+stat_meanTest <- function(value_Y, name_Y, value_X, name_X, pvalor = 0.05){
 
   A <- value_Y
   B <- value_X

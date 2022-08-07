@@ -15,6 +15,6 @@
 #'
 #' @export
 
-geomMean <- function(x, dec = 3){
+stat_geomMean <- function(x, dec = 3){
   round(prod(x, na.rm = T)^(1/length(x[!is.na(x)])), dec)
 }
