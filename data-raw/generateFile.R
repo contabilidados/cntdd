@@ -1,5 +1,6 @@
 # Load raw data from .csv file
 dt_contabil <- read.csv("data-raw/ratio.csv", sep = ";")
+names(dt_contabil)[1] <- "empresa"
 dt_meses <- read.csv("data-raw/meses.csv", sep = ";")
 # Apply preprocessing...
 # Save the cleaned data in the required R package location

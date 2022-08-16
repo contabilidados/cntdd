@@ -11,10 +11,11 @@
 #'
 #' @examples
 #'
+#' library(cntdd)
+#'
 #' testeMedia(value_Y = 1:6,name_Y = "Menores", value_X = 4:10, name_X = "Maiores", pvalor = 0.01)
 #'
 #' testeMedia(mtcars$mpg[mtcars$carb == 1], name_Y = "Carb 1", value_X = mtcars$mpg[mtcars$carb == 4], name_X = "Carb 4")
-#'
 #'
 #' @export
 

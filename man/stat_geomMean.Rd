@@ -15,11 +15,12 @@ stat_geomMean(x, dec = 3)
 Esta função calculará a média geométrica de um vetor numérico
 }
 \examples{
+library(cntdd)
+stat_geomMean(1:6, 2) # Vetor
 
-geomMean(1:6, 2) # Vetor
+stat_geomMean(dt_contabil$atvTotal) # DataFrame
 
-geomMean(mtcars$mpg) # DataFrame
-
-mtcars \%>\% summarise(media = geomMean(mpg)) # Dplyr
+suppressMessages(suppressWarnings(library(dplyr)))
+dt_contabil \%>\% summarise(estoqueMedio = stat_geomMean(estoque)) # Dplyr
 
 }

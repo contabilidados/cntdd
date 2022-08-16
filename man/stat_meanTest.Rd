@@ -15,7 +15,7 @@ stat_meanTest(value_Y, name_Y, value_X, name_X, pvalor = 0.05)
 
 \item{name_X}{Um nome para o vetor numérico que representa o segundo grupo}
 
-\item{pvalor}{O valor crítido a ser considerado nos testes. O padrão é 5%}
+\item{pvalor}{O valor crítido a ser considerado nos testes. O padrão é 5\%}
 }
 \description{
 Esta função realiza o teste de diferença de médias de dois vetores numéricos
@@ -23,9 +23,10 @@ e apresenta os resultados em uma tabela
 }
 \examples{
 
+library(cntdd)
+
 testeMedia(value_Y = 1:6,name_Y = "Menores", value_X = 4:10, name_X = "Maiores", pvalor = 0.01)
 
 testeMedia(mtcars$mpg[mtcars$carb == 1], name_Y = "Carb 1", value_X = mtcars$mpg[mtcars$carb == 4], name_X = "Carb 4")
-
 
 }

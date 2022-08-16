@@ -5,12 +5,15 @@
 \alias{dt_contabil}
 \title{Dados das empresas}
 \format{
-An object of class \code{data.frame} with 3 rows and 6 columns.
+An object of class \code{data.frame} with 40 rows and 35 columns.
 }
 \usage{
 dt_contabil
 }
 \description{
 Dados contabeis das empresas
+}
+\details{
+É importante ver
 }
 \keyword{datasets}

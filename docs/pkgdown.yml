@@ -1,9 +1,12 @@
 pandoc: '2.18'
 pkgdown: 2.0.6
 pkgdown_sha: ~
+encoding: UTF-8
 articles:
-  Example-Analysis: Example-Analysis.html
-  Example-Analysis2: Example-Analysis2.html
-  team: team.html
-last_built: 2022-08-08T05:09Z
+  teste123: teste123.html
+  usandoTeste: usandoTeste.html
+last_built: 2022-08-12T18:58Z
+urls:
+  reference: http://contabilidados.github.io/cntdd/reference
+  article: http://contabilidados.github.io/cntdd/articles
 

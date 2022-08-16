@@ -1,57 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/404.html</loc>
   </url>
   <url>
-    <loc>/articles/Example-Analysis.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/articles/index.html</loc>
   </url>
   <url>
-    <loc>/articles/Example-Analysis2.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/articles/teste123.html</loc>
   </url>
   <url>
-    <loc>/articles/index.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/articles/usandoTeste.html</loc>
   </url>
   <url>
-    <loc>/articles/team.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/authors.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/index.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>/reference/dt_contabil.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/reference/dt_contabil.html</loc>
   </url>
   <url>
-    <loc>/reference/dt_meses.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/reference/dt_meses.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/reference/exampleData.html</loc>
   </url>
   <url>
-    <loc>/reference/ind_liqSeca.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/reference/hello.html</loc>
   </url>
   <url>
-    <loc>/reference/stat_geomMean.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/stat_meanTest.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_liqSeca.html</loc>
   </url>
   <url>
-    <loc>/reference/utl_createGroup.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/reference/stat_geomMean.html</loc>
   </url>
   <url>
-    <loc>/reference/utl_tableStat.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/reference/stat_meanTest.html</loc>
   </url>
   <url>
-    <loc>/team/Example-Analysis.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/reference/utl_createGroup.html</loc>
   </url>
   <url>
-    <loc>/team/Example-Analysis2.html</loc>
-  </url>
-  <url>
-    <loc>/team/index.html</loc>
+    <loc>http://contabilidados.github.io/cntdd/reference/utl_tableStat.html</loc>
   </url>
 </urlset>

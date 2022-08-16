@@ -1,0 +1,19 @@
+url: http://contabilidados.github.io/cntdd
+title: cntdd
+destination: docs
+development:
+  mode: release
+template:
+  params:
+    bootswatch: spacelab
+navbar:
+  structure:
+    left:  [home, articles, reference]
+    right: [github]
+components:
+  home: ~
+  articles:
+    text: Artigos
+    menu:
+    - text: Example analysis
+      href: articles/Example-analysis.html

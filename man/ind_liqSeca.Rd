@@ -4,41 +4,106 @@
 \alias{ind_liqSeca}
 \title{Índice de Liquidez Seca}
 \usage{
-ind_liqSeca(indicador, periodo, estoque, atvCirc, pasCirc, atvTotal)
+ind_liqSeca(
+  indicador = "Liq Seca",
+  periodo = 2019:2020,
+  cxEquiv = c(8, 10),
+  estoque = c(150, 200),
+  ctaRecCP = c(400, 300),
+  outAtvCirc = c(1, 3),
+  fornec = c(50, 20),
+  dividasCP = c(30, 40),
+  outPasCirc = c(10, 8),
+  dividasLP = c(80, 10),
+  outPasNCirc = c(5, 3),
+  atvTotal = c(900, 800),
+  plot = T
+)
 }
 \arguments{
 \item{indicador}{Um vetor tipo character com o nome do indicador}
 
 \item{periodo}{Vetor numérico indicando o período da análise}
 
-\item{estoque}{Vetor com os valores do estoque}
+\item{cxEquiv}{Vetor com os valores do caixa e equivalentes de caixa (Ativo Circulante)}
 
-\item{atvCirc}{Vetor com os valores do Ativo Circulante}
+\item{estoque}{Vetor com os valores do estoque (Ativo Circulante)}
 
-\item{pasCirc}{Vetor com os valores do Passivo Circulante}
+\item{ctaRecCP}{Vetor com os valores do contas a receber (Ativo Circulante)}
+
+\item{outAtvCirc}{Vetor com os valores de outros ativos circulantes (Ativo Circulante)}
+
+\item{fornec}{Vetor com os valores de fornecedores (Passivo Circulante)}
+
+\item{dividasCP}{Vetor com os valores de empréstimos e financiamentos de curto prazo (Passivo Circulante)}
+
+\item{outPasCirc}{Vetor com os valores de outros passivos circulantes (Passivo Circulante)}
+
+\item{atvTotal}{Vetor com os valores do Ativo Total}
+
+\item{plot}{Mostra gráfico? (TRUE/FALSE)}
 }
 \description{
 Esse índice corresponde à capacidade de um vetor numérico
 }
+\details{
+O índice de Liquidez Seca revela a capacidade de pagamento de dívidas de curto
+prazo, considerando que a empresa não consiga reverter o valor de seus estoques
+em dinheiro. Relaciona, portanto, quanto uma empresa possui de ativo
+(circulante), deduzido do valor de seus estoques, com o total de seu passivo
+circulante. É representado pela fórmula:
+
+\deqn{\frac{AC - Est}{PC}}
+em que: \strong{AC} é o Ativo Circulante, \strong{Est} é o estoque e \strong{PC} é o Passivo Circulante
+
+Para melhorar o processo de análise, os valores de Ativos Circulante e Passivo
+Circulante foram desmembrados, respectivamente para
+\eqn{AC = cxEquiv + estoque + ctaRecCP + outAtvCirc} e para
+\eqn{PC = fornec + dividasCP + outPasCirc}. As contas são descritas acima.
+
+Assim, tem-se que a liquidez seca corresponde a:
+
+\deqn{\frac{(cxEquiv + ctaRecCP + outAtvCirc)}{(fornec + dividasCP + outPasCirc)}}
+
+A equação não contempla o estoque!
+
+Indicamos essa análise quando a empresa tiver algum indicativo de que terar
+dificuldade com giro de seus estoques. Em codições normais, espera-se que as
+empresas não passem dificuldade de liquidez (condição de quitar suas dívidas)
+por falta de conversão do estoque em caixa.
+}
 \examples{
+
+library(cntdd)
+suppressMessages(suppressWarnings(library(dplyr)))
+suppressMessages(suppressWarnings(library(tidyr)))
+suppressMessages(suppressWarnings(library(ggplot2)))
 
 ## Usando Vetores
 ind_liqSeca(indicador = "Liquidez Seca",
 periodo = 2018:2020,
 estoque = c(2000,3000,4000),
-atvCirc = c(5000,6000,7000),
-pasCirc = c(1000,2000,3000))
-
-## Usando como relatório HTML
-analise <-
-ind_liqSeca(indicador = "Liquidez Seca",
-periodo = 2018:2020,
 estoque = c(2000,3000,4000),
 atvCirc = c(5000,6000,7000),
-pasCirc = c(1000,2000,3000))
+pasCirc = c(1000,2000,3000),
+atvTotal = c(10000, 12000, 14000),
+plot = T)
 
-analise$`Como Analisar` \%>\% sjPlot::tab_df(encoding = "Latim-1")
+## Usando um data.frame (informar valor zero quando valor não existente)
 
-## Usando um data.frame
+dadosAlpha <- dt_contabil \%>\% filter(empresa == "alpha")
+
+ind_liqSeca(
+indicador  = "Liquidez Seca",
+periodo    = dadosAlpha$periodo,
+cxEquiv    = dadosAlpha$cxEquiv,
+estoque    = dadosAlpha$estoque,
+ctaRecCP   = dadosAlpha$ctaRecCP,
+outAtvCirc = dadosAlpha$outAtvCirc,
+fornec     = dadosAlpha$outPasCirc,
+dividasCP  = dadosAlpha$dividasCP,
+outPasCirc = dadosAlpha$outPasCirc,
+atvTotal   = dadosAlpha$atvTotal,
+plot = F)
 
 }

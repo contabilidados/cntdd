@@ -1,0 +1,24 @@
+---
+title: "Usando Liquidez Seca"
+author: "contabiliDados"
+date: "`r Sys.Date()`"
+---
+
+The data contained in the exampleRPackage R package was analyzed exactly like detailed in this document.
+
+First, because the data is contained in a package, we can easily call it from R
+
+```{r}
+library(cntdd)
+str(dt_contabil)
+```
+
+We drew a boxplot:
+
+```{r}
+library(tidyverse)
+ind_liqSeca()
+
+
+```
+

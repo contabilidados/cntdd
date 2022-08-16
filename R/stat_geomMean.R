@@ -5,13 +5,16 @@
 #' @param x Um vetor numérico
 #' @param dec O número de casas decimais (padrão: 3)
 #'
+#' @import tidyverse
+#'
 #' @examples
+#' library(cntdd)
+#' stat_geomMean(1:6, 2) # Vetor
 #'
-#' geomMean(1:6, 2) # Vetor
+#' stat_geomMean(dt_contabil$atvTotal) # DataFrame
 #'
-#' geomMean(mtcars$mpg) # DataFrame
-#'
-#' mtcars %>% summarise(media = geomMean(mpg)) # Dplyr
+#' suppressMessages(suppressWarnings(library(dplyr)))
+#' dt_contabil %>% summarise(estoqueMedio = stat_geomMean(estoque)) # Dplyr
 #'
 #' @export
 

@@ -1,0 +1,12 @@
+---
+title: "Usando a função stat_geom Mean"
+author: "contabiliDados"
+date: "`r Sys.Date()`"
+---
+
+```{r}
+library(cntdd)
+stat_geomMean(1:8)
+```
+
+Então essa média representa para finanças...

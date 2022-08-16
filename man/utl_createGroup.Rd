@@ -22,6 +22,9 @@ Cria grupos baseados nos percentise de uma variável númerica
 }
 \examples{
 
+library(cntdd)
+library(dplyr)
+
 ## Grupo 1 com os primeiros 20\% das observações de menor valor, Grupo 2 com as observações de
 ## 20\% a 80\% e Grupo 3 com os 20\% das observações de maior valor
 utl_createGroup(mtcars, "mpg", "grp.mpg", c(0, .2, .8, 1))
