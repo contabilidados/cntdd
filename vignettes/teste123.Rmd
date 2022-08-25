@@ -1,24 +1,48 @@
 ---
 title: "Usando Liquidez Seca"
-author: "contabiliDados"
+author: "Nome do(s) aluno(s) e/ou professor(es)"
 date: "`r Sys.Date()`"
+editor_options: 
+  chunk_output_type: console
 ---
 
-The data contained in the exampleRPackage R package was analyzed exactly like detailed in this document.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = FALSE, prompt = FALSE,
+                      tidy = FALSE, comment = NA, message = FALSE,
+                      warning = FALSE, fig.width=2, fig.height=4)
+```
 
-First, because the data is contained in a package, we can easily call it from R
+Esse artigo discute liquidez seca da empresa ALPHA. A análise foi relizada com
+o uso da função `ind_liqSeca`.
 
 ```{r}
 library(cntdd)
-str(dt_contabil)
+library(tidyverse)
+library(kableExtra)
 ```
 
-We drew a boxplot:
+Aqui mostramos as contas que componhem a liquidez Seca:
 
 ```{r}
-library(tidyverse)
-ind_liqSeca()
 
+kbl(ind_liqSeca()[[1]]) %>%  kable_styling()
 
 ```
 
+A liquidez seca foi de 
+
+```{r}
+
+kbl(ind_liqSeca(plot = F)[[2]], digits = 2) %>%  kable_styling()
+
+```
+
+Pela análise vertical
+
+```{r}
+
+kbl(ind_liqSeca(plot = F)[[3]]) %>%  kable_styling()
+
+```
+
+Podemos concluir que...
