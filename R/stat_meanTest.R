@@ -12,8 +12,6 @@
 #' @returns
 #' Um data.frame com a análise sobre o teste de média dos dois grupos de valores.
 #'
-#' @seealso [car()], [kableExtra()], [stats()], [nortest()]
-#'
 #' @examples
 #'
 #' library(cntdd)

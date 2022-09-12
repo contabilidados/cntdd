@@ -42,8 +42,6 @@
 #' @param atvTotal Vetor com os valores do Ativo Total
 #' @param plot Mostra gráfico? (TRUE/FALSE)
 #'
-#' @seealso [dplyr], [tidyr::pivot_longer()], [tidyr::pivot_wider()]
-#'
 #' @examples
 #'
 #' suppressMessages(suppressWarnings(library(cntdd)))
