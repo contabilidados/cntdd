@@ -8,12 +8,7 @@ template:
     bootswatch: spacelab
 navbar:
   structure:
-    left:  [home, articles, reference]
+    left:  [home, reference, articles]
     right: [github]
 components:
   home: ~
-  articles:
-    text: Artigos
-    menu:
-    - text: Example analysis
-      href: articles/Example-analysis.html

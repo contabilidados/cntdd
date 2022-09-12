@@ -9,13 +9,23 @@
 #' @param name_X Um nome para o vetor numérico que representa o segundo grupo
 #' @param pvalor O valor crítido a ser considerado nos testes. O padrão é 5%
 #'
+#' @returns
+#' Um data.frame com a análise sobre o teste de média dos dois grupos de valores.
+#'
+#' @seealso [car()], [kableExtra()], [stats()], [nortest()]
+#'
 #' @examples
 #'
 #' library(cntdd)
+#' library(dplyr)
 #'
-#' testeMedia(value_Y = 1:6,name_Y = "Menores", value_X = 4:10, name_X = "Maiores", pvalor = 0.01)
+#' stat_meanTest(value_Y = 1:6,name_Y = "Menores", value_X = 4:10, name_X = "Maiores", pvalor = 0.01)
 #'
-#' testeMedia(mtcars$mpg[mtcars$carb == 1], name_Y = "Carb 1", value_X = mtcars$mpg[mtcars$carb == 4], name_X = "Carb 4")
+#' stat_meanTest(mtcars$mpg[mtcars$carb == 1], name_Y = "Carb 1", value_X = mtcars$mpg[mtcars$carb == 4], name_X = "Carb 4")
+#'
+#' # Formatando a tabela com KableExtra
+#' # cntdd::stat_meanTest(value_Y = 1:6,name_Y = "Menores", value_X = 4:10, name_X = "Maiores", pvalor = 0.01) %>%
+#' # kableExtra::kbl(booktabs = T, format = "html") %>% kableExtra::kable_styling()
 #'
 #' @export
 
@@ -60,7 +70,7 @@ stat_meanTest <- function(value_Y, name_Y, value_X, name_X, pvalor = 0.05){
     spread = formatC(spread, digits = 3, format = "f", decimal.mark = ","),
     qdeObs = paste0(name_a, ": ", qdeA, " | ", name_b, ": ", qdeB))
 
-  tabDados <<- as.data.frame(t(dados))
+  tabDados <- as.data.frame(t(dados))
   rownames(tabDados) <-
     c(
       paste0("pValue Normalidade de ", name_a),
@@ -76,6 +86,5 @@ stat_meanTest <- function(value_Y, name_Y, value_X, name_X, pvalor = 0.05){
   colnames(tabDados) <- "Resultados"
 
   return(tabDados)
-}
 
-
+  }

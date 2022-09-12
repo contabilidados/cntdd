@@ -13,12 +13,19 @@
 #'
 #' library(cntdd)
 #'
-#' ## Grupo 1 com os primeiros 20% das observações de menor valor, Grupo 2 com as observações de
-#' ## 20% a 80% e Grupo 3 com os 20% das observações de maior valor
-#' utl_createGroup(mtcars, "mpg", "grp.mpg", c(0, .2, .8, 1))
+#' ## Valor da média das despesas operacionais de grupos de empresas baseadas no
+#' ## valor do caixa e equivalentes de caixa e nas dívidas de curto prazo.
+#' ## No exemplo, as empresas com mais dívidas de curto prazo e maiores valores
+#' ## de caixa e equivalentes de caixa são as que possuem os maiores valores
+#' ## médios de despesas operacionais ($ 1.999.101).
 #'
-#' ## Grupo 1 com metade das observações e Grupo 2 com a metade restante
-#' utl_createGroup(mtcars, "mpg", "grp.mpg", 2)
+#' utl_tableStat(cntdd::dt_contabil, "cxEquiv", 3, "dividasCP", 2, "despOper", mean)
+#'
+#' ## Por outro lado, as empresas com valores intermediários de caixa e equivalentes
+#' ## caixa (cxEquiv_2) e com maiores valores de dívidas de curto prazo são as que
+#' ## apresentam maior desvio-padrão entre os valores médios ($ 874.873).
+#'
+#' utl_tableStat(cntdd::dt_contabil, "cxEquiv", 3, "dividasCP", 2, "despOper", sd)
 #'
 #'
 #' @export
@@ -40,11 +47,3 @@ utl_tableStat <- function(bd, grp1, n_grp1, grp2, n_grp2, value, ...){
   return(result)
 
 }
-
-
-
-
-
-
-
-

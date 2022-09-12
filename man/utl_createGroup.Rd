@@ -27,10 +27,13 @@ library(dplyr)
 
 ## Grupo 1 com os primeiros 20\% das observações de menor valor, Grupo 2 com as observações de
 ## 20\% a 80\% e Grupo 3 com os 20\% das observações de maior valor
-utl_createGroup(mtcars, "mpg", "grp.mpg", c(0, .2, .8, 1))
+utl_createGroup(mtcars, "mpg", "grp.mpg", c(0, .2, .8, 1)) \%>\% head()
 
 ## Grupo 1 com metade das observações e Grupo 2 com a metade restante
-utl_createGroup(mtcars, "mpg", "grp.mpg", 2)
+utl_createGroup(mtcars, "mpg", "grp.mpg", 2) \%>\% head()
 
 
+}
+\seealso{
+\code{\link[=cut]{cut()}}, \code{\link[=quantile]{quantile()}}
 }

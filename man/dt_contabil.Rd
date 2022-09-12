@@ -3,7 +3,7 @@
 \docType{data}
 \name{dt_contabil}
 \alias{dt_contabil}
-\title{Dados das empresas}
+\title{Dados Contábeis}
 \format{
 An object of class \code{data.frame} with 40 rows and 35 columns.
 }
@@ -11,9 +11,11 @@ An object of class \code{data.frame} with 40 rows and 35 columns.
 dt_contabil
 }
 \description{
-Dados contabeis das empresas
+Dados contabeis de empresas fictícias relacionados ao Balanço Patrimonial (BP),
+Demonstração do Resultado do Exercício (DRE) e Demonstração dos Fluxos de
+Caixa (DFC).
 }
 \details{
-É importante ver
+Data.frame com 40 linhas e 35 colunas.
 }
 \keyword{datasets}

@@ -39,6 +39,9 @@
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
+<li>
+  <a href="../reference/index.html">Reference</a>
+</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
@@ -53,9 +56,6 @@
       <a href="../articles/usandoTeste.html">Usando a função stat_geom Mean</a>
     </li>
   </ul>
-</li>
-<li>
-  <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -75,13 +75,15 @@
 
       
 
-      </header><div class="row">
+      </header><script src="teste123_files/kePrint-0.0.1/kePrint.js"></script><link href="teste123_files/lightable-0.0.1/lightable.css" rel="stylesheet">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Usando Liquidez Seca</h1>
-                        <h4 data-toc-skip class="author">contabiliDados</h4>
+                        <h4 data-toc-skip class="author">Nome do(s)
+aluno(s) e/ou professor(es)</h4>
             
-            <h4 data-toc-skip class="date">2022-08-12</h4>
+            <h4 data-toc-skip class="date">2022-09-12</h4>
       
       <small class="dont-index">Source: <a href="http://github.com/contabilidados/cntdd/blob/HEAD/vignettes/teste123.Rmd" class="external-link"><code>vignettes/teste123.Rmd</code></a></small>
       <div class="hidden name"><code>teste123.Rmd</code></div>
@@ -90,109 +92,241 @@
 
     
     
-<p>The data contained in the exampleRPackage R package was analyzed
-exactly like detailed in this document.</p>
-<p>First, because the data is contained in a package, we can easily call
-it from R</p>
+<p>Esse artigo discute liquidez seca da empresa ALPHA. A análise foi
+relizada com o uso da função <code>ind_liqSeca</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/contabilidados/cntdd/" class="external-link">cntdd</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">dt_contabil</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## 'data.frame':    40 obs. of  35 variables:</span></span>
-<span><span class="co">##  $ empresa       : chr  "alpha" "alpha" "alpha" "alpha" ...</span></span>
-<span><span class="co">##  $ ano           : int  2018 2019 2020 2021 2018 2019 2020 2021 2018 2019 ...</span></span>
-<span><span class="co">##  $ cxEquiv       : int  85458 100637 203376 95156 421335 568814 1224363 757656 365390 1722906 ...</span></span>
-<span><span class="co">##  $ ctaRecCP      : int  138707 149828 217025 286420 1381804 1577020 1354742 1900299 743523 1056464 ...</span></span>
-<span><span class="co">##  $ estoque       : int  54674 65053 105426 163265 335889 381185 377970 461206 1018487 1377831 ...</span></span>
-<span><span class="co">##  $ outAtvCirc    : int  26318 39893 41311 51985 223822 194472 196354 81982 196573 496682 ...</span></span>
-<span><span class="co">##  $ atvCirc       : int  305157 355411 567138 596826 2362850 2721491 3153429 3201143 2323973 4653883 ...</span></span>
-<span><span class="co">##  $ ctaRecLP      : int  3885 3769 929 1549 0 0 0 0 2743 6103 ...</span></span>
-<span><span class="co">##  $ investim      : int  1204 1093 1093 1037 64591 62240 60184 60140 111792 110570 ...</span></span>
-<span><span class="co">##  $ Imobilizado   : int  30153 110205 114633 146369 682707 1008870 934008 902397 273355 1214281 ...</span></span>
-<span><span class="co">##  $ intangivel    : int  24342 27198 300759 367825 68181 106919 175304 263977 217024 560165 ...</span></span>
-<span><span class="co">##  $ outAtvNaoCirc : int  13998 14511 42016 106414 616978 667876 688096 819600 259220 627662 ...</span></span>
-<span><span class="co">##  $ atvNaoCirc    : int  73582 156776 459430 623194 1432457 1845905 1857592 2046114 864134 2518781 ...</span></span>
-<span><span class="co">##  $ fornec        : int  39909 48914 144673 208287 188373 229017 374609 379173 1487819 2150913 ...</span></span>
-<span><span class="co">##  $ dividasCP     : int  15938 57342 86793 180071 263467 297816 471845 499893 47383 3612 ...</span></span>
-<span><span class="co">##  $ outPasCirc    : int  36892 62145 98849 162156 975028 1067995 994815 1326389 417729 745766 ...</span></span>
-<span><span class="co">##  $ pasCirc       : int  92739 168401 330315 550514 1426868 1594828 1841269 2205455 1952931 2900291 ...</span></span>
-<span><span class="co">##  $ dividasLP     : int  24441 8176 143078 13675 513191 726197 1008744 796431 117867 304019 ...</span></span>
-<span><span class="co">##  $ outrPasNaoCirc: int  3755 65220 64417 78857 68831 352879 339003 336587 282704 1226676 ...</span></span>
-<span><span class="co">##  $ pasNaoCirc    : int  28196 73396 207495 92532 582022 1079076 1347747 1133018 400571 1530695 ...</span></span>
-<span><span class="co">##  $ patLiq        : int  257804 270390 488757 576973 1786417 1893492 1822005 1908784 834605 2741678 ...</span></span>
-<span><span class="co">##  $ atvTotal      : int  378739 512188 1026568 1220021 3795307 4567396 5011022 5247258 3188108 7172665 ...</span></span>
-<span><span class="co">##  $ receitaLiq    : int  553290 608587 576606 1059651 2606735 2829785 2263442 2617094 5650276 7207181 ...</span></span>
-<span><span class="co">##  $ custo         : int  295729 327460 302902 502003 914589 1044094 1117939 1208033 4005827 5194318 ...</span></span>
-<span><span class="co">##  $ despVenda     : int  137328 153798 192065 320527 1130493 1228732 842806 912860 995727 1248212 ...</span></span>
-<span><span class="co">##  $ despAdm       : int  51052 66689 58796 114603 298241 334842 371561 421942 275378 430757 ...</span></span>
-<span><span class="co">##  $ outDespOp     : num  5651 6615 7526 13054 42862 ...</span></span>
-<span><span class="co">##  $ despOper      : num  194031 227102 258387 448184 1471596 ...</span></span>
-<span><span class="co">##  $ recFin        : int  14510 8959 23749 15358 197954 70457 39938 57413 48538 232280 ...</span></span>
-<span><span class="co">##  $ despFin       : int  22223 15546 37358 38796 60612 104952 101245 130058 155339 257799 ...</span></span>
-<span><span class="co">##  $ ir_csll       : int  9913 15506 2165 21793 200553 43386 -62853 -87707 68654 107392 ...</span></span>
-<span><span class="co">##  $ depreciacao   : int  14816 29110 29393 38325 105547 185291 189963 199321 59324 176489 ...</span></span>
-<span><span class="co">##  $ cxAtivOper    : int  42706 74253 79846 87682 101021 215916 503918 11031 448009 -1206695 ...</span></span>
-<span><span class="co">##  $ cxAtivInvest  : int  26179 -30954 -107741 -3904 -134601 -197250 -46837 -56812 -142834 -336538 ...</span></span>
-<span><span class="co">##  $ cxAtivFinanc  : int  -69786 -41418 36767 -84630 162756 45223 260122 -387737 -237629 1436919 ...</span></span></code></pre>
-<p>We drew a boxplot:</p>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://haozhu233.github.io/kableExtra/" class="external-link">kableExtra</a></span><span class="op">)</span></span></code></pre></div>
+<p>Aqui mostramos as contas que componhem a liquidez Seca:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kbl.html" class="external-link">kbl</a></span><span class="op">(</span><span class="fu"><a href="../reference/ind_liqSeca.html">ind_liqSeca</a></span><span class="op">(</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>  <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html" class="external-link">kable_styling</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<img src="teste123_files/figure-html/unnamed-chunk-2-1.png" width="192"><table class="table table" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:left;">
+conta
+</th>
+<th style="text-align:right;">
+2019
+</th>
+<th style="text-align:right;">
+2020
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+cxEquiv
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+estoque
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:right;">
+200
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ctaRecCP
+</td>
+<td style="text-align:right;">
+400
+</td>
+<td style="text-align:right;">
+300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+outAtvCirc
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fornec
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dividasCP
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+outPasCirc
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+atvTotal
+</td>
+<td style="text-align:right;">
+900
+</td>
+<td style="text-align:right;">
+800
+</td>
+</tr>
+</tbody>
+</table>
+<p>A liquidez seca foi de</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## -- <span style="font-weight: bold;">Attaching packages</span> --------------------------------------- tidyverse 1.3.1 --</span></span></code></pre>
-<pre><code><span><span class="co">## <span style="color: #00BB00;">v</span> <span style="color: #0000BB;">ggplot2</span> 3.3.5     <span style="color: #00BB00;">v</span> <span style="color: #0000BB;">purrr  </span> 0.3.4</span></span>
-<span><span class="co">## <span style="color: #00BB00;">v</span> <span style="color: #0000BB;">tibble </span> 3.1.6     <span style="color: #00BB00;">v</span> <span style="color: #0000BB;">dplyr  </span> 1.0.8</span></span>
-<span><span class="co">## <span style="color: #00BB00;">v</span> <span style="color: #0000BB;">tidyr  </span> 1.2.0     <span style="color: #00BB00;">v</span> <span style="color: #0000BB;">stringr</span> 1.4.0</span></span>
-<span><span class="co">## <span style="color: #00BB00;">v</span> <span style="color: #0000BB;">readr  </span> 2.1.2     <span style="color: #00BB00;">v</span> <span style="color: #0000BB;">forcats</span> 0.5.1</span></span></code></pre>
-<pre><code><span><span class="co">## Warning: package 'tibble' was built under R version 4.1.2</span></span></code></pre>
-<pre><code><span><span class="co">## Warning: package 'tidyr' was built under R version 4.1.3</span></span></code></pre>
-<pre><code><span><span class="co">## Warning: package 'readr' was built under R version 4.1.3</span></span></code></pre>
-<pre><code><span><span class="co">## Warning: package 'dplyr' was built under R version 4.1.3</span></span></code></pre>
-<pre><code><span><span class="co">## -- <span style="font-weight: bold;">Conflicts</span> ------------------------------------------ tidyverse_conflicts() --</span></span>
-<span><span class="co">## <span style="color: #BB0000;">x</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span> masks <span style="color: #0000BB;">stats</span>::filter()</span></span>
-<span><span class="co">## <span style="color: #BB0000;">x</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></span></code></pre>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/ind_liqSeca.html">ind_liqSeca</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="teste123_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
-<pre><code><span><span class="co">## $Contas</span></span>
-<span><span class="co">## <span style="color: #949494;"># A tibble: 8 x 3</span></span></span>
-<span><span class="co">##   conta      `2019` `2020`</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> cxEquiv         8     10</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> estoque       150    200</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> ctaRecCP      400    300</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> outAtvCirc      1      3</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> fornec         50     20</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> dividasCP      30     40</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">7</span> outPasCirc     10      8</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">8</span> atvTotal      900    800</span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">## $Índice</span>e</span>
-<span><span class="co">## <span style="color: #949494;"># A tibble: 1 x 3</span></span></span>
-<span><span class="co">##   conta    `2019` `2020`</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> Liq Seca   4.54   4.60</span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">## $`Análise Vertical`</span>`</span>
-<span><span class="co">## <span style="color: #949494;"># A tibble: 7 x 3</span></span></span>
-<span><span class="co">##   conta         `2019` `2020`</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> AV.cxEquiv    0.89%  1.25% </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> AV.Estoque    16.67% 25.00%</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> AV.ctaRecCP   44.44% 37.50%</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> AV.outAtvCirc 0.11%  0.38% </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> AV.fornec     5.56%  2.50% </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> AV.dividasCP  3.33%  5.00% </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">7</span> AV.outPasCirc 1.11%  1.00% </span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">## $`Análise Horizontal`</span>`</span>
-<span><span class="co">## <span style="color: #949494;"># A tibble: 7 x 2</span></span></span>
-<span><span class="co">##   conta         `2020` </span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> AH.CxEquiv    25.00% </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> AH.Estoque    33.33% </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> AH.ctaRecCP   25.00% </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> AH.outAtvCirc 200.00%</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> AH.fornec     60.00% </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> AH.dividasCP  33.33% </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">7</span> AH.outPasCirc 20.00%</span></span></code></pre>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kbl.html" class="external-link">kbl</a></span><span class="op">(</span><span class="fu"><a href="../reference/ind_liqSeca.html">ind_liqSeca</a></span><span class="op">(</span>plot <span class="op">=</span> <span class="cn">F</span><span class="op">)</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>  <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html" class="external-link">kable_styling</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<table class="table table" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:left;">
+conta
+</th>
+<th style="text-align:right;">
+2019
+</th>
+<th style="text-align:right;">
+2020
+</th>
+</tr></thead>
+<tbody><tr>
+<td style="text-align:left;">
+Liq Seca
+</td>
+<td style="text-align:right;">
+4.54
+</td>
+<td style="text-align:right;">
+4.6
+</td>
+</tr></tbody>
+</table>
+<p>Pela análise vertical</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kbl.html" class="external-link">kbl</a></span><span class="op">(</span><span class="fu"><a href="../reference/ind_liqSeca.html">ind_liqSeca</a></span><span class="op">(</span>plot <span class="op">=</span> <span class="cn">F</span><span class="op">)</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>  <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html" class="external-link">kable_styling</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<table class="table table" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:left;">
+conta
+</th>
+<th style="text-align:left;">
+2019
+</th>
+<th style="text-align:left;">
+2020
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AV.cxEquiv
+</td>
+<td style="text-align:left;">
+0.89%
+</td>
+<td style="text-align:left;">
+1.25%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AV.Estoque
+</td>
+<td style="text-align:left;">
+16.67%
+</td>
+<td style="text-align:left;">
+25.00%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AV.ctaRecCP
+</td>
+<td style="text-align:left;">
+44.44%
+</td>
+<td style="text-align:left;">
+37.50%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AV.outAtvCirc
+</td>
+<td style="text-align:left;">
+0.11%
+</td>
+<td style="text-align:left;">
+0.38%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AV.fornec
+</td>
+<td style="text-align:left;">
+5.56%
+</td>
+<td style="text-align:left;">
+2.50%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AV.dividasCP
+</td>
+<td style="text-align:left;">
+3.33%
+</td>
+<td style="text-align:left;">
+5.00%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AV.outPasCirc
+</td>
+<td style="text-align:left;">
+1.11%
+</td>
+<td style="text-align:left;">
+1.00%
+</td>
+</tr>
+</tbody>
+</table>
+<p>Podemos concluir que…</p>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

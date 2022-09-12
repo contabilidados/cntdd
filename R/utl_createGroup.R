@@ -1,11 +1,14 @@
 #' Cria grupos
 #'
 #' Cria grupos baseados nos percentise de uma variável númerica
+#'
 #' @param bd Um data.frame
 #' @param col_Value String informando o nome da coluna referente à variável númerica sobre a qual se pretende criar os grupos
 #' @param col_Grp String com o nome da nova coluna a ser criada com os grupos
 #' @param n_grp Número de grupos, se pretende criar grupos com o mesmo número de observações ou um vetor contendo os percentis para cada grupo. Padrão igual 2.
 #' @param lbl_grp String com o prefixo posto no início do nome do de cada grupo. Padrão igual "grp"
+#'
+#' @seealso [cut()], [quantile()]
 #'
 #' @examples
 #'
@@ -14,10 +17,10 @@
 #'
 #' ## Grupo 1 com os primeiros 20% das observações de menor valor, Grupo 2 com as observações de
 #' ## 20% a 80% e Grupo 3 com os 20% das observações de maior valor
-#' utl_createGroup(mtcars, "mpg", "grp.mpg", c(0, .2, .8, 1))
+#' utl_createGroup(mtcars, "mpg", "grp.mpg", c(0, .2, .8, 1)) %>% head()
 #'
 #' ## Grupo 1 com metade das observações e Grupo 2 com a metade restante
-#' utl_createGroup(mtcars, "mpg", "grp.mpg", 2)
+#' utl_createGroup(mtcars, "mpg", "grp.mpg", 2) %>% head()
 #'
 #'
 #' @export

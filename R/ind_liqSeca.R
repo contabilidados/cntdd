@@ -1,7 +1,5 @@
 #' Índice de Liquidez Seca
 #'
-#' Esse índice corresponde à capacidade de um vetor numérico
-#'
 #' @details
 #'
 #' O índice de Liquidez Seca revela a capacidade de pagamento de dívidas de curto
@@ -16,18 +14,21 @@
 #' Para melhorar o processo de análise, os valores de Ativos Circulante e Passivo
 #' Circulante foram desmembrados, respectivamente para
 #'  \eqn{AC = cxEquiv + estoque + ctaRecCP + outAtvCirc} e para
-#'  \eqn{PC = fornec + dividasCP + outPasCirc}. As contas são descritas acima.
+#'  \eqn{PC = fornec + dividasCP + outPasCirc}. O item detalhes (details) apresenta
+#'  a descrição de cada conta.
 #'
 #'  Assim, tem-se que a liquidez seca corresponde a:
 #'
 #'  \deqn{\frac{(cxEquiv + ctaRecCP + outAtvCirc)}{(fornec + dividasCP + outPasCirc)}}
 #'
-#'  A equação não contempla o estoque!
+#'  A equação não contempla todas as contas do ativo circulante com exceção da
+#'  conta estoque.
 #'
-#'  Indicamos essa análise quando a empresa tiver algum indicativo de que terar
-#'  dificuldade com giro de seus estoques. Em codições normais, espera-se que as
-#'  empresas não passem dificuldade de liquidez (condição de quitar suas dívidas)
-#'  por falta de conversão do estoque em caixa.
+#'  Indicamos essa análise quando a empresa apresentar dificuldade com o giro
+#'  de seus estoques. Em codições normais, não haveria motivos para a empresa não
+#'  conseguir rotacionar seus estoques. Quando há indicativos de que a rotação
+#'  dos estoques ficará prejudicada, esse indicador poderá representar melhor
+#'  a capacidade das empress em quitar suas dívidas de curto prazo.
 #'
 #' @param indicador Um vetor tipo character com o nome do indicador
 #' @param periodo Vetor numérico indicando o período da análise
@@ -41,36 +42,44 @@
 #' @param atvTotal Vetor com os valores do Ativo Total
 #' @param plot Mostra gráfico? (TRUE/FALSE)
 #'
+#' @seealso [dplyr], [tidyr::pivot_longer()], [tidyr::pivot_wider()]
 #'
 #' @examples
 #'
-#' library(cntdd)
+#' suppressMessages(suppressWarnings(library(cntdd)))
 #' suppressMessages(suppressWarnings(library(dplyr)))
 #' suppressMessages(suppressWarnings(library(tidyr)))
 #' suppressMessages(suppressWarnings(library(ggplot2)))
 #'
 #' ## Usando Vetores
-#' ind_liqSeca(indicador = "Liquidez Seca",
-#' periodo = 2018:2020,
-#' estoque = c(2000,3000,4000),
-#' estoque = c(2000,3000,4000),
-#' atvCirc = c(5000,6000,7000),
-#' pasCirc = c(1000,2000,3000),
-#' atvTotal = c(10000, 12000, 14000),
+#'
+#' ind_liqSeca(
+#' indicador  = "Liquidez Seca",
+#' periodo    = 2018:2020,
+#' cxEquiv    = c(500,300,400),
+#' estoque    = c(2000,3000,4000),
+#' ctaRecCP   = c(2500, 5000, 2800),
+#' outAtvCirc = c(20, 35, 80),
+#' fornec     = c(1200, 1400, 1600),
+#' dividasCP  = c(500, 200, 750),
+#' outPasCirc = c(30, 20, 40),
+#' atvTotal   = c(10000, 12000, 11000),
 #' plot = T)
 #'
-#' ## Usando um data.frame (informar valor zero quando valor não existente)
+#' ## Usando um data.frame
+#' ## Todos as variáveis devem ser do tipo numérico e os dados faltantes devem ser
+#' ## substituidos por zero.
 #'
 #' dadosAlpha <- dt_contabil %>% filter(empresa == "alpha")
 #'
 #' ind_liqSeca(
 #' indicador  = "Liquidez Seca",
-#' periodo    = dadosAlpha$periodo,
+#' periodo    = dadosAlpha$ano,
 #' cxEquiv    = dadosAlpha$cxEquiv,
 #' estoque    = dadosAlpha$estoque,
 #' ctaRecCP   = dadosAlpha$ctaRecCP,
 #' outAtvCirc = dadosAlpha$outAtvCirc,
-#' fornec     = dadosAlpha$outPasCirc,
+#' fornec     = dadosAlpha$fornec,
 #' dividasCP  = dadosAlpha$dividasCP,
 #' outPasCirc = dadosAlpha$outPasCirc,
 #' atvTotal   = dadosAlpha$atvTotal,
@@ -80,10 +89,8 @@
 
 ind_liqSeca <- function(
     indicador = "Liq Seca", periodo = 2019:2020, cxEquiv = c(8,10),
-    estoque = c(150,200), ctaRecCP = c(400, 300),
-    outAtvCirc = c(1, 3),
+    estoque = c(150,200), ctaRecCP = c(400, 300), outAtvCirc = c(1, 3),
     fornec = c(50, 20), dividasCP = c(30, 40), outPasCirc = c(10, 8),
-    dividasLP = c(80, 10), outPasNCirc = c(5, 3),
     atvTotal = c(900,800), plot = T){
 
   ratio <-
@@ -137,7 +144,7 @@ ind_liqSeca <- function(
     pivot_wider(names_from = periodo, values_from = value) -> contas
 
   dtGeral %>%
-    dplyr::select(periodo, `Liq Seca`) %>%
+    dplyr::select(periodo, {{indicador}}) %>%
     pivot_longer(cols = -periodo, names_to = "conta", values_to = "value") %>%
     na.omit() %>%
     pivot_wider(names_from = periodo, values_from = value) -> ratio

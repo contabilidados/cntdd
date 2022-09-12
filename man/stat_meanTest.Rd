@@ -17,6 +17,9 @@ stat_meanTest(value_Y, name_Y, value_X, name_X, pvalor = 0.05)
 
 \item{pvalor}{O valor crítido a ser considerado nos testes. O padrão é 5\%}
 }
+\value{
+Um data.frame com a análise sobre o teste de média dos dois grupos de valores.
+}
 \description{
 Esta função realiza o teste de diferença de médias de dois vetores numéricos
 e apresenta os resultados em uma tabela
@@ -24,9 +27,17 @@ e apresenta os resultados em uma tabela
 \examples{
 
 library(cntdd)
+library(dplyr)
 
-testeMedia(value_Y = 1:6,name_Y = "Menores", value_X = 4:10, name_X = "Maiores", pvalor = 0.01)
+stat_meanTest(value_Y = 1:6,name_Y = "Menores", value_X = 4:10, name_X = "Maiores", pvalor = 0.01)
 
-testeMedia(mtcars$mpg[mtcars$carb == 1], name_Y = "Carb 1", value_X = mtcars$mpg[mtcars$carb == 4], name_X = "Carb 4")
+stat_meanTest(mtcars$mpg[mtcars$carb == 1], name_Y = "Carb 1", value_X = mtcars$mpg[mtcars$carb == 4], name_X = "Carb 4")
 
+# Formatando a tabela com KableExtra
+# cntdd::stat_meanTest(value_Y = 1:6,name_Y = "Menores", value_X = 4:10, name_X = "Maiores", pvalor = 0.01) \%>\%
+# kableExtra::kbl(booktabs = T, format = "html") \%>\% kableExtra::kable_styling()
+
+}
+\seealso{
+\code{\link[=car]{car()}}, \code{\link[=kableExtra]{kableExtra()}}, \code{\link[=stats]{stats()}}, \code{\link[=nortest]{nortest()}}
 }

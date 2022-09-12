@@ -3,14 +3,19 @@
 \docType{data}
 \name{dt_meses}
 \alias{dt_meses}
-\title{Meses}
+\title{Meses do ano}
 \format{
-An object of class \code{data.frame} with 12 rows and 1 columns.
+An object of class \code{data.frame} with 12 rows and 10 columns.
 }
 \usage{
 dt_meses
 }
 \description{
-Dados de meses e suas referências em relação a bimestre, semestre
+Variação de apresentação dos dados de meses (textual ou numérico). Também são
+incorporadas informações sobre bimestre, trimestre, quadrimestre e semestre
+relativos a cada mês do ano.
+}
+\details{
+Data.frame com 12 linhas e 10 colunas.
 }
 \keyword{datasets}
