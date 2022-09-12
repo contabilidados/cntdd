@@ -115,6 +115,3 @@ atvTotal   = dadosAlpha$atvTotal,
 plot = F)
 
 }
-\seealso{
-\link{dplyr}, \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}, \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}
-}

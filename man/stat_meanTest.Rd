@@ -38,6 +38,3 @@ stat_meanTest(mtcars$mpg[mtcars$carb == 1], name_Y = "Carb 1", value_X = mtcars$
 # kableExtra::kbl(booktabs = T, format = "html") \%>\% kableExtra::kable_styling()
 
 }
-\seealso{
-\code{\link[=car]{car()}}, \code{\link[=kableExtra]{kableExtra()}}, \code{\link[=stats]{stats()}}, \code{\link[=nortest]{nortest()}}
-}
