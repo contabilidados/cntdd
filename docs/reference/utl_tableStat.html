@@ -33,6 +33,9 @@ trata-se de uma análise tridimensional"><!-- mathjax --><script src="https://cd
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/legacy.html">Legacy theming with bslib and thematic</a>
+    </li>
+    <li>
       <a href="../articles/teste123.html">Usando Liquidez Seca</a>
     </li>
     <li>
@@ -103,26 +106,16 @@ trata-se de uma análise tridimensional</p>
 <span class="r-in"><span><span class="co">## médios de despesas operacionais ($ 1.999.101).</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">utl_tableStat</span><span class="op">(</span><span class="fu">cntdd</span><span class="fu">::</span><span class="va"><a href="dt_contabil.html">dt_contabil</a></span>, <span class="st">"cxEquiv"</span>, <span class="fl">3</span>, <span class="st">"dividasCP"</span>, <span class="fl">2</span>, <span class="st">"despOper"</span>, <span class="va">mean</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 x 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Groups:   Stat_despOper [3]</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Stat_despOper dividasCP_1 dividasCP_2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> cxEquiv_1         <span style="text-decoration: underline;">111</span>069.     <span style="text-decoration: underline;">332</span>463.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> cxEquiv_2         <span style="text-decoration: underline;">656</span>524.    1<span style="text-decoration: underline;">009</span>142.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> cxEquiv_3        1<span style="text-decoration: underline;">264</span>117.    1<span style="text-decoration: underline;">999</span>101.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in dplyr::select_at(., .vars = value):</span> Can't subset columns that don't exist.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Column `despOper` doesn't exist.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Por outro lado, as empresas com valores intermediários de caixa e equivalentes</span></span></span>
 <span class="r-in"><span><span class="co">## caixa (cxEquiv_2) e com maiores valores de dívidas de curto prazo são as que</span></span></span>
 <span class="r-in"><span><span class="co">## apresentam maior desvio-padrão entre os valores médios ($ 874.873).</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">utl_tableStat</span><span class="op">(</span><span class="fu">cntdd</span><span class="fu">::</span><span class="va"><a href="dt_contabil.html">dt_contabil</a></span>, <span class="st">"cxEquiv"</span>, <span class="fl">3</span>, <span class="st">"dividasCP"</span>, <span class="fl">2</span>, <span class="st">"despOper"</span>, <span class="va">sd</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 x 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Groups:   Stat_despOper [3]</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Stat_despOper dividasCP_1 dividasCP_2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> cxEquiv_1          <span style="text-decoration: underline;">86</span>384.     <span style="text-decoration: underline;">113</span>580.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> cxEquiv_2         <span style="text-decoration: underline;">440</span>627.     <span style="text-decoration: underline;">874</span>873.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> cxEquiv_3         <span style="text-decoration: underline;">657</span>922.     <span style="text-decoration: underline;">750</span>194.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in dplyr::select_at(., .vars = value):</span> Can't subset columns that don't exist.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Column `despOper` doesn't exist.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

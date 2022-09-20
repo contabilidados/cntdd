@@ -32,6 +32,9 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/legacy.html">Legacy theming with bslib and thematic</a>
+    </li>
+    <li>
       <a href="../articles/teste123.html">Usando Liquidez Seca</a>
     </li>
     <li>
@@ -173,7 +176,7 @@ a capacidade das empress em quitar suas dívidas de curto prazo.</p>
 <span class="r-in"><span>plot <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ind_liqSeca-1.png" alt="" width="700" height="433"></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Contas</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8 x 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   conta      `2018` `2019` `2020`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> cxEquiv       500    300    400</span>
@@ -186,13 +189,13 @@ a capacidade das empress em quitar suas dívidas de curto prazo.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> atvTotal    <span style="text-decoration: underline;">10</span>000  <span style="text-decoration: underline;">12</span>000  <span style="text-decoration: underline;">11</span>000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $Índice</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 x 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   conta         `2018` `2019` `2020`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Liquidez Seca   1.75   3.29   1.37</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`Análise Vertical`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 x 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   conta         `2018` `2019` `2020`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> AV.cxEquiv    5.00%  2.50%  3.64% </span>
@@ -204,7 +207,7 @@ a capacidade das empress em quitar suas dívidas de curto prazo.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> AV.outPasCirc 0.30%  0.17%  0.36% </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`Análise Horizontal`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 x 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   conta         `2019`  `2020` </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> AH.CxEquiv    40.00%  33.33% </span>
@@ -234,49 +237,7 @@ a capacidade das empress em quitar suas dívidas de curto prazo.</p>
 <span class="r-in"><span>outPasCirc <span class="op">=</span> <span class="va">dadosAlpha</span><span class="op">$</span><span class="va">outPasCirc</span>,</span></span>
 <span class="r-in"><span>atvTotal   <span class="op">=</span> <span class="va">dadosAlpha</span><span class="op">$</span><span class="va">atvTotal</span>,</span></span>
 <span class="r-in"><span>plot <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $Contas</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8 x 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   conta      `2018` `2019`  `2020`  `2021`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> cxEquiv     <span style="text-decoration: underline;">85</span>458 <span style="text-decoration: underline;">100</span>637  <span style="text-decoration: underline;">203</span>376   <span style="text-decoration: underline;">95</span>156</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> estoque     <span style="text-decoration: underline;">54</span>674  <span style="text-decoration: underline;">65</span>053  <span style="text-decoration: underline;">105</span>426  <span style="text-decoration: underline;">163</span>265</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> ctaRecCP   <span style="text-decoration: underline;">138</span>707 <span style="text-decoration: underline;">149</span>828  <span style="text-decoration: underline;">217</span>025  <span style="text-decoration: underline;">286</span>420</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> outAtvCirc  <span style="text-decoration: underline;">26</span>318  <span style="text-decoration: underline;">39</span>893   <span style="text-decoration: underline;">41</span>311   <span style="text-decoration: underline;">51</span>985</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> fornec      <span style="text-decoration: underline;">39</span>909  <span style="text-decoration: underline;">48</span>914  <span style="text-decoration: underline;">144</span>673  <span style="text-decoration: underline;">208</span>287</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> dividasCP   <span style="text-decoration: underline;">15</span>938  <span style="text-decoration: underline;">57</span>342   <span style="text-decoration: underline;">86</span>793  <span style="text-decoration: underline;">180</span>071</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> outPasCirc  <span style="text-decoration: underline;">36</span>892  <span style="text-decoration: underline;">62</span>145   <span style="text-decoration: underline;">98</span>849  <span style="text-decoration: underline;">162</span>156</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> atvTotal   <span style="text-decoration: underline;">378</span>739 <span style="text-decoration: underline;">512</span>188 1<span style="text-decoration: underline;">026</span>568 1<span style="text-decoration: underline;">220</span>021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $Índice</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 x 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   conta         `2018` `2019` `2020` `2021`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Liquidez Seca   2.70   1.72   1.40  0.788</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $`Análise Vertical`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 x 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   conta         `2018` `2019` `2020` `2021`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> AV.cxEquiv    22.56% 19.65% 19.81% 7.80% </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> AV.Estoque    14.44% 12.70% 10.27% 13.38%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> AV.ctaRecCP   36.62% 29.25% 21.14% 23.48%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> AV.outAtvCirc 6.95%  7.79%  4.02%  4.26% </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> AV.fornec     10.54% 9.55%  14.09% 17.07%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> AV.dividasCP  4.21%  11.20% 8.45%  14.76%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> AV.outPasCirc 9.74%  12.13% 9.63%  13.29%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $`Análise Horizontal`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 x 4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   conta         `2019`  `2020`  `2021` </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> AH.CxEquiv    17.76%  102.09% 53.21% </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> AH.Estoque    18.98%  62.06%  54.86% </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> AH.ctaRecCP   8.02%   44.85%  31.98% </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> AH.outAtvCirc 51.58%  3.55%   25.84% </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> AH.fornec     22.56%  195.77% 43.97% </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> AH.dividasCP  259.78% 51.36%  107.47%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> AH.outPasCirc 68.45%  59.06%  64.04% </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in data.frame(Periodo = periodo, ratio = ratio):</span> arguments imply differing number of rows: 6, 0</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

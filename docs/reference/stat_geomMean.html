@@ -32,6 +32,9 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/legacy.html">Legacy theming with bslib and thematic</a>
+    </li>
+    <li>
       <a href="../articles/teste123.html">Usando Liquidez Seca</a>
     </li>
     <li>
@@ -84,12 +87,13 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2.99</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">stat_geomMean</span><span class="op">(</span><span class="va">dt_contabil</span><span class="op">$</span><span class="va">atvTotal</span><span class="op">)</span> <span class="co"># DataFrame</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1821409</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressMessages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/warning.html" class="external-link">suppressWarnings</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">dt_contabil</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>estoqueMedio <span class="op">=</span> <span class="fu">stat_geomMean</span><span class="op">(</span><span class="va">estoque</span><span class="op">)</span><span class="op">)</span> <span class="co"># Dplyr</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   estoqueMedio</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     226940.9</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in summarise(., estoqueMedio = stat_geomMean(estoque)):</span> Problem while computing `estoqueMedio = stat_geomMean(estoque)`.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `stat_geomMean()`:</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> object 'estoque' not found</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
