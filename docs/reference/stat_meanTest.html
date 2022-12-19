@@ -107,10 +107,30 @@ e apresenta os resultados em uma tabela</p>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">stat_meanTest</span><span class="op">(</span>value_Y <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span>,name_Y <span class="op">=</span> <span class="st">"Menores"</span>, value_X <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">10</span>, name_X <span class="op">=</span> <span class="st">"Maiores"</span>, pvalor <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in loadNamespace(x):</span> there is no package called 'nortest'</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                         Resultados</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pValue Normalidade de Menores                                0,996</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pValue Normalidade de Maiores                                0,999</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Resultado Normalidade         Ambos grupos tem distribuição normal</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Teste Usado                                                Teste t</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pValue Teste t                                               0,010</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Resultado Teste t                                    Médias iguais</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Média de Menores                                             3,500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Média de Maiores                                             7,000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Menores menos Maiores                                       -3,500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Qde de Obs                                 Menores: 6 | Maiores: 7</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">stat_meanTest</span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">[</span><span class="va">mtcars</span><span class="op">$</span><span class="va">carb</span> <span class="op">==</span> <span class="fl">1</span><span class="op">]</span>, name_Y <span class="op">=</span> <span class="st">"Carb 1"</span>, value_X <span class="op">=</span> <span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span><span class="op">[</span><span class="va">mtcars</span><span class="op">$</span><span class="va">carb</span> <span class="op">==</span> <span class="fl">4</span><span class="op">]</span>, name_X <span class="op">=</span> <span class="st">"Carb 4"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in loadNamespace(x):</span> there is no package called 'nortest'</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                        Resultados</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pValue Normalidade de Carb 1                                0,283</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pValue Normalidade de Carb 4                                0,965</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Resultado Normalidade        Ambos grupos tem distribuição normal</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Teste Usado                                               Teste t</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> pValue Teste t                                              0,001</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Resultado Teste t                               Médias diferentes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Média de Carb 1                                            25,343</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Média de Carb 4                                            15,790</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Carb 1 menos Carb 4                                         9,553</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Qde de Obs                                 Carb 1: 7 | Carb 4: 10</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Formatando a tabela com KableExtra</span></span></span>
 <span class="r-in"><span><span class="co"># cntdd::stat_meanTest(value_Y = 1:6,name_Y = "Menores", value_X = 4:10, name_X = "Maiores", pvalor = 0.01) %&gt;%</span></span></span>

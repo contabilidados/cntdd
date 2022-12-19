@@ -1,31 +1,31 @@
-#' Importa dados da CVM
-#'
-#' @details
-#'
-#' A função possui a utilidade de realizar a extração de dados do repositório da CVM,
-#' a partir de 5 parâmetros escolhidos pelo usuário.
-#'
-#' @param grupoconta Demonstrações contábeis: 'ativo', 'passivo' e 'dfc'
-#' @param tipo 'consolidado' ou 'individual'
-#' @param metDFC 'direto' ou 'indireto'
-#' @param ano Ano da tabela que se deseja realizar a extração
-#' @param path A pasta (link) em que se encontra o conjunto das tabelas
-#'
-#'
-#' @examples
-#'
-#' library(cntdd)
-#'
-#' cvm_importaDFP()
-#'
-#' # Da forma acima, será chamada automaticamente os parametros: ativo', 'consolidado', 'direto', '2020' e NULL
-#'
-#' Outra forma de se chamar a função:
-#'
-#' cmv_importaDFP(grupoconta = "passivo", tipo = "individual", "indireto","2019")
-#'
-#'
-#' @export
+# Funcao para depois
+# Importa dados da CVM
+#
+# @details
+#
+# A função possui a utilidade de realizar a extração de dados do repositório da CVM,
+# a partir de 5 parâmetros escolhidos pelo usuário.
+#
+# @param grupoconta Demonstrações contábeis: 'ativo', 'passivo' e 'dfc'
+# @param tipo 'consolidado' ou 'individual'
+# @param metDFC 'direto' ou 'indireto'
+# @param ano Ano da tabela que se deseja realizar a extração
+# @param path A pasta (link) em que se encontra o conjunto das tabelas
+#
+#
+# @examples
+#
+# library(cntdd)
+#
+# cvm_importaDFP()
+#
+# # Da forma acima, será chamada automaticamente os parametros: ativo', 'consolidado', 'direto', '2020' e NULL
+#
+# Outra forma de se chamar a função:
+#
+# cmv_importaDFP(grupoconta = "passivo", tipo = "individual", "indireto","2019")
+#
+#
 
   # cvm_importaDFP irá guardar uma 'function' de 5 parâmetros: grupoconta, tipo, metDFC, ano, path.
 

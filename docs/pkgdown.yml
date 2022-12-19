@@ -1,11 +1,11 @@
-pandoc: 2.17.1.1
+pandoc: 2.19.2
 pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   legacy: legacy.html
   teste123: teste123.html
   usandoTeste: usandoTeste.html
-last_built: 2022-10-28T14:05Z
+last_built: 2022-12-19T00:30Z
 urls:
   reference: http://contabilidados.github.io/cntdd/reference
   article: http://contabilidados.github.io/cntdd/articles
