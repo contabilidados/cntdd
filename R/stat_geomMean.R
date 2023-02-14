@@ -11,10 +11,10 @@
 #' library(cntdd)
 #' stat_geomMean(1:6, 2) # Vetor
 #'
-#' stat_geomMean(dt_contabil$atvTotal) # DataFrame
+#' stat_geomMean(dt_contabil$ativoTotal) # DataFrame
 #'
 #' suppressMessages(suppressWarnings(library(dplyr)))
-#' dt_contabil %>% summarise(estoqueMedio = stat_geomMean(estoque)) # Dplyr
+#' dt_contabil %>% summarise(estoqueMedio = stat_geomMean(estoques)) # Dplyr
 #'
 #' @export
 
