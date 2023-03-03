@@ -1,35 +1,31 @@
-#' Índice de Liquidez Seca
+#' Índice de Liquidez Corrente
 #'
 #' @details
 #'
-#' O índice de Liquidez Seca revela a capacidade de pagamento de dívidas de curto
-#' prazo, considerando que a empresa não consiga reverter o valor de seus estoques
-#' em dinheiro. Relaciona, portanto, quanto uma empresa possui de ativo
-#' (circulante), deduzido do valor de seus estoques, com o total de seu passivo
-#' circulante. É representado pela fórmula:
+#' Liquidez corrente é uma medida financeira que indica a capacidade de uma
+#' empresa de cumprir suas obrigações de curto prazo. Calculada
+#' dividindo-se o total de ativos circulantes pelo total de passivos
+#' circulantes, a liquidez corrente é expressa em forma de números, sendo
+#' valores acima de 1 indicativos de uma posição financeira saudável.
+#' É representado pela fórmula:
 #'
-#' \deqn{\frac{AC - Est}{PC}}
-#'
-#' em que: **AC** é o Ativo Circulante, **Est** é o estoque e **PC** é o Passivo Circulante
+#' \deqn{\frac{AC}{PC}}
+#' em que: **AC** é o Ativo Circulante e **PC** é o Passivo Circulante
 #'
 #' Para melhorar o processo de análise, os valores de Ativos Circulante e Passivo
 #' Circulante foram desmembrados, respectivamente para
-#' \eqn{AC = cxEquiv + estoque + ctaRecCP + outAtvCirc} e para
-#' \eqn{PC = fornec + dividasCP + outPasCirc}. O item detalhes (details) apresenta
-#' a descrição de cada conta.
+#'  \eqn{AC = cxEquiv + estoque + ctaRecCP + outAtvCirc} e para
+#'  \eqn{PC = fornec + dividasCP + outPasCirc}. O item detalhes (details) apresenta
+#'  a descrição de cada conta.
 #'
-#' Assim, tem-se que a liquidez seca corresponde a:
-#'
-#' \deqn{\frac{(cxEquiv + ctaRecCP + outAtvCirc)}{(fornec + dividasCP + outPasCirc)}}
+#'  Assim, tem-se que a liquidez corrente corresponde a:
 #'
 #'  A equação não contempla todas as contas do ativo circulante com exceção da
 #'  conta estoque.
 #'
-#'  Indicamos essa análise quando a empresa apresentar dificuldade com o giro
-#'  de seus estoques. Em codições normais, não haveria motivos para a empresa não
-#'  conseguir rotacionar seus estoques. Quando há indicativos de que a rotação
-#'  dos estoques ficará prejudicada, esse indicador poderá representar melhor
-#'  a capacidade das empress em quitar suas dívidas de curto prazo.
+#'  A liquidez corrente pode ser útil para gestores financeiros, pois permite
+#'  avaliar a necessidade de recursos de curto prazo, como empréstimos bancários ou
+#'  financiamentos, para cobrir despesas operacionais
 #'
 #' @param indicador Um vetor tipo character com o nome do indicador
 #' @param periodo Vetor numérico indicando o período da análise
@@ -52,8 +48,8 @@
 #'
 #' ## Usando Vetores
 #'
-#' ind_liqSeca(
-#' indicador  = "Liquidez Seca",
+#' ind_liqCorrente(
+#' indicador  = "Liquidez Corrente",
 #' periodo    = 2018:2020,
 #' cxEquiv    = c(500,300,400),
 #' estoque    = c(2000,3000,4000),
@@ -71,29 +67,28 @@
 #'
 #' dadosAlpha <- dt_contabil %>% filter(empresa == "alpha")
 #'
-#' ind_liqSeca(
-#' indicador  = "Liquidez Seca",
+#' ind_liqCorrente(
+#' indicador  = "Liquidez Corrente",
 #' periodo    = dadosAlpha$ano,
-#' cxEquiv    = dadosAlpha$cxEquiv,
-#' estoque    = dadosAlpha$estoque,
-#' ctaRecCP   = dadosAlpha$ctaRecCP,
-#' outAtvCirc = dadosAlpha$outAtvCirc,
-#' fornec     = dadosAlpha$fornec,
-#' dividasCP  = dadosAlpha$dividasCP,
-#' outPasCirc = dadosAlpha$outPasCirc,
-#' atvTotal   = dadosAlpha$atvTotal,
+#' cxEquiv    = dadosAlpha$caixaEquiv,
+#' aplicFin   = dadosAlpha$aplicFinanc,
+#' estoque    = dadosAlpha$estoques,
+#' ctaRecCP   = dadosAlpha$clientesCP,
+#' fornec     = dadosAlpha$forneced,
+#' dividasCP  = dadosAlpha$empFinCP,
+#' atvTotal   = dadosAlpha$ativoTotal,
 #' plot = F)
 #'
 #' @export
 
-ind_liqSeca <- function(
-    indicador = "Liq Seca", periodo = 2019:2020, cxEquiv = c(8,10),
+ind_liqCorrente <- function(
+    indicador = "Liq Corrente", periodo = 2019:2020, cxEquiv = c(8,10),
     estoque = c(150,200), ctaRecCP = c(400, 300), outAtvCirc = c(1, 3),
     fornec = c(50, 20), dividasCP = c(30, 40), outPasCirc = c(10, 8),
     atvTotal = c(900,800), plot = T){
 
   ratio <-
-    ((cxEquiv + estoque + ctaRecCP + outAtvCirc) - estoque) /
+    (cxEquiv + estoque + ctaRecCP + outAtvCirc)  /
     (fornec + dividasCP + outPasCirc)
 
   dt <- data.frame(Periodo = periodo, ratio = ratio)
