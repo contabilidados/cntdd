@@ -39,5 +39,4 @@ utl_tableStat(cntdd::dt_contabil, "cxEquiv", 3, "dividasCP", 2, "despOper", mean
 
 utl_tableStat(cntdd::dt_contabil, "cxEquiv", 3, "dividasCP", 2, "despOper", sd)
 
-
 }

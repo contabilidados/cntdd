@@ -34,5 +34,4 @@ utl_qdeNAcols(df, c(1,3))
 
 ## Escolha das colunas informando todo o banco de dados
 utl_qdeNAcols(df, everything())
-
 }

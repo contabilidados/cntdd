@@ -8,19 +8,26 @@
 #' (circulante), deduzido do valor de seus estoques, com o total de seu passivo
 #' circulante. É representado pela fórmula:
 #'
-#' \deqn{\frac{AC - Est}{PC}}
+#' \\deqn{\frac{AC - Est}{PC}}
+#'
+#' \ifelse{html}{\out{p_<sub>x</sub>(1)=Pr(y=1|x)}}{\eqn{p_x(1)=Pr(y=1|x)}}
 #'
 #' em que: **AC** é o Ativo Circulante, **Est** é o estoque e **PC** é o Passivo Circulante
 #'
 #' Para melhorar o processo de análise, os valores de Ativos Circulante e Passivo
 #' Circulante foram desmembrados, respectivamente para
-#' \eqn{AC = cxEquiv + estoque + ctaRecCP + outAtvCirc} e para
-#' \eqn{PC = fornec + dividasCP + outPasCirc}. O item detalhes (details) apresenta
+#' \\eqn{AC = cxEquiv + estoque + ctaRecCP + outAtvCirc} e para
+#' \\eqn{PC = fornec + dividasCP + outPasCirc}. O item detalhes (details) apresenta
 #' a descrição de cada conta.
+#' @section Equations:
+#'
+#' Inline equation - \\eqn\{a + b = c\} => \eqn{a + b = c}
+#'
+#' Block equation - \\deqn\{x * y = z\} => \deqn{x * y = z}
 #'
 #' Assim, tem-se que a liquidez seca corresponde a:
 #'
-#' \deqn{\frac{(cxEquiv + ctaRecCP + outAtvCirc)}{(fornec + dividasCP + outPasCirc)}}
+#' \\deqn{\frac{(cxEquiv + ctaRecCP + outAtvCirc)}{(fornec + dividasCP + outPasCirc)}}
 #'
 #'  A equação não contempla todas as contas do ativo circulante com exceção da
 #'  conta estoque.
@@ -84,6 +91,10 @@
 #' atvTotal   = dadosAlpha$atvTotal,
 #' plot = F)
 #'
+#' @import ggplot2
+#' @import readxl
+#' @import dplyr
+#' @import tidyr
 #' @export
 
 ind_liqSeca <- function(

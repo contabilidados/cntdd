@@ -36,5 +36,4 @@ stat_meanTest(mtcars$mpg[mtcars$carb == 1], name_Y = "Carb 1", value_X = mtcars$
 # Formatando a tabela com KableExtra
 # cntdd::stat_meanTest(value_Y = 1:6,name_Y = "Menores", value_X = 4:10, name_X = "Maiores", pvalor = 0.01) \%>\%
 # kableExtra::kbl(booktabs = T, format = "html") \%>\% kableExtra::kable_styling()
-
 }

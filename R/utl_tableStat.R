@@ -27,7 +27,10 @@
 #'
 #' utl_tableStat(cntdd::dt_contabil, "cxEquiv", 3, "dividasCP", 2, "despOper", sd)
 #'
-#'
+#' @import ggplot2
+#' @import readxl
+#' @import dplyr
+#' @import tidyr
 #' @export
 
 

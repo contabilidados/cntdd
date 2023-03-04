@@ -23,6 +23,9 @@
 #' utl_createGroup(mtcars, "mpg", "grp.mpg", 2) %>% head()
 #'
 #'
+#' @import ggplot2
+#' @import readxl
+#' @import dplyr
 #' @export
 
 utl_createGroup <-

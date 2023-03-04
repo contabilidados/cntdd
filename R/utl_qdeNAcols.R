@@ -26,7 +26,9 @@
 #'
 #' ## Escolha das colunas informando todo o banco de dados
 #' utl_qdeNAcols(df, everything())
-#'
+#' @import ggplot2
+#' @import readxl
+#' @import dplyr
 #' @export
 
 utl_qdeNAcols <-

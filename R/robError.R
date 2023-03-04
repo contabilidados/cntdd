@@ -22,15 +22,15 @@
 #' a <- lm(mpg~qsec, data = mtcars)
 #' utl_robErro(a, tipo = "HC2")
 #'
-#'
+#' @import sandwich
 #' @export
 
 utl_robErro <- function(reg, tipo = "HC1", HAC = F) {
 
   if(HAC){
-    robErr <- sqrt(diag(sandwich::vcovHAC(reg)))
+    robErr <- sqrt(diag(vcovHAC(reg)))
   } else{
-    robErr <- sqrt(diag(sandwich::vcovHC(reg, type = tipo)))
+    robErr <- sqrt(diag(vcovHC(reg, type = tipo)))
   }
   return(robErr)
 }

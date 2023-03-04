@@ -24,7 +24,9 @@
 #' # Formatando a tabela com KableExtra
 #' # cntdd::stat_meanTest(value_Y = 1:6,name_Y = "Menores", value_X = 4:10, name_X = "Maiores", pvalor = 0.01) %>%
 #' # kableExtra::kbl(booktabs = T, format = "html") %>% kableExtra::kable_styling()
-#'
+#' @import ggplot2
+#' @import readxl
+#' @import dplyr
 #' @export
 
 stat_meanTest <- function(value_Y, name_Y, value_X, name_X, pvalor = 0.05){

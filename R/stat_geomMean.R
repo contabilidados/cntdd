@@ -5,8 +5,6 @@
 #' @param x Um vetor numérico
 #' @param dec O número de casas decimais (padrão: 3)
 #'
-#' @import tidyverse
-#'
 #' @examples
 #' library(cntdd)
 #' stat_geomMean(1:6, 2) # Vetor

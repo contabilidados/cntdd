@@ -42,73 +42,23 @@ ind_liqCorrente(
 \item{plot}{Mostra gráfico? (TRUE/FALSE)}
 }
 \description{
-Índice de Liquidez Corrente
-}
-\details{
 Liquidez corrente é uma medida financeira que indica a capacidade de uma
 empresa de cumprir suas obrigações de curto prazo. Calculada
 dividindo-se o total de ativos circulantes pelo total de passivos
 circulantes, a liquidez corrente é expressa em forma de números, sendo
 valores acima de 1 indicativos de uma posição financeira saudável.
-É representado pela fórmula:
-
-\deqn{\frac{AC}{PC}}
-em que: \strong{AC} é o Ativo Circulante e \strong{PC} é o Passivo Circulante
-
-Para melhorar o processo de análise, os valores de Ativos Circulante e Passivo
-Circulante foram desmembrados, respectivamente para
-\eqn{AC = cxEquiv + estoque + ctaRecCP + outAtvCirc} e para
-\eqn{PC = fornec + dividasCP + outPasCirc}. O item detalhes (details) apresenta
-a descrição de cada conta.
-
-Assim, tem-se que a liquidez corrente corresponde a:
-
-A equação não contempla todas as contas do ativo circulante com exceção da
-conta estoque.
 
 A liquidez corrente pode ser útil para gestores financeiros, pois permite
 avaliar a necessidade de recursos de curto prazo, como empréstimos bancários ou
-financiamentos, para cobrir despesas operacionais
+financiamentos, para cobrir despesas operacionais.
 }
 \examples{
 
-suppressMessages(suppressWarnings(library(cntdd)))
-suppressMessages(suppressWarnings(library(dplyr)))
-suppressMessages(suppressWarnings(library(tidyr)))
-suppressMessages(suppressWarnings(library(ggplot2)))
+Informações adicionais sobre como usar o pacote no menu cntdd
+ do link: \href{http://contabilidados.com.br}{contabiliDados}.
 
-## Usando Vetores
+Contatos pelo email do Projeto contabiliDados:
+\email{contabilidados@ufersa.edu.br}
 
-ind_liqCorrente(
-indicador  = "Liquidez Corrente",
-periodo    = 2018:2020,
-cxEquiv    = c(500,300,400),
-estoque    = c(2000,3000,4000),
-ctaRecCP   = c(2500, 5000, 2800),
-outAtvCirc = c(20, 35, 80),
-fornec     = c(1200, 1400, 1600),
-dividasCP  = c(500, 200, 750),
-outPasCirc = c(30, 20, 40),
-atvTotal   = c(10000, 12000, 11000),
-plot = T)
-
-## Usando um data.frame
-## Todos as variáveis devem ser do tipo numérico e os dados faltantes devem ser
-## substituidos por zero.
-
-dadosAlpha <- dt_contabil \%>\% filter(empresa == "alpha")
-
-ind_liqCorrente(
-indicador  = "Liquidez Corrente",
-periodo    = dadosAlpha$ano,
-cxEquiv    = dadosAlpha$cxEquiv,
-estoque    = dadosAlpha$estoque,
-ctaRecCP   = dadosAlpha$ctaRecCP,
-outAtvCirc = dadosAlpha$outAtvCirc,
-fornec     = dadosAlpha$fornec,
-dividasCP  = dadosAlpha$dividasCP,
-outPasCirc = dadosAlpha$outPasCirc,
-atvTotal   = dadosAlpha$atvTotal,
-plot = F)
 
 }

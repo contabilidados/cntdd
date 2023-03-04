@@ -30,7 +30,6 @@ utl_robErro(a, HAC = T)
 a <- lm(mpg~qsec, data = mtcars)
 utl_robErro(a, tipo = "HC2")
 
-
 }
 \seealso{
 \code{\link[=cut]{cut()}}, \code{\link[=quantile]{quantile()}}, \code{\link[=vcovHAC]{vcovHAC()}}, \code{\link[=vcovHC]{vcovHC()}}
