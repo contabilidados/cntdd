@@ -42,23 +42,32 @@ ind_liqCorrente(
 \item{plot}{Mostra gráfico? (TRUE/FALSE)}
 }
 \description{
-Liquidez corrente é uma medida financeira que indica a capacidade de uma
-empresa de cumprir suas obrigações de curto prazo. Calculada
-dividindo-se o total de ativos circulantes pelo total de passivos
-circulantes, a liquidez corrente é expressa em forma de números, sendo
-valores acima de 1 indicativos de uma posição financeira saudável.
+Essa função calcula o Índice de Liquidez Corrente baseado em vetores relativos às
+contas de ativo circulante e passivo circulante. Apresenta como resultado uma
+lista com 5 itens:
+\enumerate{
+\item \strong{Gráfico} se o parâmetro \code{plot} for \code{TRUE} ou \code{T}, mostra um gráfico com a
+evolução da Liquidez Seca da empresa durante os períodos. Se for \code{FALSE} ou \code{F},
+o gráfico não é apresentado;
+\item \strong{Contas} que corresponde ao banco de dados com as contas informadas para
+cálculo do indicador;
+\item \strong{Índice} o índice de Liquidez Corrente dos períodos informados;
+\item \strong{Análise Vertical} Análise Vertical das contas informadas no item 1;
+\item \strong{Análise Horizontal} Análise Horizontal das contas informadas no item 1.
+}
 
-A liquidez corrente pode ser útil para gestores financeiros, pois permite
-avaliar a necessidade de recursos de curto prazo, como empréstimos bancários ou
-financiamentos, para cobrir despesas operacionais.
+Todos os itens da lista são bancos de dados no formato tibble que podem ser
+usados individualmente durante o processo de análise de dados.
 }
 \examples{
 
-Informações adicionais sobre como usar o pacote no menu cntdd
- do link: \href{http://contabilidados.com.br}{contabiliDados}.
+Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+`cntdd` do Blog do Projeto contabiliDados: \href{http://contabilidados.com.br}{(Acesse Aqui)}. Ao acessar, fazer busca
+pelo nome da função `ind_liqCorrente`
 
 Contatos pelo email do Projeto contabiliDados:
-\email{contabilidados@ufersa.edu.br}
+Email: \email{contabilidados@ufersa.edu.br}
+Siga-nos no Instagram: \href{https://www.instagram.com/contabilidados/}{@contabilidados}
 
 
 }

@@ -45,84 +45,31 @@ ind_liqSeca(
 Índice de Liquidez Seca
 }
 \details{
-O índice de Liquidez Seca revela a capacidade de pagamento de dívidas de curto
-prazo, considerando que a empresa não consiga reverter o valor de seus estoques
-em dinheiro. Relaciona, portanto, quanto uma empresa possui de ativo
-(circulante), deduzido do valor de seus estoques, com o total de seu passivo
-circulante. É representado pela fórmula:
-
-\\deqn{\frac{AC - Est}{PC}}
-
-\ifelse{html}{\out{p_<sub>x</sub>(1)=Pr(y=1|x)}}{\eqn{p_x(1)=Pr(y=1|x)}}
-
-em que: \strong{AC} é o Ativo Circulante, \strong{Est} é o estoque e \strong{PC} é o Passivo Circulante
-
-Para melhorar o processo de análise, os valores de Ativos Circulante e Passivo
-Circulante foram desmembrados, respectivamente para
-\\eqn{AC = cxEquiv + estoque + ctaRecCP + outAtvCirc} e para
-\\eqn{PC = fornec + dividasCP + outPasCirc}. O item detalhes (details) apresenta
-a descrição de cada conta.
-}
-\section{Equations}{
-
-
-Inline equation - \\eqn\{a + b = c\} => \eqn{a + b = c}
-
-Block equation - \\deqn\{x * y = z\} => \deqn{x * y = z}
-
-Assim, tem-se que a liquidez seca corresponde a:
-
-\\deqn{\frac{(cxEquiv + ctaRecCP + outAtvCirc)}{(fornec + dividasCP + outPasCirc)}}
-
-A equação não contempla todas as contas do ativo circulante com exceção da
-conta estoque.
-
-Indicamos essa análise quando a empresa apresentar dificuldade com o giro
-de seus estoques. Em codições normais, não haveria motivos para a empresa não
-conseguir rotacionar seus estoques. Quando há indicativos de que a rotação
-dos estoques ficará prejudicada, esse indicador poderá representar melhor
-a capacidade das empress em quitar suas dívidas de curto prazo.
+Essa função calcula o Índice de Liquidez Seca baseado em vetores relativos às
+contas de ativo circulante e passivo circulante. Apresenta como resultado uma
+lista com 5 itens:
+\enumerate{
+\item \strong{Gráfico} se o parâmetro \code{plot} for \code{TRUE} ou \code{T}, mostra um gráfico com a
+evolução da Liquidez Seca da empresa durante os períodos. Se for \code{FALSE} ou \code{F},
+o gráfico não é apresentado;
+\item \strong{Contas} que corresponde ao banco de dados com as contas informadas para
+cálculo do indicador;
+\item \strong{Índice} o índice de Liquidez Seca dos períodos informados;
+\item \strong{Análise Vertical} Análise Vertical das contas informadas no item 1;
+\item \strong{Análise Horizontal} Análise Horizontal das contas informadas no item 1.
 }
 
+Todos os itens da lista são bancos de dados no formato tibble que podem ser
+usados individualmente durante o processo de análise de dados.
+}
 \examples{
 
-suppressMessages(suppressWarnings(library(cntdd)))
-suppressMessages(suppressWarnings(library(dplyr)))
-suppressMessages(suppressWarnings(library(tidyr)))
-suppressMessages(suppressWarnings(library(ggplot2)))
+Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+`cntdd` do Blog do Projeto contabiliDados: \href{http://contabilidados.com.br}{(Acesse Aqui)}. Ao acessar, fazer busca
+pelo nome da função `ind_liqSeca`
 
-## Usando Vetores
-
-ind_liqSeca(
-indicador  = "Liquidez Seca",
-periodo    = 2018:2020,
-cxEquiv    = c(500,300,400),
-estoque    = c(2000,3000,4000),
-ctaRecCP   = c(2500, 5000, 2800),
-outAtvCirc = c(20, 35, 80),
-fornec     = c(1200, 1400, 1600),
-dividasCP  = c(500, 200, 750),
-outPasCirc = c(30, 20, 40),
-atvTotal   = c(10000, 12000, 11000),
-plot = T)
-
-## Usando um data.frame
-## Todos as variáveis devem ser do tipo numérico e os dados faltantes devem ser
-## substituidos por zero.
-
-dadosAlpha <- dt_contabil \%>\% filter(empresa == "alpha")
-
-ind_liqSeca(
-indicador  = "Liquidez Seca",
-periodo    = dadosAlpha$ano,
-cxEquiv    = dadosAlpha$cxEquiv,
-estoque    = dadosAlpha$estoque,
-ctaRecCP   = dadosAlpha$ctaRecCP,
-outAtvCirc = dadosAlpha$outAtvCirc,
-fornec     = dadosAlpha$fornec,
-dividasCP  = dadosAlpha$dividasCP,
-outPasCirc = dadosAlpha$outPasCirc,
-atvTotal   = dadosAlpha$atvTotal,
-plot = F)
+Contatos pelo email do Projeto contabiliDados:
+Email: \email{contabilidados@ufersa.edu.br}
+Siga-nos no Instagram: \href{https://www.instagram.com/contabilidados/}{@contabilidados}
 
 }
