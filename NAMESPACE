@@ -2,6 +2,7 @@
 
 export(ind_liqCorrente)
 export(ind_liqSeca)
+export(ind_wacc)
 export(stat_geomMean)
 export(stat_meanTest)
 export(utl_createGroup)
