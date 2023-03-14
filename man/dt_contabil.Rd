@@ -5,7 +5,7 @@
 \alias{dt_contabil}
 \title{Dados Contábeis}
 \format{
-An object of class \code{data.frame} with 60 rows and 34 columns.
+An object of class \code{data.frame} with 60 rows and 38 columns.
 }
 \usage{
 dt_contabil
