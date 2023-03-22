@@ -24,7 +24,7 @@
 #' @import rstatix
 #' @export
 
-testaIndependencia <-
+stat_testaIndependencia <-
 
   function(bd, correcao = T, ...){
 
@@ -32,7 +32,7 @@ testaIndependencia <-
       dplyr::select(...) -> bd
 
     tabela <-  table(bd)
-    testeQui2 <- testaAssociacao(table(bd), CORREC = correcao)
+    testeQui2 <- stat_testaAssociacao(table(bd), CORREC = correcao)
     esperado <- suppressMessages(suppressWarnings(chisq.test(table(bd), correct = correcao)$expected))
     erroStd <- suppressMessages(suppressWarnings(chisq.test(table(bd), correct = correcao)$stdres))
 

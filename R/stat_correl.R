@@ -23,7 +23,7 @@
 #' @import dplyr
 #' @export
 
-utl_correl <-
+stat_correl <-
   function(
     dt = cntdd::dt_contabil[4:8],
     pearsonLower = T,
