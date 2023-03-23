@@ -9,7 +9,8 @@ stat_correl(
   pearsonLower = T,
   ommitLower = F,
   ommitUpper = F,
-  digits = 2
+  digits = 2,
+  decimal = ","
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ stat_correl(
 \item{ommitUpper}{Se \code{TRUE} ou \code{T}, a diagonal SUPERIOR é omitida. Se \code{FALSE} OU \code{F}, é mostrada. (Padrão: \code{F})}
 
 \item{digits}{Número de dígitos da correlação (Padrão: \code{2})}
+
+\item{decimal}{Caracter para casa decimal (Padrão: \verb{,})}
 }
 \description{
 Gera matriz de correlação de Pearson e/ou Spearman com suas respectivas

@@ -8,6 +8,7 @@
 #' @param ommitLower Se `TRUE` ou `T`, a diagonal INFERIOR é omitida. Se `FALSE` OU `F`, é mostrada. (Padrão: `F`)
 #' @param ommitUpper Se `TRUE` ou `T`, a diagonal SUPERIOR é omitida. Se `FALSE` OU `F`, é mostrada. (Padrão: `F`)
 #' @param digits Número de dígitos da correlação (Padrão: `2`)
+#' @param decimal Caracter para casa decimal (Padrão: `,`)
 #'
 #' @examples
 #'
@@ -29,7 +30,8 @@ stat_correl <-
     pearsonLower = T,
     ommitLower = F,
     ommitUpper = F,
-    digits = 2
+    digits = 2,
+    decimal = ","
   ){
 
     df <- na.omit(dt)
@@ -46,7 +48,8 @@ stat_correl <-
       ) %>% as.matrix()
 
     correl1 <-
-      paste0(format(round(corPearson$r, digits), nsmall = digits), pvPearson) %>%
+      paste0(format(round(corPearson$r, digits), nsmall = digits,
+                    decimal.mark = decimal), pvPearson) %>%
       matrix(nrow = dim(corPearson$r)[1])
 
     corSpearman <-
@@ -61,7 +64,8 @@ stat_correl <-
       ) %>% as.matrix()
 
     correl2 <-
-      paste0(format(round(corSpearman$r, digits), nsmall = digits), pvSpearman) %>%
+      paste0(format(round(corSpearman$r, digits), nsmall = digits,
+                    decimal.mark = decimal), pvSpearman) %>%
       matrix(nrow = ncol(df))
 
     matCorrel <- matrix(NA, ncol = ncol(df), nrow = ncol(df))
@@ -93,3 +97,4 @@ stat_correl <-
     return(result)
 
   }
+
