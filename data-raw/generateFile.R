@@ -8,9 +8,10 @@ dt_CNPJ <-
   mutate(
     cnpj = utl_CNPJ_Mascara(cnpj),
     codB3 = substr(codB3, 1, 4))
+dt_ufRegiao <- read.csv("data-raw/ufRegiao.csv", encoding = "latim-1", sep = ";")
 # Apply preprocessing...
 # Save the cleaned data in the required R package location
 usethis::use_data(dt_contabil, overwrite = T)
 usethis::use_data(dt_meses, overwrite = T)
 usethis::use_data(dt_CNPJ, overwrite = T)
-
+usethis::use_data(dt_ufRegiao, overwrite = T)

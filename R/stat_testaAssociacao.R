@@ -1,4 +1,4 @@
-testaAssociacao <- function(tabela, CORREC = T){
+stat_testaAssociacao <- function(tabela, CORREC = T){
 
   pvalor <- suppressMessages(suppressWarnings(chisq.test(tabela, correct = CORREC)$p.value))
 
