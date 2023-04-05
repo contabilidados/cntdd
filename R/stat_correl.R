@@ -20,7 +20,7 @@
 #' Email: \email{contabilidados@@ufersa.edu.br}
 #' Siga-nos no Instagram: \href{https://www.instagram.com/contabilidados/}{@contabilidados}
 #'
-#' @import Hmisc
+#' @importFrom Hmisc rcorr
 #' @import dplyr
 #' @export
 
