@@ -5,6 +5,6 @@
 #'
 #' @details
 #'
-#' Data.frame com 1.439 linhas e 3 colunas.
+#' Data.frame com 1.352 linhas e 3 colunas.
 #'
-"dt_CNPJ"
+"dt_cnpjCodB3"
