@@ -2,6 +2,7 @@
 
 export(ind_liqCorrente)
 export(ind_liqSeca)
+export(ind_roe)
 export(ind_wacc)
 export(stat_correl)
 export(stat_geomMean)
