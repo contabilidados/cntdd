@@ -4,7 +4,7 @@
 \alias{stat_meanTest}
 \title{Realizar teste de médias}
 \usage{
-stat_meanTest(value_Y, name_Y, value_X, name_X, pvalor = 0.05)
+stat_meanTest(value_Y, name_Y = "Y", value_X, name_X = "X", pvalor = 0.05)
 }
 \arguments{
 \item{value_Y}{Um vetor numérico representando o primeiro grupo}
