@@ -18,4 +18,4 @@ Roxygen: list(markdown = TRUE)
 Suggests: 
     knitr,
     rmarkdown
-Imports: dplyr, ggplot2, readxl, sandwich, tidyr
+Imports: dplyr, ggplot2, readxl, sandwich, tidyr, devtools, rstatix, Hmisc
