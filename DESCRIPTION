@@ -1,8 +1,8 @@
 Package: cntdd
 Type: Package
 Title: Utilitários para pesquisa em contabilidade e finanças
-Version: 0.2.0
-Date: 2022-08-08
+Version: 0.2.1
+Date: 2024-02-12
 Authors@R: person("contabiliDados", "",
                   email = "contabilidados@ufersa.edu.br",
                   role = c("aut", "cre"))
