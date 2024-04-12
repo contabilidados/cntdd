@@ -1,7 +1,7 @@
 Package: cntdd
 Type: Package
 Title: Utilitários para pesquisa em contabilidade e finanças
-Version: 0.2.1
+Version: 0.2.2
 Date: 2024-02-12
 Authors@R: person("contabiliDados", "",
                   email = "contabilidados@ufersa.edu.br",
@@ -13,9 +13,9 @@ License: MIT + file LICENSE
 Depends: R (>= 3.1)
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
 Suggests: 
     knitr,
     rmarkdown
-Imports: dplyr, ggplot2, readxl, sandwich, tidyr, devtools, rstatix, Hmisc
+Imports: dplyr, ggplot2, readxl, sandwich, tidyr, devtools, rstatix, Hmisc, jsonlite, tidyverse

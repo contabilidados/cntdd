@@ -29,30 +29,32 @@ utl_CNPJ_Mascara <- function(cnpj, completo = T){
   # Output: CNPJ em formato string com a máscara de 18 dígitos
   #################################################################################
 
-  CNPJ <- paste(stringr::str_extract_all(cnpj, "[0-9]+")[[1]], collapse = "")
-
-  if(nchar(CNPJ) > 14){
-    CNPJ <- "99999999999999"
+  sapply(cnpj, function(cnpjBase){
+    CNPJ <- paste(stringr::str_extract_all(cnpjBase, "[0-9]+")[[1]], collapse = "")
+    
+    if(nchar(CNPJ) > 14){
+      CNPJ <- "99999999999999"
+    }
+    
+    qdeCar <- nchar(CNPJ)
+    
+    if(qdeCar > 14) stop("Numero de caracteres numéricos supera os 14 caracteres do CNPJ")
+    
+    cnpj1 <- paste0(substr("00000000000000", 1, (14-qdeCar)),
+                    substr(CNPJ, 1, qdeCar-2), "-",
+                    substr(CNPJ, qdeCar-1, qdeCar))
+    cnpjFinal <- paste0(substr(cnpj1, 1, 2), ".",
+                        substr(cnpj1, 3, 5), ".",
+                        substr(cnpj1, 6, 8), "/",
+                        substr(cnpj1, 9, 15))
+    cnpjNum <- paste(stringr::str_extract_all(cnpjFinal, "[0-9]+")[[1]], collapse = "")
+    
+    if (completo) {
+      return(cnpjFinal)
+    } else {
+      return(cnpjNum)
+    }
   }
-
-  qdeCar <- nchar(CNPJ)
-
-  if(qdeCar > 14) stop("Numero de caracteres numéricos supera os 14 caracteres do CNPJ")
-
-  cnpj1 <- paste0(substr("00000000000000", 1, (14-qdeCar)),
-                  substr(CNPJ, 1, qdeCar-2), "-",
-                  substr(CNPJ, qdeCar-1, qdeCar))
-  cnpjFinal <- paste0(substr(cnpj1, 1, 2), ".",
-                      substr(cnpj1, 3, 5), ".",
-                      substr(cnpj1, 6, 8), "/",
-                      substr(cnpj1, 9, 15))
-  cnpjNum <- paste(stringr::str_extract_all(cnpjFinal, "[0-9]+")[[1]], collapse = "")
-
-  if (completo) {
-    return(cnpjFinal)
-  } else {
-    return(cnpjNum)
-  }
+         )
 
 }
-
