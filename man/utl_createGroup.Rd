@@ -9,30 +9,23 @@ utl_createGroup(bd, col_Value, col_Grp, n_grp = 2)
 \arguments{
 \item{bd}{Um data.frame}
 
-\item{col_Value}{String informando o nome da coluna referente à variável númerica sobre a qual se pretende criar os grupos}
+\item{col_Value}{String informando o nome da coluna referente a variavel numerica sobre a qual se pretende criar os grupos}
 
 \item{col_Grp}{String com o nome da nova coluna a ser criada com os grupos}
 
-\item{n_grp}{Número de grupos, se pretende criar grupos com o mesmo número de observações ou um vetor contendo os percentis para cada grupo. Padrão igual 2.}
-
-\item{lbl_grp}{String com o prefixo posto no início do nome do de cada grupo. Padrão igual "grp"}
+\item{n_grp}{Número de grupos, se pretende criar grupos com o mesmo numero de observacoes ou um vetor contendo os percentis para cada grupo. Padrao igual 2.}
 }
 \description{
-Cria grupos baseados nos percentise de uma variável númerica
+Cria grupos baseados nos percentis de uma variavel numerica
 }
-\examples{
+\details{
+Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
+Ao acessar, fazer busca pelo nome da funcao \code{utl_tStarSig}
 
-library(cntdd)
-library(dplyr)
-
-## Grupo 1 com os primeiros 20\% das observações de menor valor, Grupo 2 com as observações de
-## 20\% a 80\% e Grupo 3 com os 20\% das observações de maior valor
-utl_createGroup(mtcars, "mpg", "grp.mpg", c(0, .2, .8, 1)) \%>\% head()
-
-## Grupo 1 com metade das observações e Grupo 2 com a metade restante
-utl_createGroup(mtcars, "mpg", "grp.mpg", 2) \%>\% head()
-
-
+Contatos pelo email do Projeto contabiliDados:
+Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
+Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
 }
 \seealso{
 \code{\link[=cut]{cut()}}, \code{\link[=quantile]{quantile()}}

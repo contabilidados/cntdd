@@ -2,32 +2,27 @@
 % Please edit documentation in R/stat_testaIndependencia.R
 \name{stat_testaIndependencia}
 \alias{stat_testaIndependencia}
-\title{Teste de Independência}
+\title{Teste de Independencia}
 \usage{
 stat_testaIndependencia(bd, correcao = T, ...)
 }
 \arguments{
-\item{bd}{Um data.frame com as variaveis categóricas}
+\item{bd}{Um data.frame com as variaveis categoricas}
 
-\item{correcao}{Se \code{TRUE}, fará a correção dos erros}
+\item{correcao}{Se \code{TRUE}, fara a correcao dos erros}
 
-\item{...}{a lista de variaveis categóricas de interesse}
+\item{...}{a lista de variaveis categoricas de interesse}
 }
 \description{
-Teste de Independência
+Essa funcao faz o teste de independencia entre variaveis categoricas e retorna
+uma lista com a analise correspondente.
 }
 \details{
-Essa função faz o teste de independência entre variáveis categóricas e retorna
-uma lista com a análise correspondente.
-}
-\examples{
-
-Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-`cntdd` do Blog do Projeto contabiliDados: \href{http://contabilidados.com.br}{(Acesse Aqui)}. Ao acessar, fazer busca
-pelo nome da função `ind_liqSeca`
+Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
+Ao acessar, fazer busca pelo nome da funcao \code{utl_tStarSig}
 
 Contatos pelo email do Projeto contabiliDados:
-Email: \email{contabilidados@ufersa.edu.br}
-Siga-nos no Instagram: \href{https://www.instagram.com/contabilidados/}{@contabilidados}
-
+Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
+Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
 }

@@ -5,17 +5,23 @@
 \alias{dt_meses}
 \title{Meses do ano}
 \format{
-An object of class \code{data.frame} with 12 rows and 10 columns.
+Data.frame com 12 linhas e 10 colunas.
 }
 \usage{
 dt_meses
 }
 \description{
-Variação de apresentação dos dados de meses (textual ou numérico). Também são
-incorporadas informações sobre bimestre, trimestre, quadrimestre e semestre
-relativos a cada mês do ano.
+Variacao de apresentacao dos dados de meses (textual ou numerico). Tambem sao
+incorporadas informacoes sobre bimestre, trimestre, quadrimestre e semestre
+relativos a cada mes do ano.
 }
 \details{
-Data.frame com 12 linhas e 10 colunas.
+Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
+Ao acessar, fazer busca pelo nome da funcao \code{dt_meses}
+
+Contatos pelo email do Projeto contabiliDados:
+Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
+Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
 }
 \keyword{datasets}

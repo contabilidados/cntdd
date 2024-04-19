@@ -1,24 +1,24 @@
-#' Correlação de Pearson e Spearman
+#' Correlacao de Pearson e Spearman
 #'
-#' Gera matriz de correlação de Pearson e/ou Spearman com suas respectivas
-#' significâncias estatísticas
+#' @description
+#' Gera matriz de correlacao de Pearson e/ou Spearman com suas respectivas
+#' significancias estatisticas
 #'
-#' @param dt Um data.frame
-#' @param pearsonLower Se `TRUE` ou `T`, a correlação de Pearson é disposta na diagonal inferior da Matriz e a correlação de Spearman na diagonal superior. Se `FALSE` OU `F`, a disposição das correlações é inversa. (Padrão: `T`)
-#' @param ommitLower Se `TRUE` ou `T`, a diagonal INFERIOR é omitida. Se `FALSE` OU `F`, é mostrada. (Padrão: `F`)
-#' @param ommitUpper Se `TRUE` ou `T`, a diagonal SUPERIOR é omitida. Se `FALSE` OU `F`, é mostrada. (Padrão: `F`)
-#' @param digits Número de dígitos da correlação (Padrão: `2`)
-#' @param decimal Caracter para casa decimal (Padrão: `,`)
-#'
-#' @examples
-#'
-#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: \href{http://contabilidados.com.br}{(Acesse Aqui)}. Ao acessar, fazer busca
-#' pelo nome da função `ind_liqSeca`
+#' @details
+#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
+#' Ao acessar, fazer busca pelo nome da funcao `utl_tStarSig`
 #'
 #' Contatos pelo email do Projeto contabiliDados:
-#' Email: \email{contabilidados@@ufersa.edu.br}
-#' Siga-nos no Instagram: \href{https://www.instagram.com/contabilidados/}{@contabilidados}
+#' Email: <contabilidados@@ufersa.edu.br>
+#' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
+#'
+#' @param dt Um data.frame
+#' @param pearsonLower Se `TRUE` ou `T`, a correlacao de Pearson e disposta na diagonal inferior da Matriz e a correlação de Spearman na diagonal superior. Se `FALSE` OU `F`, a disposicao das correlacoes e inversa. (Padrao: `T`)
+#' @param ommitLower Se `TRUE` ou `T`, a diagonal INFERIOR e omitida. Se `FALSE` OU `F`, e mostrada. (Padrao: `F`)
+#' @param ommitUpper Se `TRUE` ou `T`, a diagonal SUPERIOR e omitida. Se `FALSE` OU `F`, e mostrada. (Padrao: `F`)
+#' @param digits Numero de digitos da correlacao (Padrao: `2`)
+#' @param decimal Caracter para casa decimal (Padrao: `,`)
 #'
 #' @importFrom Hmisc rcorr
 #' @import dplyr
@@ -37,7 +37,7 @@ stat_correl <-
     df <- na.omit(dt)
 
     corPearson <-
-      Hmisc::rcorr(as.matrix(
+      rcorr(as.matrix(
         df), type = "pearson")
 
     pvPearson <-
@@ -53,7 +53,7 @@ stat_correl <-
       matrix(nrow = dim(corPearson$r)[1])
 
     corSpearman <-
-      Hmisc::rcorr(as.matrix(
+      rcorr(as.matrix(
         df), type = "spearman")
 
     pvSpearman <-
@@ -97,4 +97,5 @@ stat_correl <-
     return(result)
 
   }
+
 

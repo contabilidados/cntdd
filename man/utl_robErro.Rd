@@ -9,27 +9,22 @@ utl_robErro(reg, tipo = "HC1", HAC = F)
 \arguments{
 \item{reg}{Um objeto do tipo "lm"}
 
-\item{tipo}{String informando qual a correção da heterocedasticidade (Hc1, Hc2...)}
+\item{tipo}{String informando qual a correção da heterocedasticidade (HC1, HC2...)}
 
-\item{HAC}{Se FALSE(default), os erros serão robustos à heterocedasticidade. Se TRUE, serão robustos à heterocedasticidade e à autocorrelação.}
+\item{HAC}{Se FALSE(default), os erros serao robustos a heterocedasticidade. Se TRUE, serao robustos a heterocedasticidade e a autocorrelacao.}
 }
 \description{
-Estimação consistente com a heterocedasticidade e/ou autocorrelação da matriz
-de covariância das estimativas de coeficientes em modelos de regressão.
+Estimacao consistente com a heterocedasticidade e/ou autocorrelacao da matriz
+de covariancia das estimativas de coeficientes em modelos de regressao.
 }
-\examples{
+\details{
+Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
+Ao acessar, fazer busca pelo nome da funcao \code{utl_tStarSig}
 
-library(cntdd)
-library(dplyr)
-
-## Erro robusto à hetorecedasticidade e à autocorrelação
-a <- lm(mpg~qsec, data = mtcars)
-utl_robErro(a, HAC = T)
-
-## Erro robusto à hetorecedasticidade
-a <- lm(mpg~qsec, data = mtcars)
-utl_robErro(a, tipo = "HC2")
-
+Contatos pelo email do Projeto contabiliDados:
+Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
+Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
 }
 \seealso{
 \code{\link[=cut]{cut()}}, \code{\link[=quantile]{quantile()}}, \code{\link[=vcovHAC]{vcovHAC()}}, \code{\link[=vcovHC]{vcovHC()}}

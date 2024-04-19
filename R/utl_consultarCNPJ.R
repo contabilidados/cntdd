@@ -15,35 +15,26 @@
 #' A função depende das bibliotecas `jsonlite` e `tidyverse`. Certifique-se de que estão instaladas
 #' e carregadas.
 #'
-#' @examples
-#' cnpj <- c("08350241000172", "24529265000140")
-#' df_resultado <- utl_consultarCNPJ(cnpj)
-#'
-#' @examples
-#' Função desenvolvida por Alexsandro Prado (alexsandro.prado@ufersa.edu.br) em colaboração com Kleber Formiga (mirandakf@ufersa.edu.br)
-#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: \href{http://contabilidados.com.br}{(Acesse Aqui)}. Ao acessar, fazer busca
-#' pelo nome da função `ind_liqCorrente`
+#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
+#' Ao acessar, fazer busca pelo nome da funcao `utl_consultarCNPJ`
 #'
 #' Contatos pelo email do Projeto contabiliDados:
-#' Email: \email{contabilidados@@ufersa.edu.br}
-#' Siga-nos no Instagram: \href{https://www.instagram.com/contabilidados/}{@contabilidados}
+#' Email: <contabilidados@@ufersa.edu.br>
+#' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
 #'
-#'
-#' @import tidyverse
+#' @import dplyr
 #' @import jsonlite
 #' @export
 
 utl_consultarCNPJ <- function(cnpj = "24529265000140") {
-  library(jsonlite)
-
 
 # TODOS OS DADOS (EXCETO CNAES SECUNDARIOS E QSA) ----
 obter_dados_gerais <- function(cnpj) {
 lista <- list()
 for (i in seq_along(cnpj)) {
   # Carregando o JSON da API
-  json_data <- jsonlite::fromJSON(paste0("https://minhareceita.org/", cnpj[i]))
+  json_data <- fromJSON(paste0("https://minhareceita.org/", cnpj[i]))
 
   # Extraindo apenas os elementos de interesse e adicionando à lista
   lista[[i]] <- list(
@@ -300,11 +291,12 @@ df_qsa<- obter_dados_societarios(cnpj)
 
 # Unificando os data frames
 df_final <- df_geral %>%
-  select(-razao_social) %>%
-  inner_join(df_qsa, by = 'cnpj', relationship = "many-to-many") %>%
-  inner_join(., df_qsa_cnae_sec, by = 'cnpj', relationship = "many-to-many")
+  select(-"razao_social") %>%
+  inner_join(df_qsa, by = 'cnpj', relationship = "many-to-many")
+
+df_final <-
+  inner_join(df_final, df_qsa_cnae_sec, by = 'cnpj', relationship = "many-to-many")
 
 return(df_final)
 
 }
-

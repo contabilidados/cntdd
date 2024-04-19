@@ -1,29 +1,41 @@
-#' Índice de Liquidez Corrente
+#' Indice de Liquidez Corrente
 #'
 #' @description
 #'
-#' Essa função calcula o Índice de Liquidez Corrente baseado em vetores relativos às
-#' contas de ativo circulante e passivo circulante. Apresenta como resultado uma
-#' lista com 5 itens:
+#' Essa funcao calcula o Indice de Liquidez Corrente baseado em vetores relativos as
+#' contas de ativo circulante e passivo circulante.
 #'
-#' 1. **Gráfico** se o parâmetro `plot` for `TRUE` ou `T`, mostra um gráfico com a
-#' evolução da Liquidez Seca da empresa durante os períodos. Se for `FALSE` ou `F`,
-#' o gráfico não é apresentado;
+#' @details
+#' Apresenta como resultado uma lista com 5 itens:
+#'
+#' 1. **Grafico** se o parametro `plot` for `TRUE` ou `T`, mostra um grafico com a
+#' evolucao da Liquidez corrente da empresa durante os periodos. Se for `FALSE` ou `F`,
+#' o grafico nao é apresentado;
 #'
 #' 2.  **Contas** que corresponde ao banco de dados com as contas informadas para
-#' cálculo do indicador;
+#' calculo do indicador;
 #'
-#' 3.  **Índice** o índice de Liquidez Corrente dos períodos informados;
+#' 3.  **Indice** o indice de Liquidez Corrente dos periodos informados;
 #'
-#' 4.  **Análise Vertical** Análise Vertical das contas informadas no item 1;
+#' 4.  **Analise Vertical** Analise Vertical das contas informadas no item 1. Conta de resultado
+#' terao sua analise vertical em relacao a receita total e contas patrimoniais terao
+#' sua analise vertical em relacao ao ativo total;
 #'
-#' 5.  **Análise Horizontal** Análise Horizontal das contas informadas no item 1.
+#' 5.  **Analise Horizontal** Analise Horizontal das contas informadas no item 1.
 #'
-#' Todos os itens da lista são bancos de dados no formato tibble que podem ser
-#' usados individualmente durante o processo de análise de dados.
+#' Todos os itens da lista sao bancos de dados no formato tibble que podem ser
+#' usados individualmente durante o processo de analise de dados.
+#'
+#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
+#' Ao acessar, fazer busca pelo nome da funcao `ind_roa`
+#'
+#' Contatos pelo email do Projeto contabiliDados:
+#' Email: <contabilidados@@ufersa.edu.br>
+#' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
 #'
 #' @param indicador Um vetor tipo character com o nome do indicador
-#' @param periodo Vetor numérico indicando o período da análise
+#' @param periodo Vetor numérico indicando o periodo da analise
 #' @param cxEquiv Vetor com os valores do caixa e equivalentes de caixa (Ativo Circulante)
 #' @param estoque Vetor com os valores do estoque (Ativo Circulante)
 #' @param ctaRecCP Vetor com os valores do contas a receber (Ativo Circulante)
@@ -32,18 +44,8 @@
 #' @param dividasCP Vetor com os valores de empréstimos e financiamentos de curto prazo (Passivo Circulante)
 #' @param outPasCirc Vetor com os valores de outros passivos circulantes (Passivo Circulante)
 #' @param atvTotal Vetor com os valores do Ativo Total
-#' @param plot Mostra gráfico? (TRUE/FALSE)
-#'
-#' @examples
-#'
-#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: \href{http://contabilidados.com.br}{(Acesse Aqui)}. Ao acessar, fazer busca
-#' pelo nome da função `ind_liqCorrente`
-#'
-#' Contatos pelo email do Projeto contabiliDados:
-#' Email: \email{contabilidados@@ufersa.edu.br}
-#' Siga-nos no Instagram: \href{https://www.instagram.com/contabilidados/}{@contabilidados}
-#'
+#' @param plot Mostra grafico? (TRUE/FALSE)
+#' @param relatorio Se `TRUE`, Mostra relatorio do indicador. Se `FALSE`, mostra apenas o vetor com resultados do indicador (TRUE/FALSE)
 #'
 #' @import ggplot2
 #' @import readxl
@@ -54,7 +56,7 @@
 ind_liqCorrente <-
   function(
     indicador = "Liq Corrente",
-    periodo = 2019:2020,
+    periodo = (year(Sys.Date())-2):(year(Sys.Date())-1),
     cxEquiv = c(8,10),
     estoque = c(150,200),
     ctaRecCP = c(400, 300),
@@ -63,7 +65,8 @@ ind_liqCorrente <-
     dividasCP = c(30, 40),
     outPasCirc = c(10, 8),
     atvTotal = c(900,800),
-    plot = T
+    plot = T,
+    relatorio = T
     ){
 
   ratio <-
@@ -73,7 +76,7 @@ ind_liqCorrente <-
   dt <- data.frame(Periodo = periodo, ratio = ratio)
   names(dt)[2] <- indicador
 
-  if(plot){
+  if(plot & relatorio){
     print(ind_plots(dt, indicador))
   }
 
@@ -82,7 +85,7 @@ ind_liqCorrente <-
       periodo     = periodo,
       cxEquiv     = cxEquiv,
       estoque     = estoque,
-      ctaRecCP      = ctaRecCP,
+      ctaRecCP    = ctaRecCP,
       outAtvCirc  = outAtvCirc,
       fornec      = fornec,
       dividasCP   = dividasCP,
@@ -90,55 +93,71 @@ ind_liqCorrente <-
       atvTotal    = atvTotal
     ) %>%
     mutate(
-      {{indicador}} := ratio
+      ratio = ratio
     ) %>%
     arrange(periodo) %>%
     mutate(
-      AH.CxEquiv    = round(cxEquiv / dplyr::lag(cxEquiv) - 1, 4),
-      AH.Estoque    = round(estoque / dplyr::lag(estoque) - 1, 4),
-      AH.ctaRecCP     = round(ctaRecCP / dplyr::lag(ctaRecCP) - 1, 4),
-      AH.outAtvCirc = round(outAtvCirc / dplyr::lag(outAtvCirc) - 1, 4),
-      AH.fornec     = round(fornec / dplyr::lag(fornec) - 1, 4),
-      AH.dividasCP  = round(dividasCP / dplyr::lag(dividasCP) - 1, 4),
-      AH.outPasCirc = round(outPasCirc / dplyr::lag(outPasCirc) - 1, 4),
+      AH.CxEquiv    = round(cxEquiv / lag(cxEquiv) - 1, 4),
+      AH.Estoque    = round(estoque / lag(estoque) - 1, 4),
+      AH.ctaRecCP   = round(ctaRecCP / lag(ctaRecCP) - 1, 4),
+      AH.outAtvCirc = round(outAtvCirc / lag(outAtvCirc) - 1, 4),
+      AH.fornec     = round(fornec / lag(fornec) - 1, 4),
+      AH.dividasCP  = round(dividasCP / lag(dividasCP) - 1, 4),
+      AH.outPasCirc = round(outPasCirc / lag(outPasCirc) - 1, 4),
       AV.cxEquiv    = cxEquiv / atvTotal,
       AV.Estoque    = estoque / atvTotal,
-      AV.ctaRecCP     = ctaRecCP / atvTotal,
+      AV.ctaRecCP   = ctaRecCP / atvTotal,
       AV.outAtvCirc = outAtvCirc / atvTotal,
       AV.fornec     = fornec / atvTotal,
       AV.dividasCP  = dividasCP / atvTotal,
       AV.outPasCirc = outPasCirc / atvTotal
-    )
+    ) %>%
+    rename_with(~ indicador, all_of("ratio"))
 
   dtGeral %>%
-    dplyr::select(periodo:atvTotal) %>%
+    select(periodo:atvTotal) %>%
     pivot_longer(cols = -periodo, names_to = "conta", values_to = "value") %>%
     na.omit() %>%
-    pivot_wider(names_from = periodo, values_from = value) -> contas
+    pivot_wider(names_from = "periodo", values_from = "value") -> contas
 
   dtGeral %>%
-    dplyr::select(periodo, {{indicador}}) %>%
+    select(periodo, {{indicador}}) %>%
     pivot_longer(cols = -periodo, names_to = "conta", values_to = "value") %>%
     na.omit() %>%
-    pivot_wider(names_from = periodo, values_from = value) -> ratio
+    pivot_wider(names_from = "periodo", values_from = "value") -> ratio
 
   dtGeral %>%
-    dplyr::select(periodo, starts_with("AV.")) %>%
+    select(periodo, starts_with("AV.")) %>%
     pivot_longer(cols = -periodo, names_to = "conta", values_to = "value") %>%
-    mutate(value = showPercent(value)) %>%
+    mutate(value = eval(parse(text = "showPercent(value)"))) %>%
     na.omit() %>%
-    pivot_wider(names_from = periodo, values_from = value) -> bdAV
+    pivot_wider(names_from = "periodo", values_from = "value") -> bdAV
 
   dtGeral %>%
-    dplyr::select(periodo, starts_with("AH.")) %>%
+    select(periodo, starts_with("AH.")) %>%
     pivot_longer(cols = -periodo, names_to = "conta", values_to = "value") %>%
-    mutate(value = showPercent(value)) %>%
+    mutate(value = eval(parse(text = "showPercent(value)"))) %>%
     na.omit() %>%
-    pivot_wider(names_from = periodo, values_from = value) -> bdAH
+    pivot_wider(names_from = "periodo", values_from = "value") -> bdAH
 
 
-  return(list(Contas = contas, `Índice` = ratio,
-              `Análise Vertical` = bdAV,
-              `Análise Horizontal` = bdAH))
+  listaRelatorio <-
+    list(
+      Contas = contas, `Indice` = ratio,
+      `Analise Vertical` = bdAV,
+      `Analise Horizontal` = bdAH)
+
+  apenasVetor <-
+    ratio %>%
+    pivot_longer(-1, names_to = 'ano', values_to = "valor") %>%
+    select(3) %>% pull() %>% round(3)
+  names(apenasVetor) <- names(ratio)[-1]
+
+  if(relatorio){
+    return(listaRelatorio)
+  } else {
+    return(apenasVetor)
+  }
 
 }
+

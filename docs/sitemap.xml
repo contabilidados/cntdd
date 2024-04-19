@@ -34,7 +34,13 @@
     <loc>http://contabilidados.github.io/cntdd/reference/dt_contabil.html</loc>
   </url>
   <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/dt_cvmB3.html</loc>
+  </url>
+  <url>
     <loc>http://contabilidados.github.io/cntdd/reference/dt_meses.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/dt_ufRegiao.html</loc>
   </url>
   <url>
     <loc>http://contabilidados.github.io/cntdd/reference/exampleData.html</loc>
@@ -46,10 +52,37 @@
     <loc>http://contabilidados.github.io/cntdd/reference/index.html</loc>
   </url>
   <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_capitalInvestido.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_capitalOperLiquido.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_dupont.html</loc>
+  </url>
+  <url>
     <loc>http://contabilidados.github.io/cntdd/reference/ind_liqCorrente.html</loc>
   </url>
   <url>
     <loc>http://contabilidados.github.io/cntdd/reference/ind_liqSeca.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_nopat.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_passivoOneroso.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_roa.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_roe.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_wacc.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/stat_correl.html</loc>
   </url>
   <url>
     <loc>http://contabilidados.github.io/cntdd/reference/stat_geomMean.html</loc>
@@ -58,7 +91,19 @@
     <loc>http://contabilidados.github.io/cntdd/reference/stat_meanTest.html</loc>
   </url>
   <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/stat_testaIndependencia.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/utl_CNPJ_Mascara.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/utl_consultarCNPJ.html</loc>
+  </url>
+  <url>
     <loc>http://contabilidados.github.io/cntdd/reference/utl_createGroup.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/utl_limpaCNPJ.html</loc>
   </url>
   <url>
     <loc>http://contabilidados.github.io/cntdd/reference/utl_qdeNAcols.html</loc>
@@ -68,5 +113,8 @@
   </url>
   <url>
     <loc>http://contabilidados.github.io/cntdd/reference/utl_tableStat.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/utl_tStarSig.html</loc>
   </url>
 </urlset>

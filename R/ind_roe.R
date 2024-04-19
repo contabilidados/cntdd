@@ -1,44 +1,47 @@
-#' Índice de Retorno sobre o Patrimônio Líquido (ROE)
+#' Indice de Retorno sobre o Patrimonio Liquido (ROE)
 #'
 #' @description
 #'
-#' Essa função calcula o Índice de Retorno sobre o Patrimônio Líquido baseado em vetores relativos às
-#' contas de lucro líquido e patrimônio líquido. Apresenta como resultado uma
-#' lista com 5 itens:
+#' Essa funcao calcula o Indice de Retorno sobre o Patrimonio Liquido baseado em vetores relativos as
+#' contas de lucro liquido e patrimonio liquido.
 #'
-#' 1. **Gráfico** se o parâmetro `plot` for `TRUE` ou `T`, mostra um gráfico com a
-#' evolução do ROE da empresa durante os períodos. Se for `FALSE` ou `F`,
-#' o gráfico não é apresentado;
+#' @details
+#' Apresenta como resultado uma lista com 5 itens:
+#'
+#' 1. **Grafico** se o parametro `plot` for `TRUE` ou `T`, mostra um grafico com a
+#' evolucao do ROE da empresa durante os periodos. Se for `FALSE` ou `F`,
+#' o grafico nao e apresentado;
 #'
 #' 2.  **Contas** que corresponde ao banco de dados com as contas informadas para
-#' cálculo do indicador;
+#' calculo do indicador;
 #'
-#' 3.  **Índice** o índice de Retorno sobre o Patrimônio Líquido dos períodos informados;
+#' 3.  **Indice** o indice de Retorno sobre o Patrimonio Liquido dos periodos informados;
 #'
-#' 4.  **Análise Vertical** Análise Vertical das contas informadas no item 1;
+#' 4.  **Analise Vertical** Analise Vertical das contas informadas no item 1. Conta de resultado
+#' terao sua analise vertical em relacao a receita total e contas patrimoniais terao
+#' sua analise vertical em relacao ao ativo total;
 #'
-#' 5.  **Análise Horizontal** Análise Horizontal das contas informadas no item 1.
+#' 5.  **Analise Horizontal** Analise Horizontal das contas informadas no item 1.
 #'
-#' Todos os itens da lista são bancos de dados no formato tibble que podem ser
-#' usados individualmente durante o processo de análise de dados.
+#' Todos os itens da lista sao bancos de dados no formato tibble que podem ser
+#' usados individualmente durante o processo de analise de dados.
 #'
-#' @param indicador Um vetor tipo character com o nome do indicador
-#' @param periodo Vetor numérico indicando o período da análise
-#' @param lucLiq Vetor com os valores do lucro líquido da empresa 
-#' @param patLiq Vetor com os valores do patrimônio líquido 
-#' @param plot Mostra gráfico? (TRUE/FALSE)
-#'
-#' @examples
-#'
-#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: \href{http://contabilidados.com.br}{(Acesse Aqui)}. Ao acessar, fazer busca
-#' pelo nome da função `ind_roe`
-#' 
+#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
+#' Ao acessar, fazer busca pelo nome da funcao `ind_roe`
 #'
 #' Contatos pelo email do Projeto contabiliDados:
-#' Email: \email{contabilidados@@ufersa.edu.br}
-#' Siga-nos no Instagram: \href{https://www.instagram.com/contabilidados/}{@contabilidados}
+#' Email: <contabilidados@@ufersa.edu.br>
+#' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
 #'
+#' @param indicador Um vetor tipo character com o nome do indicador
+#' @param periodo Vetor numerico indicando o periodo da analise
+#' @param lucLiq Vetor com os valores do lucro liquido da empresa
+#' @param patLiq Vetor com os valores do patrimonio liquido da empresa
+#' @param receitaTotal Vetor com os valores da receita total da empresa
+#' @param passivoTotal Vetor com os valores do passivo total da empresa
+#' @param plot Mostra grafico? (TRUE/FALSE)
+#' @param relatorio Se `TRUE`, Mostra relatorio do indicador. Se `FALSE`, mostra apenas o vetor com resultados do indicador (TRUE/FALSE)
 #'
 #' @import ggplot2
 #' @import readxl
@@ -49,12 +52,13 @@
 ind_roe <-
   function(
     indicador = "Roe",
-    periodo = 2019:2020,
-    lucLiq = c(8,10),
+    periodo = (year(Sys.Date())-2):(year(Sys.Date())-1),
+    lucLiq = c(8,14),
     patLiq = c(150,200),
     receitaTotal = c(300,500),
     passivoTotal = c(400,500),
-    plot = T
+    plot = T,
+    relatorio = T
     ){
 
   ratio <-
@@ -62,10 +66,10 @@ ind_roe <-
 
   dt <- data.frame(Periodo = periodo, ratio = ratio)
   names(dt)[2] <- indicador
-  
 
 
-  if(plot){
+
+  if(plot & relatorio){
     print(ind_plots(dt, indicador))
   }
 
@@ -78,50 +82,60 @@ ind_roe <-
       passivoTotal = passivoTotal
     ) %>%
     mutate(
-      {{indicador}} := ratio
+      ratio = ratio
     ) %>%
     arrange(periodo) %>%
     mutate(
-      AH.lucLiq    = round(lucLiq / dplyr::lag(lucLiq) - 1, 4),
-      AH.patLiq    = round(patLiq / dplyr::lag(patLiq) - 1, 4),
+      AH.lucLiq    = round(lucLiq / lag(lucLiq) - 1, 4),
+      AH.patLiq    = round(patLiq / lag(patLiq) - 1, 4),
       AV.lucLiq    = lucLiq / receitaTotal,
       AV.patLiq   = patLiq / passivoTotal
-    )
+    ) %>%
+    rename_with(~ indicador, all_of("ratio"))
 
-  
+
     dtGeral %>%
-      dplyr::select(periodo:passivoTotal) %>%
+      select(periodo:passivoTotal) %>%
       pivot_longer(cols = -periodo, names_to = "conta", values_to = "value") %>%
       na.omit() %>%
-    pivot_wider(names_from = periodo, values_from = value) -> contas
+    pivot_wider(names_from = "periodo", values_from = "value") -> contas
 
   dtGeral %>%
-    dplyr::select(periodo, {{indicador}}) %>%
+    select(periodo, {{indicador}}) %>%
     pivot_longer(cols = -periodo, names_to = "conta", values_to = "value") %>%
     na.omit() %>%
-    pivot_wider(names_from = periodo, values_from = value) -> ratio
+    pivot_wider(names_from = "periodo", values_from = "value") -> ratio
 
   dtGeral %>%
-    dplyr::select(periodo, starts_with("AV.")) %>%
+    select(periodo, starts_with("AV.")) %>%
     pivot_longer(cols = -periodo, names_to = "conta", values_to = "value") %>%
-    mutate(value = showPercent(value)) %>%
+    mutate(value = eval(parse(text = "showPercent(value)"))) %>%
     na.omit() %>%
-    pivot_wider(names_from = periodo, values_from = value) -> bdAV
+    pivot_wider(names_from = "periodo", values_from = "value") -> bdAV
 
   dtGeral %>%
-    dplyr::select(periodo, starts_with("AH.")) %>%
+    select(periodo, starts_with("AH.")) %>%
     pivot_longer(cols = -periodo, names_to = "conta", values_to = "value") %>%
-    mutate(value = showPercent(value)) %>%
+    mutate(value = eval(parse(text = "showPercent(value)"))) %>%
     na.omit() %>%
-    pivot_wider(names_from = periodo, values_from = value) -> bdAH
+    pivot_wider(names_from = "periodo", values_from = "value") -> bdAH
 
+  listaRelatorio <-
+    list(
+      Contas = contas, `Indice` = ratio,
+      `Analise Vertical` = bdAV,
+      `Analise Horizontal` = bdAH)
 
-  return(list(Contas = contas, `Índice` = ratio,
-              `Análise Vertical` = bdAV,
-              `Análise Horizontal` = bdAH)) 
+  apenasVetor <-
+    ratio %>%
+    pivot_longer(-1, names_to = 'ano', values_to = "valor") %>%
+    select(3) %>% pull() %>% round(3)
+  names(apenasVetor) <- names(ratio)[-1]
 
+  if(relatorio){
+    return(listaRelatorio)
+  } else {
+    return(apenasVetor)
   }
 
-
-
-        
+}

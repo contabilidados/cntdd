@@ -1,27 +1,27 @@
-#' Teste de Independência
+#' Teste de Independencia
+#'
+#' @description
+#' Essa funcao faz o teste de independencia entre variaveis categoricas e retorna
+#' uma lista com a analise correspondente.
 #'
 #' @details
-#'
-#' Essa função faz o teste de independência entre variáveis categóricas e retorna
-#' uma lista com a análise correspondente.
-#'
-#' @param bd Um data.frame com as variaveis categóricas
-#' @param ... a lista de variaveis categóricas de interesse
-#' @param correcao Se `TRUE`, fará a correção dos erros
-#'
-#' @examples
-#'
-#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: \href{http://contabilidados.com.br}{(Acesse Aqui)}. Ao acessar, fazer busca
-#' pelo nome da função `ind_liqSeca`
+#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
+#' Ao acessar, fazer busca pelo nome da funcao `utl_tStarSig`
 #'
 #' Contatos pelo email do Projeto contabiliDados:
-#' Email: \email{contabilidados@@ufersa.edu.br}
-#' Siga-nos no Instagram: \href{https://www.instagram.com/contabilidados/}{@contabilidados}
+#' Email: <contabilidados@@ufersa.edu.br>
+#' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
+#'
+#' @param bd Um data.frame com as variaveis categoricas
+#' @param ... a lista de variaveis categoricas de interesse
+#' @param correcao Se `TRUE`, fara a correcao dos erros
 #'
 #' @import dplyr
 #' @import tidyr
 #' @import rstatix
+#' @importFrom stats chisq.test
+#' @importFrom stats qnorm
 #' @export
 
 stat_testaIndependencia <-
@@ -29,7 +29,7 @@ stat_testaIndependencia <-
   function(bd, correcao = T, ...){
 
     bd %>%
-      dplyr::select(...) -> bd
+      select(...) -> bd
 
     tabela <-  table(bd)
     testeQui2 <- stat_testaAssociacao(table(bd), CORREC = correcao)
@@ -43,12 +43,12 @@ stat_testaIndependencia <-
     vCramer <- round(suppressMessages(suppressWarnings(cramer_v(tabela))), 4)
 
     resultado <- list(
-      `Tabela de Frequência` =  tabela,
-      `Análise Qui2` = testeQui2,
+      `Tabela de Frequencia` =  tabela,
+      `Analise Qui2` = testeQui2,
       `Valores Esperados` = esperado,
-      `Resíduos Padronizados Ajustados` = erroStd,
+      `Residuos Padronizados Ajustados` = erroStd,
       `Ponto de Corte` = corte,
-      `Resíduos Significativos` = residSig,
+      `Residuos Significativos` = residSig,
       `V de Cramer` = vCramer
     )
 

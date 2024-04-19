@@ -1,32 +1,38 @@
-#' Realizar teste de médias
+#' Teste de Medias ou Medianas
 #'
-#' Esta função realiza o teste de diferença de médias de dois vetores numéricos
-#' e apresenta os resultados em uma tabela
+#' @description
+#' Esta funcao realiza o teste de diferenca de medias ou mediana de dois vetores numericos
+#' e apresenta os resultados em uma tabela.
 #'
-#' @param value_Y Um vetor numérico representando o primeiro grupo
-#' @param name_Y Um nome para o vetor numérico que representa o primeiro grupo
-#' @param value_X Um vetor numérico representando o segundo grupo
-#' @param name_X Um nome para o vetor numérico que representa o segundo grupo
-#' @param pvalor O valor crítido a ser considerado nos testes. O padrão é 5%
+#' @details
+#' A escolha entre o teste de media ou media e realizada de forma automatica, de acordo com a distribuicao
+#' das variaveis numericas informadas.
+#'
+#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
+#' Ao acessar, fazer busca pelo nome da funcao `utl_tStarSig`
+#'
+#' Contatos pelo email do Projeto contabiliDados:
+#' Email: <contabilidados@@ufersa.edu.br>
+#' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
+#'
+#' @param value_Y Um vetor numerico representando o primeiro grupo
+#' @param name_Y Um nome para o vetor numerico que representa o primeiro grupo
+#' @param value_X Um vetor numerico representando o segundo grupo
+#' @param name_X Um nome para o vetor numerico que representa o segundo grupo
+#' @param pvalor O valor cretico a ser considerado nos testes. O padrao e 5%
 #'
 #' @returns
-#' Um data.frame com a análise sobre o teste de média dos dois grupos de valores.
+#' Um data.frame com a analise sobre o teste de media dos dois grupos de valores.
 #'
-#' @examples
-#'
-#' library(cntdd)
-#' library(dplyr)
-#'
-#' stat_meanTest(value_Y = 1:6,name_Y = "Menores", value_X = 4:10, name_X = "Maiores", pvalor = 0.01)
-#'
-#' stat_meanTest(mtcars$mpg[mtcars$carb == 1], name_Y = "Carb 1", value_X = mtcars$mpg[mtcars$carb == 4], name_X = "Carb 4")
-#'
-#' # Formatando a tabela com KableExtra
-#' # cntdd::stat_meanTest(value_Y = 1:6,name_Y = "Menores", value_X = 4:10, name_X = "Maiores", pvalor = 0.01) %>%
-#' # kableExtra::kbl(booktabs = T, format = "html") %>% kableExtra::kable_styling()
 #' @import ggplot2
 #' @import readxl
 #' @import dplyr
+#' @importFrom stats var.test
+#' @importFrom stats t.test
+#' @importFrom stats wilcox.test
+#' @importFrom stats median
+#' @importFrom nortest lillie.test
 #' @export
 
 stat_meanTest <- function(value_Y, name_Y = "Y", value_X, name_X = "X", pvalor = 0.05){
@@ -38,8 +44,8 @@ stat_meanTest <- function(value_Y, name_Y = "Y", value_X, name_X = "X", pvalor =
   name_a <- name_Y
   name_b <- name_X
 
-  norm.A <- nortest::lillie.test(A)
-  norm.B <- nortest::lillie.test(B)
+  norm.A <- lillie.test(A)
+  norm.B <- lillie.test(B)
   pvNormA <- norm.A$p.value
   pvNormB <- norm.B$p.value
 
@@ -51,12 +57,12 @@ stat_meanTest <- function(value_Y, name_Y = "Y", value_X, name_X = "X", pvalor =
   if(pvNormA > pvalor & pvNormB > pvalor) {
     difmedia <- "Teste t";
     pvteste <- t.test(A, B, var.equal = parVar);
-    Normalidade <- "Ambos grupos tem distribuição normal";
-    RESULT <- "Médias"
+    Normalidade <- "Ambos grupos tem distribuicao normal";
+    RESULT <- "Medias"
     } else {
       difmedia <- "Mann-Whitney";
       pvteste <- suppressMessages(suppressWarnings(wilcox.test(A, B)));
-      Normalidade <- "Pelo menos um dos grupos não tem distribuição normal";
+      Normalidade <- "Pelo menos um dos grupos nao tem distribuicao normal";
       RESULT <- "Medianas"
       }
 
@@ -91,8 +97,8 @@ stat_meanTest <- function(value_Y, name_Y = "Y", value_X, name_X = "X", pvalor =
     "Teste Usado",
     paste0("pValue ", difmedia),
     paste0("Resultado ", difmedia),
-    paste0("Média de ", name_a), paste0("Média de ", name_b),
-    paste0("Média: ", name_a, " menos ", name_b),
+    paste0("Media de ", name_a), paste0("Media de ", name_b),
+    paste0("Media: ", name_a, " menos ", name_b),
     paste0("Mediana de ", name_a), paste0("Mediana de ", name_b),
     paste0("Mediana: ", name_a, " menos ", name_b), "Qde de Obs"
   )

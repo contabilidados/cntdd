@@ -6,7 +6,7 @@
 \usage{
 ind_liqSeca(
   indicador = "Liq Seca",
-  periodo = 2019:2020,
+  periodo = (year(Sys.Date()) - 2):(year(Sys.Date()) - 1),
   cxEquiv = c(8, 10),
   estoque = c(150, 200),
   ctaRecCP = c(400, 300),
@@ -15,13 +15,14 @@ ind_liqSeca(
   dividasCP = c(30, 40),
   outPasCirc = c(10, 8),
   atvTotal = c(900, 800),
-  plot = T
+  plot = T,
+  relatorio = T
 )
 }
 \arguments{
 \item{indicador}{Um vetor tipo character com o nome do indicador}
 
-\item{periodo}{Vetor numérico indicando o período da análise}
+\item{periodo}{Vetor numérico indicando o periodo da analise}
 
 \item{cxEquiv}{Vetor com os valores do caixa e equivalentes de caixa (Ativo Circulante)}
 
@@ -39,37 +40,57 @@ ind_liqSeca(
 
 \item{atvTotal}{Vetor com os valores do Ativo Total}
 
-\item{plot}{Mostra gráfico? (TRUE/FALSE)}
+\item{plot}{Mostra grafico? (TRUE/FALSE)}
+
+\item{relatorio}{Se \code{TRUE}, Mostra relatorio do indicador. Se \code{FALSE}, mostra apenas o vetor com resultados do indicador (TRUE/FALSE)}
 }
 \description{
-Índice de Liquidez Seca
+Essa função calcula o Índice de Liquidez Seca baseado em vetores relativos as
+contas de ativo circulante e passivo circulante.
 }
 \details{
-Essa função calcula o Índice de Liquidez Seca baseado em vetores relativos às
-contas de ativo circulante e passivo circulante. Apresenta como resultado uma
-lista com 5 itens:
+Apresenta como resultado uma lista com 5 itens:
 \enumerate{
-\item \strong{Gráfico} se o parâmetro \code{plot} for \code{TRUE} ou \code{T}, mostra um gráfico com a
+\item \strong{Grafico} se o parâmetro \code{plot} for \code{TRUE} ou \code{T}, mostra um gráfico com a
 evolução da Liquidez Seca da empresa durante os períodos. Se for \code{FALSE} ou \code{F},
 o gráfico não é apresentado;
 \item \strong{Contas} que corresponde ao banco de dados com as contas informadas para
 cálculo do indicador;
-\item \strong{Índice} o índice de Liquidez Seca dos períodos informados;
-\item \strong{Análise Vertical} Análise Vertical das contas informadas no item 1;
-\item \strong{Análise Horizontal} Análise Horizontal das contas informadas no item 1.
+\item \strong{Índice} o indice de Liquidez Seca dos periodos informados;
+\item \strong{Análise Vertical} Análise Vertical das contas informadas no item 2. Contas de resultado
+terão suas análises verticais em relação à receita total e contas patrimoniais terão
+suas analises verticais em relação ao ativo total;
+\item \strong{Análise Horizontal} Análise Horizontal das contas informadas no item 2.
 }
 
 Todos os itens da lista são bancos de dados no formato tibble que podem ser
-usados individualmente durante o processo de análise de dados.
+usados individualmente durante o processo de analise de dados.
+
+Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
+Ao acessar, fazer busca pelo nome da funcao \code{ind_roa}
+
+Contatos pelo email do Projeto contabiliDados:
+Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
+Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
 }
 \examples{
 
-Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-`cntdd` do Blog do Projeto contabiliDados: \href{http://contabilidados.com.br}{(Acesse Aqui)}. Ao acessar, fazer busca
-pelo nome da função `ind_liqSeca`
+library(cntdd)
 
-Contatos pelo email do Projeto contabiliDados:
-Email: \email{contabilidados@ufersa.edu.br}
-Siga-nos no Instagram: \href{https://www.instagram.com/contabilidados/}{@contabilidados}
+ind_liqSeca(
+    indicador = "Liq Seca",
+    periodo = 2021:2022,
+    cxEquiv = c(8,10),
+    estoque = c(150,200),
+    ctaRecCP = c(400, 300),
+    outAtvCirc = c(1, 3),
+    fornec = c(50, 20),
+    dividasCP = c(30, 40),
+    outPasCirc = c(10, 8),
+    atvTotal = c(900,800),
+    plot = TRUE,
+    relatorio = TRUE
+)
 
 }

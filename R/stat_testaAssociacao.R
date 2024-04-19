@@ -5,8 +5,8 @@ stat_testaAssociacao <- function(tabela, CORREC = T){
   pvalor <- format(round(pvalor, 2), nsmall = 2)
 
   if(pvalor <= 0.05){
-    paste0("Há associação entre os dois grupos (p-Valor: ", pvalor, ")")
+    paste0("Ha associacao entre os dois grupos (p-Valor: ", pvalor, ")")
   } else {
-    paste0("Não há associação entre os dois grupos (p-Valor: ", pvalor, ")")
+    paste0("Nao ha associacao entre os dois grupos (p-Valor: ", pvalor, ")")
   }
 }

@@ -2,30 +2,27 @@
 % Please edit documentation in R/utl_cnpjMascara.R
 \name{utl_CNPJ_Mascara}
 \alias{utl_CNPJ_Mascara}
-\title{Gera número CNPJ no formato desejado}
+\title{Mascara CNPJ}
 \usage{
 utl_CNPJ_Mascara(cnpj, completo = T)
 }
 \arguments{
-\item{cnpj}{string com número do CNPJ}
+\item{cnpj}{string com numero do CNPJ}
 
-\item{completo}{Se \code{TRUE} ou \code{T}, o output mostrar o CNPJ no formato 99.999.999/0001-99. Se \code{FALSE} ou \code{F}, o output será no formato 99999999000199.}
+\item{completo}{Se \code{TRUE} ou \code{T}, o output mostrar o CNPJ no formato 99.999.999/0001-99. Se \code{FALSE} ou \code{F}, o output sera no formato 99999999000199.}
 }
 \description{
-Gera número CNPJ no formato desejado
+Gera numero CNPJ no formato desejado.
 }
 \details{
-Essa função formata o número do CNPJ completo (99.999.999/0001-99) ou
-simplificado (999999990000199), baseado em string com número do CNPJ.
-}
-\examples{
+Essa funcao formata o numero do CNPJ completo (99.999.999/0001-99) ou
+simplificado (999999990000199), baseado em string com numero do CNPJ.
 
-Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-`cntdd` do Blog do Projeto contabiliDados: \href{http://contabilidados.com.br}{(Acesse Aqui)}. Ao acessar, fazer busca
-pelo nome da função `ind_liqSeca`
+Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
+Ao acessar, fazer busca pelo nome da funcao \code{utl_tStarSig}
 
 Contatos pelo email do Projeto contabiliDados:
-Email: \email{contabilidados@ufersa.edu.br}
-Siga-nos no Instagram: \href{https://www.instagram.com/contabilidados/}{@contabilidados}
-
+Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
+Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
 }

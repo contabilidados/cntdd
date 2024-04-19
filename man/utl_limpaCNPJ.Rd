@@ -9,16 +9,23 @@ utl_limpaCNPJ(df, nome_coluna)
 \arguments{
 \item{df}{DataFrame que contém a coluna de CNPJs.}
 
-\item{nome_coluna}{O nome da coluna no DataFrame que contém os CNPJs.}
+\item{nome_coluna}{O nome da coluna no DataFrame que contem os CNPJs.}
 }
 \value{
 Um vetor de CNPJs limpos.
 }
 \description{
-Esta função recebe um DataFrame e um nome de coluna, e retorna uma lista de CNPJs limpos,
-com a remoção de caracteres especiais como pontos, barras e hífens.
+Esta funcao recebe um DataFrame e um nome de coluna, e retorna uma lista de CNPJs limpos,
+com a remocao de caracteres especiais como pontos, barras e hifens.
 }
-\examples{
-df <- data.frame(cnpj = c("00.000.000/0001-00", "11.111.111/1111-11"))
-utl_limpaCNPJ(df, "cnpj")
+\details{
+A máscara do CNPJ deve esta no formato 99.999.999/9999-99.
+
+Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
+Ao acessar, fazer busca pelo nome da função \code{utl_limpaCNPJ}
+
+Contatos pelo email do Projeto contabiliDados:
+Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
+Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
 }

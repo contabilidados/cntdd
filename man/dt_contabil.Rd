@@ -3,19 +3,25 @@
 \docType{data}
 \name{dt_contabil}
 \alias{dt_contabil}
-\title{Dados Contábeis}
+\title{Dados Contabeis}
 \format{
-An object of class \code{data.frame} with 60 rows and 38 columns.
+Data.frame com 40 linhas e 35 colunas.
 }
 \usage{
 dt_contabil
 }
 \description{
-Dados contabeis de empresas fictícias relacionados ao Balanço Patrimonial (BP),
-Demonstração do Resultado do Exercício (DRE) e Demonstração dos Fluxos de
+Dados contabeis de empresas ficticias relacionados ao Balanco Patrimonial (BP),
+Demonstracao do Resultado do Exercicio (DRE) e Demonstracao dos Fluxos de
 Caixa (DFC).
 }
 \details{
-Data.frame com 40 linhas e 35 colunas.
+Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
+Ao acessar, fazer busca pelo nome da funcao \code{dt_contabil}
+
+Contatos pelo email do Projeto contabiliDados:
+Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
+Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
 }
 \keyword{datasets}

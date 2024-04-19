@@ -2,38 +2,37 @@
 % Please edit documentation in R/stat_meanTest.R
 \name{stat_meanTest}
 \alias{stat_meanTest}
-\title{Realizar teste de médias}
+\title{Teste de Medias ou Medianas}
 \usage{
 stat_meanTest(value_Y, name_Y = "Y", value_X, name_X = "X", pvalor = 0.05)
 }
 \arguments{
-\item{value_Y}{Um vetor numérico representando o primeiro grupo}
+\item{value_Y}{Um vetor numerico representando o primeiro grupo}
 
-\item{name_Y}{Um nome para o vetor numérico que representa o primeiro grupo}
+\item{name_Y}{Um nome para o vetor numerico que representa o primeiro grupo}
 
-\item{value_X}{Um vetor numérico representando o segundo grupo}
+\item{value_X}{Um vetor numerico representando o segundo grupo}
 
-\item{name_X}{Um nome para o vetor numérico que representa o segundo grupo}
+\item{name_X}{Um nome para o vetor numerico que representa o segundo grupo}
 
-\item{pvalor}{O valor crítido a ser considerado nos testes. O padrão é 5\%}
+\item{pvalor}{O valor cretico a ser considerado nos testes. O padrao e 5\%}
 }
 \value{
-Um data.frame com a análise sobre o teste de média dos dois grupos de valores.
+Um data.frame com a analise sobre o teste de media dos dois grupos de valores.
 }
 \description{
-Esta função realiza o teste de diferença de médias de dois vetores numéricos
-e apresenta os resultados em uma tabela
+Esta funcao realiza o teste de diferenca de medias ou mediana de dois vetores numericos
+e apresenta os resultados em uma tabela.
 }
-\examples{
+\details{
+A escolha entre o teste de media ou media e realizada de forma automatica, de acordo com a distribuicao
+das variaveis numericas informadas.
 
-library(cntdd)
-library(dplyr)
+Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
+Ao acessar, fazer busca pelo nome da funcao \code{utl_tStarSig}
 
-stat_meanTest(value_Y = 1:6,name_Y = "Menores", value_X = 4:10, name_X = "Maiores", pvalor = 0.01)
-
-stat_meanTest(mtcars$mpg[mtcars$carb == 1], name_Y = "Carb 1", value_X = mtcars$mpg[mtcars$carb == 4], name_X = "Carb 4")
-
-# Formatando a tabela com KableExtra
-# cntdd::stat_meanTest(value_Y = 1:6,name_Y = "Menores", value_X = 4:10, name_X = "Maiores", pvalor = 0.01) \%>\%
-# kableExtra::kbl(booktabs = T, format = "html") \%>\% kableExtra::kable_styling()
+Contatos pelo email do Projeto contabiliDados:
+Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
+Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
 }

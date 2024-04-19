@@ -1,31 +1,25 @@
-#' Tabela de média por grupos
+#' Tabela de estatistica por grupos
 #'
-#' Calcula a média de uma variável numérica baseada em grupos de duas variáveis.
-#' trata-se de uma análise tridimensional
+#' @description
+#' Calcula a estatistica descritiva de uma variavel numerica baseada em grupos de duas variaveis.
+#' trata-se de uma analise tridimensional
+#'
+#' @details
+#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
+#' Ao acessar, fazer busca pelo nome da funcao `utl_tStarSig`
+#'
+#' Contatos pelo email do Projeto contabiliDados:
+#' Email: <contabilidados@@ufersa.edu.br>
+#' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
 #'
 #' @param bd Um data.frame
-#' @param col_Value String informando o nome da coluna referente à variável númerica sobre a qual se pretende criar os grupos
-#' @param col_Grp String com o nome da nova coluna a ser criada com os grupos
-#' @param n_grp Número de grupos, se pretende criar grupos com o mesmo número de observações ou um vetor contendo os percentis para cada grupo. Padrão igual 2.
-#' @param lbl_grp String com o prefixo posto no início do nome do de cada grupo. Padrão igual "grp"
-#'
-#' @examples
-#'
-#' library(cntdd)
-#'
-#' ## Valor da média das despesas operacionais de grupos de empresas baseadas no
-#' ## valor do caixa e equivalentes de caixa e nas dívidas de curto prazo.
-#' ## No exemplo, as empresas com mais dívidas de curto prazo e maiores valores
-#' ## de caixa e equivalentes de caixa são as que possuem os maiores valores
-#' ## médios de despesas operacionais ($ 1.999.101).
-#'
-#' utl_tableStat(cntdd::dt_contabil, "cxEquiv", 3, "dividasCP", 2, "despOper", mean)
-#'
-#' ## Por outro lado, as empresas com valores intermediários de caixa e equivalentes
-#' ## caixa (cxEquiv_2) e com maiores valores de dívidas de curto prazo são as que
-#' ## apresentam maior desvio-padrão entre os valores médios ($ 874.873).
-#'
-#' utl_tableStat(cntdd::dt_contabil, "cxEquiv", 3, "dividasCP", 2, "despOper", sd)
+#' @param grp1 String informando o nome da coluna referente a variavel 1
+#' @param n_grp1 Numero de grupos da variavel 1
+#' @param grp2 String informando o nome da coluna referente a variavel 2
+#' @param n_grp2 Numero de grupos da variavel 2
+#' @param value Variavel do banco de dados da qual se pretende retirar a estatisca descritiva
+#' @param ... Informar qual estatistica descritiva (mean, sd)
 #'
 #' @import ggplot2
 #' @import readxl
@@ -36,14 +30,14 @@
 
 utl_tableStat <- function(bd, grp1, n_grp1, grp2, n_grp2, value, ...){
 
-  bd %>% dplyr::select_at(.vars = value) %>% names -> vlName
+  bd %>% select(all_of(value)) %>% names -> vlName
 
-  bd %>%
-    utl_createGroup(., grp1, "grpA", n_grp1) %>%
-    utl_createGroup(., grp2, "grpB", n_grp2) %>%
-    group_by(grpA, grpB) %>%
-    summarise_at(value, ...) %>%
-    pivot_wider(names_from = "grpB", values_from = value) -> result
+  # bd %>%
+    bd <- utl_createGroup(bd, grp1, "grpA", n_grp1)
+    bd <- utl_createGroup(bd, grp2, "grpB", n_grp2) %>%
+      group_by(across(all_of(c("grpA", "grpB")))) %>%
+      summarise_at(value, ...) %>%
+      pivot_wider(names_from = "grpB", values_from = value) -> result
 
   names(result)[1] <- paste0("Stat_", vlName)
 

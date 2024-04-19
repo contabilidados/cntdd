@@ -2,33 +2,38 @@
 % Please edit documentation in R/utl_t_starSig.R
 \name{utl_tStarSig}
 \alias{utl_tStarSig}
-\title{Formata significância}
+\title{Formata significancia}
 \usage{
-utl_tStarSig(sig, t = NULL, nDigits = 2)
+utl_tStarSig(
+  sig,
+  t = NULL,
+  nDigits = 2,
+  sigValue = c(0.01, 0.05, 0.1),
+  sigSimbolo = c("***", "**", "*")
+)
 }
 \arguments{
 \item{sig}{o P-Value}
 
 \item{t}{a Estatística t}
 
-\item{nDigits}{Número de Dígitos}
+\item{nDigits}{Numero de Digitos}
+
+\item{sigValue}{Valores da significancia (Padrao: 1\%, 5\% e 10\%)}
+
+\item{sigSimbolo}{Simbolos usados para indicar as significancias (Padrao: 1\%, 5\% e 10\%)}
 }
 \description{
-Formata significância
+Essa funcao formata a estatistica t e o nivel de significancia. Seu resultado
+pode ser uma Estatistica t com o numero de casas decimais informados com o
+respectivo p-valor identificado por asteriscos.
 }
 \details{
-Essa função formata a estatística t e o nível de significância. Seu resultado
-pode ser uma Estatística t com o número de casas decimais informados com o
-respectivo p-valor identificado por asteriscos, sendo \code{*}10\%, \verb{**}5\% e \verb{***}1\%.
-}
-\examples{
-
-Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-`cntdd` do Blog do Projeto contabiliDados: \href{http://contabilidados.com.br}{(Acesse Aqui)}. Ao acessar, fazer busca
-pelo nome da função `ind_liqSeca`
+Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
+Ao acessar, fazer busca pelo nome da funcao \code{utl_tStarSig}
 
 Contatos pelo email do Projeto contabiliDados:
-Email: \email{contabilidados@ufersa.edu.br}
-Siga-nos no Instagram: \href{https://www.instagram.com/contabilidados/}{@contabilidados}
-
+Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
+Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
 }

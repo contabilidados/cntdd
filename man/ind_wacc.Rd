@@ -2,11 +2,11 @@
 % Please edit documentation in R/ind_wacc.R
 \name{ind_wacc}
 \alias{ind_wacc}
-\title{Custo Médio de Capital Ponderado (WACC ou CMPC)}
+\title{Custo Medio de Capital Ponderado (WACC ou CMPC)}
 \usage{
 ind_wacc(
   indicador = "WACC",
-  periodo = 2019:2020,
+  periodo = (year(Sys.Date()) - 2):(year(Sys.Date()) - 1),
   empFinCP = c(200, 300),
   empFinLP = c(100, 200),
   patLiq = c(400, 600),
@@ -19,68 +19,71 @@ ind_wacc(
   beta = 1.3,
   rf = 0.07,
   rm = 0.13,
-  plot = T
+  plot = T,
+  relatorio = T
 )
 }
 \arguments{
 \item{indicador}{Um vetor tipo character com o nome do indicador}
 
-\item{periodo}{Vetor numérico indicando o período da análise}
+\item{periodo}{Vetor numerico indicando o periodo da analise}
 
-\item{empFinCP}{Vetor com os valores de empréstimos e financiamentos de curto prazo (Passivo Circulante)}
+\item{empFinCP}{Vetor com os valores de emprestimos e financiamentos de curto prazo (Passivo Circulante)}
 
-\item{empFinLP}{Vetor com os valores de empréstimos e financiamentos de longo prazo (Passivo Não Circulante)}
+\item{empFinLP}{Vetor com os valores de emprestimos e financiamentos de longo prazo (Passivo Nao Circulante)}
 
-\item{patLiq}{Vetor com os valores do Patrimônio Líquido}
+\item{patLiq}{Vetor com os valores do Patrimônio Liquido}
 
 \item{despJuros}{Vetor com os valores das despesas com juros (DRE/Notas Explicativas)}
 
-\item{receita}{Vetor com os valores da receita líquida (Demonstração de Resultado - DRE)}
+\item{receita}{Vetor com os valores da receita liquida (Demonstracao de Resultado - DRE)}
 
 \item{atvTotal}{Vetor com os valores do Ativo Total}
 
-\item{ir}{Valor relativo à alíquota do Imposto de Renda}
+\item{ir}{Valor relativo a aliquota do Imposto de Renda}
 
-\item{capm}{Se \code{TRUE}, cálcula \code{ke} pela fórmula \code{rf + beta * (rm - rf)}. Se \code{FALSE}, cálcula pelo parâmetro ke}
+\item{capm}{Se \code{TRUE}, calcula \code{ke} pela fórmula \code{rf + beta * (rm - rf)}. Se \code{FALSE}, calcula pelo parametro ke}
 
 \item{ke}{Valor relativo ao custo de capital do sócio}
 
-\item{beta}{Valor relativo ao beta (medida de volatilidade ou risco sistemático) de um título ou portifólio comparado ao mercado como um todo}
+\item{beta}{Valor relativo ao beta (medida de volatilidade ou risco sistematico) de um titulo ou portifólio comparado ao mercado como um todo}
 
-\item{rf}{Valor relativo à taxa de juros livre de risco ou risco baixo}
+\item{rf}{Valor relativo a taxa de juros livre de risco ou risco baixo}
 
-\item{rm}{Valor relativo à taxa de remuneração paga pelo mercado}
+\item{rm}{Valor relativo a taxa de remuneracao paga pelo mercado}
 
-\item{plot}{Se \code{TRUE}, Mostra gráfico do indicador. Se \code{FALSE}, não mostra o gráfico (TRUE/FALSE)}
+\item{plot}{Se \code{TRUE}, Mostra grafico do indicador. Se \code{FALSE}, nao mostra o grafico (TRUE/FALSE)}
+
+\item{relatorio}{Se \code{TRUE}, Mostra relatorio do indicador. Se \code{FALSE}, mostra apenas o vetor com resultados do indicador (TRUE/FALSE)}
 }
 \description{
-Essa função calcula o Custo Médio de Capital Ponderado baseado em vetores relativos ao
-custo da dívida, peso da dívida e o benefício fiscal do imposto de renda,
+Essa funcao calcula o Custo Medio de Capital Ponderado baseado em vetores relativos ao
+custo da divida, peso da divida e o beneficio fiscal do imposto de renda,
 custo de capital do sócio, peso do capital do sócio.
+}
+\details{
 Apresenta como resultado uma #' lista com 5 itens:
 \enumerate{
-\item \strong{Gráfico} se o parâmetro \code{plot} for \code{TRUE} ou \code{T}, mostra um gráfico com a
-evolução do Custo Médio de Capital Ponderado dos sócios e banco. Se for \code{FALSE} ou \code{F},
-o gráfico não é apresentado;
+\item \strong{Grafico} se o parametro \code{plot} for \code{TRUE} ou \code{T}, mostra um grafico com a
+evolucao do Custo Medio de Capital Ponderado pelos valores investidos pelos
+socios e banco. Se for \code{FALSE} ou \code{F}, o grafico nao e apresentado;
 \item \strong{Contas} que corresponde ao banco de dados com as contas informadas para
-cálculo do indicador;
-\item \strong{Índice} o índice de Custo Médio de Capital Ponderado dos períodos informados;
-\item \strong{Análise Vertical} Análise Vertical das contas informadas no item 1;
-\item \strong{Análise Horizontal} Análise Horizontal das contas informadas no item 1.
+calculo do indicador;
+\item \strong{Indice} o indice de Custo Medio de Capital Ponderado dos periodos informados;
+\item \strong{Analise Vertical} Analise Vertical das contas informadas no item 1. Conta de resultado
+terao sua analise vertical em relacao a receita total e contas patrimoniais terao
+sua analise vertical em relacao ao ativo total;
+\item \strong{Analise Horizontal} Analise Horizontal das contas informadas no item 1.
 }
 
-Todos os itens da lista são bancos de dados no formato tibble que podem ser
-usados individualmente durante o processo de análise de dados.
-}
-\examples{
+Todos os itens da lista sao bancos de dados no formato tibble que podem ser
+usados individualmente durante o processo de analise de dados.
 
-Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-`cntdd` do Blog do Projeto contabiliDados: \href{http://contabilidados.com.br}{(http://contabilidados.com.br)}. Ao acessar, fazer busca
-pelo nome da função `ind_wacc`
+Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
+Ao acessar, fazer busca pelo nome da funcao \code{ind_roa}
 
 Contatos pelo email do Projeto contabiliDados:
-Email: \email{contabilidados@ufersa.edu.br}
-Siga-nos no Instagram: \href{https://www.instagram.com/contabilidados/}{@contabilidados}
-
-
+Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
+Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
 }

@@ -2,41 +2,35 @@
 % Please edit documentation in R/utl_tableStat.R
 \name{utl_tableStat}
 \alias{utl_tableStat}
-\title{Tabela de média por grupos}
+\title{Tabela de estatistica por grupos}
 \usage{
 utl_tableStat(bd, grp1, n_grp1, grp2, n_grp2, value, ...)
 }
 \arguments{
 \item{bd}{Um data.frame}
 
-\item{col_Value}{String informando o nome da coluna referente à variável númerica sobre a qual se pretende criar os grupos}
+\item{grp1}{String informando o nome da coluna referente a variavel 1}
 
-\item{col_Grp}{String com o nome da nova coluna a ser criada com os grupos}
+\item{n_grp1}{Numero de grupos da variavel 1}
 
-\item{n_grp}{Número de grupos, se pretende criar grupos com o mesmo número de observações ou um vetor contendo os percentis para cada grupo. Padrão igual 2.}
+\item{grp2}{String informando o nome da coluna referente a variavel 2}
 
-\item{lbl_grp}{String com o prefixo posto no início do nome do de cada grupo. Padrão igual "grp"}
+\item{n_grp2}{Numero de grupos da variavel 2}
+
+\item{value}{Variavel do banco de dados da qual se pretende retirar a estatisca descritiva}
+
+\item{...}{Informar qual estatistica descritiva (mean, sd)}
 }
 \description{
-Calcula a média de uma variável numérica baseada em grupos de duas variáveis.
-trata-se de uma análise tridimensional
+Calcula a estatistica descritiva de uma variavel numerica baseada em grupos de duas variaveis.
+trata-se de uma analise tridimensional
 }
-\examples{
+\details{
+Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
+Ao acessar, fazer busca pelo nome da funcao \code{utl_tStarSig}
 
-library(cntdd)
-
-## Valor da média das despesas operacionais de grupos de empresas baseadas no
-## valor do caixa e equivalentes de caixa e nas dívidas de curto prazo.
-## No exemplo, as empresas com mais dívidas de curto prazo e maiores valores
-## de caixa e equivalentes de caixa são as que possuem os maiores valores
-## médios de despesas operacionais ($ 1.999.101).
-
-utl_tableStat(cntdd::dt_contabil, "cxEquiv", 3, "dividasCP", 2, "despOper", mean)
-
-## Por outro lado, as empresas com valores intermediários de caixa e equivalentes
-## caixa (cxEquiv_2) e com maiores valores de dívidas de curto prazo são as que
-## apresentam maior desvio-padrão entre os valores médios ($ 874.873).
-
-utl_tableStat(cntdd::dt_contabil, "cxEquiv", 3, "dividasCP", 2, "despOper", sd)
-
+Contatos pelo email do Projeto contabiliDados:
+Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
+Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
 }

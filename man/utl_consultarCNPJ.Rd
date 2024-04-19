@@ -21,19 +21,12 @@ secundários e dados societários.
 \details{
 A função depende das bibliotecas \code{jsonlite} e \code{tidyverse}. Certifique-se de que estão instaladas
 e carregadas.
-}
-\examples{
-cnpj <- c("08350241000172", "24529265000140")
-df_resultado <- utl_consultarCNPJ(cnpj)
 
-Função desenvolvida por Alexsandro Prado (alexsandro.prado@ufersa.edu.br) em colaboração com Kleber Formiga (mirandakf@ufersa.edu.br)
-Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-`cntdd` do Blog do Projeto contabiliDados: \href{http://contabilidados.com.br}{(Acesse Aqui)}. Ao acessar, fazer busca
-pelo nome da função `ind_liqCorrente`
+Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
+Ao acessar, fazer busca pelo nome da funcao \code{utl_consultarCNPJ}
 
 Contatos pelo email do Projeto contabiliDados:
-Email: \email{contabilidados@ufersa.edu.br}
-Siga-nos no Instagram: \href{https://www.instagram.com/contabilidados/}{@contabilidados}
-
-
+Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
+Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
 }

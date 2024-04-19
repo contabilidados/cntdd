@@ -1,18 +1,19 @@
-#' Calcular a média geométrica
+#' Media geometrica
 #'
-#' Esta função calculará a média geométrica de um vetor numérico
+#' @description
+#' Esta funcao calculara a media geometrica de um vetor numerico.
 #'
-#' @param x Um vetor numérico
-#' @param dec O número de casas decimais (padrão: 3)
+#' @details
+#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
+#' Ao acessar, fazer busca pelo nome da funcao `utl_tStarSig`
 #'
-#' @examples
-#' library(cntdd)
-#' stat_geomMean(1:6, 2) # Vetor
+#' Contatos pelo email do Projeto contabiliDados:
+#' Email: <contabilidados@@ufersa.edu.br>
+#' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
 #'
-#' stat_geomMean(dt_contabil$ativoTotal) # DataFrame
-#'
-#' suppressMessages(suppressWarnings(library(dplyr)))
-#' dt_contabil %>% summarise(estoqueMedio = stat_geomMean(estoques)) # Dplyr
+#' @param x Um vetor numerico
+#' @param dec O numero de casas decimais (padrao: 3)
 #'
 #' @export
 
