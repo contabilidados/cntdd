@@ -1,14 +1,14 @@
-#' Formata significancia
+#' Formata significância
 #'
 #' @description
-#' Essa funcao formata a estatistica t e o nivel de significancia. Seu resultado
-#' pode ser uma Estatistica t com o numero de casas decimais informados com o
+#' Essa função formata a estatística t e o nível de significância. Seu resultado
+#' pode ser uma Estatística t com o número de casas decimais informados com o
 #' respectivo p-valor identificado por asteriscos.
 #'
 #' @details
-#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
-#' Ao acessar, fazer busca pelo nome da funcao `utl_tStarSig`
+#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub/>.
+#' Ao acessar, fazer busca pelo nome da função `utl_tStarSig`
 #'
 #' Contatos pelo email do Projeto contabiliDados:
 #' Email: <contabilidados@@ufersa.edu.br>
@@ -16,12 +16,22 @@
 #'
 #' @param sig o P-Value
 #' @param t a Estatística t
-#' @param nDigits Numero de Digitos
-#' @param sigValue Valores da significancia (Padrao: 1%, 5% e 10%)
-#' @param sigSimbolo Simbolos usados para indicar as significancias (Padrao: 1%, 5% e 10%)
+#' @param nDigits Número de Dígitos
+#' @param sigValue Valores da significância (Padrão: 1%, 5% e 10%)
+#' @param sigSimbolo Símbolos usados para indicar as significâncias (Padrão: 1%, 5% e 10%)
+#'
+#' @examples
+#' library(cntdd)
+#'
+#' utl_tStarSig(0.03, t = NULL, nDigits = 2,
+#' sigValue = c(0.01, 0.05, 0.10), sigSimbolo = c("***", "**", "*"))
+#'
+#' # ou
+#'
+#' utl_tStarSig(0.03, t = 1.97, nDigits = 2,
+#' sigValue = c(0.01, 0.05, 0.10), sigSimbolo = c("+", "**", "*"))
 #'
 #' @import dplyr
-#' @import tidyr
 #' @export
 
 utl_tStarSig <-
@@ -57,3 +67,4 @@ utl_tStarSig <-
     return(star)
 
   }
+

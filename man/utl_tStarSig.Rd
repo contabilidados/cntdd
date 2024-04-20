@@ -2,7 +2,7 @@
 % Please edit documentation in R/utl_t_starSig.R
 \name{utl_tStarSig}
 \alias{utl_tStarSig}
-\title{Formata significancia}
+\title{Formata significância}
 \usage{
 utl_tStarSig(
   sig,
@@ -17,23 +17,35 @@ utl_tStarSig(
 
 \item{t}{a Estatística t}
 
-\item{nDigits}{Numero de Digitos}
+\item{nDigits}{Número de Dígitos}
 
-\item{sigValue}{Valores da significancia (Padrao: 1\%, 5\% e 10\%)}
+\item{sigValue}{Valores da significância (Padrão: 1\%, 5\% e 10\%)}
 
-\item{sigSimbolo}{Simbolos usados para indicar as significancias (Padrao: 1\%, 5\% e 10\%)}
+\item{sigSimbolo}{Símbolos usados para indicar as significâncias (Padrão: 1\%, 5\% e 10\%)}
 }
 \description{
-Essa funcao formata a estatistica t e o nivel de significancia. Seu resultado
-pode ser uma Estatistica t com o numero de casas decimais informados com o
+Essa função formata a estatística t e o nível de significância. Seu resultado
+pode ser uma Estatística t com o número de casas decimais informados com o
 respectivo p-valor identificado por asteriscos.
 }
 \details{
-Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
-Ao acessar, fazer busca pelo nome da funcao \code{utl_tStarSig}
+Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub/}.
+Ao acessar, fazer busca pelo nome da função \code{utl_tStarSig}
 
 Contatos pelo email do Projeto contabiliDados:
 Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
 Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
+}
+\examples{
+library(cntdd)
+
+utl_tStarSig(0.03, t = NULL, nDigits = 2,
+sigValue = c(0.01, 0.05, 0.10), sigSimbolo = c("***", "**", "*"))
+
+# ou
+
+utl_tStarSig(0.03, t = 1.97, nDigits = 2,
+sigValue = c(0.01, 0.05, 0.10), sigSimbolo = c("+", "**", "*"))
+
 }

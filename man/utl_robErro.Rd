@@ -11,20 +11,35 @@ utl_robErro(reg, tipo = "HC1", HAC = F)
 
 \item{tipo}{String informando qual a correção da heterocedasticidade (HC1, HC2...)}
 
-\item{HAC}{Se FALSE(default), os erros serao robustos a heterocedasticidade. Se TRUE, serao robustos a heterocedasticidade e a autocorrelacao.}
+\item{HAC}{Se FALSE(default), os erros serão robustos à heterocedasticidade.
+Se TRUE, serão robustos à heterocedasticidade e a autocorrelação.}
 }
 \description{
-Estimacao consistente com a heterocedasticidade e/ou autocorrelacao da matriz
-de covariancia das estimativas de coeficientes em modelos de regressao.
+Estimação consistente com a heterocedasticidade e/ou autocorrelação da matriz
+de covariância das estimativas de coeficientes em modelos de regressão.
 }
 \details{
-Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
-Ao acessar, fazer busca pelo nome da funcao \code{utl_tStarSig}
+Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub/}.
+Ao acessar, fazer busca pelo nome da função \code{utl_robErro}
 
 Contatos pelo email do Projeto contabiliDados:
 Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
 Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
+}
+\examples{
+library(cntdd)
+library(sandwich)
+dt <- na.omit(cntdd::dt_contabil)
+
+estima <- lm(log(estoques) ~ log(receita), dt)
+
+utl_robErro(estima)
+
+utl_robErro(estima, tipo = "HC3")
+
+utl_robErro(estima, HAC = TRUE)
+
 }
 \seealso{
 \code{\link[=cut]{cut()}}, \code{\link[=quantile]{quantile()}}, \code{\link[=vcovHAC]{vcovHAC()}}, \code{\link[=vcovHC]{vcovHC()}}

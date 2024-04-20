@@ -1,24 +1,40 @@
-#' Correlacao de Pearson e Spearman
+#' Correlação de Pearson e Spearman
 #'
 #' @description
-#' Gera matriz de correlacao de Pearson e/ou Spearman com suas respectivas
-#' significancias estatisticas
+#' Gera matriz de correlação de Pearson e/ou Spearman com suas respectivas
+#' significâncias estatísticas.
 #'
 #' @details
-#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
-#' Ao acessar, fazer busca pelo nome da funcao `utl_tStarSig`
+#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub/>.
+#' Ao acessar, fazer busca pelo nome da função `stat_correl`.
 #'
 #' Contatos pelo email do Projeto contabiliDados:
 #' Email: <contabilidados@@ufersa.edu.br>
 #' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
 #'
 #' @param dt Um data.frame
-#' @param pearsonLower Se `TRUE` ou `T`, a correlacao de Pearson e disposta na diagonal inferior da Matriz e a correlação de Spearman na diagonal superior. Se `FALSE` OU `F`, a disposicao das correlacoes e inversa. (Padrao: `T`)
-#' @param ommitLower Se `TRUE` ou `T`, a diagonal INFERIOR e omitida. Se `FALSE` OU `F`, e mostrada. (Padrao: `F`)
-#' @param ommitUpper Se `TRUE` ou `T`, a diagonal SUPERIOR e omitida. Se `FALSE` OU `F`, e mostrada. (Padrao: `F`)
-#' @param digits Numero de digitos da correlacao (Padrao: `2`)
-#' @param decimal Caracter para casa decimal (Padrao: `,`)
+#' @param pearsonLower Se `TRUE` ou `T`, a correlação de Pearson e disposta na diagonal
+#' inferior da Matriz e a correlação de Spearman na diagonal superior. Se `FALSE` OU `F`,
+#' a disposição das correlações é inversa. (Padrão: `T`)
+#' @param ommitLower Se `TRUE` ou `T`, a diagonal INFERIOR é omitida. Se `FALSE` OU `F`,
+#' e mostrada. (Padrão: `F`)
+#' @param ommitUpper Se `TRUE` ou `T`, a diagonal SUPERIOR é omitida. Se `FALSE` OU `F`,
+#' e mostrada. (Padrão: `F`)
+#' @param digits Número de dígitos da correlação (Padrão: `2`)
+#' @param decimal Caracter para casa decimal (Padrão: `,`)
+#'
+#' @examples
+#' library(cntdd)
+#'
+#' stat_correl(
+#'  dt = cntdd::dt_contabil[4:8],
+#'  pearsonLower = TRUE,
+#'  ommitLower = FALSE,
+#'  ommitUpper = FALSE,
+#'  digits = 2,
+#'  decimal = ","
+#'  )
 #'
 #' @importFrom Hmisc rcorr
 #' @import dplyr

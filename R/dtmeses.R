@@ -1,14 +1,14 @@
 #' @title Meses do ano
 #'
 #' @description
-#' Variacao de apresentacao dos dados de meses (textual ou numerico). Tambem sao
-#' incorporadas informacoes sobre bimestre, trimestre, quadrimestre e semestre
-#' relativos a cada mes do ano.
+#' Variação de apresentação dos dados de meses (textual ou numérico). Também são
+#' incorporadas informações sobre bimestre, trimestre, quadrimestre e semestre
+#' relativos a cada mês do ano.
 #'
 #' @details
-#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
-#' Ao acessar, fazer busca pelo nome da funcao `dt_meses`
+#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub>.
+#' Ao acessar, fazer busca pelo nome da função `dt_meses`
 #'
 #' Contatos pelo email do Projeto contabiliDados:
 #' Email: <contabilidados@@ufersa.edu.br>

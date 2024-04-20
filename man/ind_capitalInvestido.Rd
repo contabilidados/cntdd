@@ -18,47 +18,65 @@ ind_capitalInvestido(
 \arguments{
 \item{indicador}{Um vetor tipo character com o nome do indicador}
 
-\item{periodo}{Vetor numerico indicando o periodo da analise}
+\item{periodo}{Vetor numérico indicando o período da análise}
 
-\item{patLiq}{Vetor com os valores do patrimonio liquido da empresa}
+\item{patLiq}{Vetor com os valores do patrimônio líquido da empresa}
 
-\item{empFinCP}{Vetor com os valores de emprestimos e financiamentos de longo prazo da empresa}
+\item{empFinCP}{Vetor com os valores de empréstimos e financiamentos de
+longo prazo da empresa}
 
-\item{empFinLP}{Vetor com os valores de emprestimos e financiamentos de curto prazo da empresa}
+\item{empFinLP}{Vetor com os valores de empréstimos e financiamentos de
+curto prazo da empresa}
 
 \item{atvTotal}{Vetor com os valores do Ativo Total}
 
-\item{plot}{Mostra grafico? (TRUE/FALSE)}
+\item{plot}{Mostra gráfico? (TRUE/FALSE)}
 
-\item{relatorio}{Se \code{TRUE}, Mostra relatorio do indicador. Se \code{FALSE}, mostra apenas o vetor com resultados do indicador (TRUE/FALSE)}
+\item{relatorio}{Se \code{TRUE}, Mostra relatório do indicador. Se \code{FALSE},
+mostra apenas o vetor com resultados do indicador (TRUE/FALSE)}
 }
 \description{
-Essa funcao calcula, de forma objetiva, o capital investido. Corresponde ao
-investimento realizado por acionistas (socios) e credores (bancos).
+Essa função calcula, de forma objetiva, o capital investido. Corresponde ao
+investimento realizado por acionistas (sócios) e credores (bancos).
 }
 \details{
 Apresenta como resultado uma lista com 5 itens:
 \enumerate{
-\item \strong{Grafico} se o parametro \code{plot} for \code{TRUE} ou \code{T}, mostra um grafico com a
-evolucao do capital investido da empresa durante os periodos. Se for \code{FALSE} ou \code{F},
-o grafico nao e apresentado;
+\item \strong{Gráfico} se o parâmetro \code{plot} for \code{TRUE} ou \code{T}, mostra um gráfico com a
+evolução do capital investido da empresa durante os períodos. Se for \code{FALSE} ou \code{F},
+o gráfico não é apresentado;
 \item \strong{Contas} que corresponde ao banco de dados com as contas informadas para
-calculo do indicador;
-\item \strong{Indice} o capital investido dos periodos informados;
-\item \strong{Analise Vertical} Analise Vertical das contas informadas no item 1. Contas de resultado
-terao sua analise vertical em relacao a receita total e contas patrimoniais terao
-sua analise vertical em relacao ao ativo total;
-\item \strong{Analise Horizontal} Analise Horizontal das contas informadas no item 1.
+cálculo do indicador;
+\item \strong{Índice} o capital investido dos períodos informados;
+\item \strong{Análise Vertical} Análise Vertical das contas informadas no item 2.
+Contas de resultado terão suas análises verticais em relação à receita total e
+contas patrimoniais terão suas análises verticais em relação ao ativo total;
+\item \strong{Análise Horizontal} Análise Horizontal das contas informadas no item 2.
 }
 
-Todos os itens da lista sao bancos de dados no formato tibble que podem ser
-usados individualmente durante o processo de analise de dados.
+Todos os itens da lista são bancos de dados no formato tibble que podem ser
+usados individualmente durante o processo de análise de dados.
 
-Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
-Ao acessar, fazer busca pelo nome da funcao \code{ind_roa}
+Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub}.
+Ao acessar, fazer busca pelo nome da funcao \code{ind_capitalInvestido}.
 
 Contatos pelo email do Projeto contabiliDados:
 Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
 Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
+}
+\examples{
+library(cntdd)
+
+ind_capitalInvestido(
+ indicador = "capitalInvestido",
+ periodo = 2021:2022,
+ patLiq = c(100,300),
+ empFinCP = c(150,200),
+ empFinLP = c(230,190),
+ atvTotal = c(500,400),
+ plot = TRUE,
+ relatorio = TRUE
+ )
+
 }

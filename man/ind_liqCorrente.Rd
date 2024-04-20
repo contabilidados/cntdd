@@ -2,7 +2,7 @@
 % Please edit documentation in R/ind_liqCorrente.R
 \name{ind_liqCorrente}
 \alias{ind_liqCorrente}
-\title{Indice de Liquidez Corrente}
+\title{Índice de Liquidez Corrente}
 \usage{
 ind_liqCorrente(
   indicador = "Liq Corrente",
@@ -22,7 +22,7 @@ ind_liqCorrente(
 \arguments{
 \item{indicador}{Um vetor tipo character com o nome do indicador}
 
-\item{periodo}{Vetor numérico indicando o periodo da analise}
+\item{periodo}{Vetor numérico indicando o período da análise}
 
 \item{cxEquiv}{Vetor com os valores do caixa e equivalentes de caixa (Ativo Circulante)}
 
@@ -40,37 +40,57 @@ ind_liqCorrente(
 
 \item{atvTotal}{Vetor com os valores do Ativo Total}
 
-\item{plot}{Mostra grafico? (TRUE/FALSE)}
+\item{plot}{Mostra gráfico? (TRUE/FALSE)}
 
-\item{relatorio}{Se \code{TRUE}, Mostra relatorio do indicador. Se \code{FALSE}, mostra apenas o vetor com resultados do indicador (TRUE/FALSE)}
+\item{relatorio}{Se \code{TRUE}, Mostra relatório do indicador. Se \code{FALSE},
+mostra apenas o vetor com resultados do indicador (TRUE/FALSE)}
 }
 \description{
-Essa funcao calcula o Indice de Liquidez Corrente baseado em vetores relativos as
+Essa função calcula o Índice de Liquidez Corrente baseado em vetores relativos às
 contas de ativo circulante e passivo circulante.
 }
 \details{
 Apresenta como resultado uma lista com 5 itens:
 \enumerate{
-\item \strong{Grafico} se o parametro \code{plot} for \code{TRUE} ou \code{T}, mostra um grafico com a
-evolucao da Liquidez corrente da empresa durante os periodos. Se for \code{FALSE} ou \code{F},
-o grafico nao é apresentado;
+\item \strong{Gráfico} se o parâmetro \code{plot} for \code{TRUE} ou \code{T}, mostra um gráfico com a
+evolução da Liquidez corrente da empresa durante os períodos. Se for \code{FALSE} ou \code{F},
+o gráfico não é apresentado;
 \item \strong{Contas} que corresponde ao banco de dados com as contas informadas para
-calculo do indicador;
-\item \strong{Indice} o indice de Liquidez Corrente dos periodos informados;
-\item \strong{Analise Vertical} Analise Vertical das contas informadas no item 1. Conta de resultado
-terao sua analise vertical em relacao a receita total e contas patrimoniais terao
-sua analise vertical em relacao ao ativo total;
-\item \strong{Analise Horizontal} Analise Horizontal das contas informadas no item 1.
+cálculo do indicador;
+\item \strong{Índice} o índice de Liquidez Corrente dos períodos informados;
+\item \strong{Análise Vertical} Análise Vertical das contas informadas no item 2.
+Contas de resultado terão suas análises verticais em relação à receita total e
+contas patrimoniais terão suas análises verticais em relação ao ativo total;
+\item \strong{Análise Horizontal} Análise Horizontal das contas informadas no item 2.
 }
 
-Todos os itens da lista sao bancos de dados no formato tibble que podem ser
-usados individualmente durante o processo de analise de dados.
+Todos os itens da lista são bancos de dados no formato tibble que podem ser
+usados individualmente durante o processo de análise de dados.
 
-Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
-Ao acessar, fazer busca pelo nome da funcao \code{ind_roa}
+Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub/}.
+Ao acessar, fazer busca pelo nome da função \code{ind_liqCorrente}
 
 Contatos pelo email do Projeto contabiliDados:
 Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
 Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
+}
+\examples{
+library(cntdd)
+
+ind_liqCorrente(
+ indicador = "Liq Corrente",
+ periodo = 2021:2022,
+ cxEquiv = c(8,10),
+ estoque = c(150,200),
+ ctaRecCP = c(400, 300),
+ outAtvCirc = c(1, 3),
+ fornec = c(50, 20),
+ dividasCP = c(30, 40),
+ outPasCirc = c(10, 8),
+ atvTotal = c(900,800),
+ plot = TRUE,
+ relatorio = TRUE
+ )
+
 }

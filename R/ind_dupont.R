@@ -1,52 +1,68 @@
-#' Analise Dupont (ROE desmembrado)
+#' Análise Dupont (ROE desmembrado)
 #'
 #' @description
-#' Essa funcao calcula o Indice de Retorno sobre o Ativo baseado em vetores relativos as
-#' contas de Lucro Liquido e Ativo Total.
+#' Essa função calcula o Índice de Retorno sobre o Patrimônio Líquido, baseado
+#' em vetores relativos as contas de Lucro Liquido, receita, Ativo Total e
+#' endividamento.
 #'
 #' @details
 #' Apresenta como resultado uma lista com 5 itens:
 #'
-#' 1. **Grafico** se o parametro `plot` for `TRUE` ou `T`, mostra um grafico com a
-#' evolucao do ROE da empresa durante os periodos. Se for `FALSE` ou `F`,
-#' o grafico nao e apresentado;
+#' 1. **Gráfico** se o parâmetro `plot` for `TRUE` ou `T`, mostra um gráfico com a
+#' evolução do ROE da empresa durante os períodos. Se for `FALSE` ou `F`,
+#' o gráfico não é apresentado;
 #'
 #' 2.  **Contas** que corresponde ao banco de dados com as contas informadas para
-#' calculo do indicador;
+#' cálculo do indicador;
 #'
-#' 3.  **Indice** o indice de Retorno sobre o patrimonio liquido dos periodos informados;
+#' 3.  **Índice** o índice de Retorno sobre o patrimônio líquido dos períodos informados;
 #'
-#' 4.  **Analise Vertical** Analise Vertical das contas informadas no item 1. Conta de resultado
-#' terao sua analise vertical em relacao a receita total e contas patrimoniais terao
-#' sua analise vertical em relacao ao ativo total;
+#' 4.  **Análise Vertical** Análise Vertical das contas informadas no item 2.
+#' Contas de resultado terão suas análises verticais em relação à receita total e
+#' contas patrimoniais terão suas análises verticais em relação ao ativo total;
 #'
-#' 5.  **Analise Horizontal** Analise Horizontal das contas informadas no item 1.
+#' 5.  **Análise Horizontal** Análise Horizontal das contas informadas no item 2.
 #'
-#' Todos os itens da lista sao bancos de dados no formato tibble que podem ser
-#' usados individualmente durante o processo de analise de dados.
+#' Todos os itens da lista são bancos de dados no formato tibble que podem ser
+#' usados individualmente durante o processo de análise de dados.
 #'
-#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
-#' Ao acessar, fazer busca pelo nome da funcao `ind_roa`
+#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub/>.
+#' Ao acessar, fazer busca pelo nome da função `ind_dupont`
 #'
 #' Contatos pelo email do Projeto contabiliDados:
 #' Email: <contabilidados@@ufersa.edu.br>
 #' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
 #'
 #' @param indicador Um vetor tipo character com o nome do indicador
-#' @param periodo Vetor numerico indicando o periodo da analise
-#' @param lucLiq Vetor com os valores do lucro liquido da organizacao
-#' @param patLiq vetor com os valores do patrimonio liquido da organizacao
+#' @param periodo Vetor numérico indicando o período da análise
+#' @param lucLiq Vetor com os valores do lucro líquido da empresa
+#' @param patLiq vetor com os valores do patrimônio líquido da empresa
 #' @param ativoTotal Vetor com os valores do ativo total da empresa
 #' @param receitaTotal Vetor com os valores da receita total da empresa
-#' @param plot Mostra grafico? (TRUE/FALSE)
-#' @param relatorio Se `TRUE`, Mostra relatorio do indicador. Se `FALSE`, mostra apenas o vetor com resultados do indicador (TRUE/FALSE)
+#' @param plot Mostra gráfico? (TRUE/FALSE)
+#' @param relatorio Se `TRUE`, Mostra relatório do indicador. Se `FALSE`, mostra
+#' apenas o vetor com resultados do indicador (TRUE/FALSE)
+#'
+#' @examples
+#' library(cntdd)
+#'
+#' ind_dupont(
+#'  indicador = "ROE_Dupont",
+#'  periodo = 2021:2022,
+#'  lucLiq = c(80,100),
+#'  patLiq = c(180,190),
+#'  ativoTotal = c(200,300),
+#'  receitaTotal = c(300,500),
+#'  plot = TRUE,
+#'  relatorio = TRUE
+#'  )
 #'
 #' @import ggplot2
-#' @import readxl
 #' @import dplyr
 #' @import tidyr
 #' @importFrom lubridate year
+#' @importFrom stats na.omit
 #' @export
 
 ind_dupont <-

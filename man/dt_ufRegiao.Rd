@@ -3,7 +3,7 @@
 \docType{data}
 \name{dt_ufRegiao}
 \alias{dt_ufRegiao}
-\title{Dados Unidades Federativas}
+\title{Dados das Unidades Federativas}
 \format{
 An object of class \code{data.frame} with 27 rows and 4 columns.
 }
@@ -12,14 +12,14 @@ dt_ufRegiao
 }
 \description{
 Dados dos estados brasileiros com suas respectivas siglas de Unidade
-Federativa (UF), capital e regiao. Util para associacao com outras bases.
+Federativa (UF), capital e região. Útil para associação com outras bases.
 }
 \details{
-Data.frame com 27 observacoes (linhas) e 4 variaveis (colunas).
+Data.frame com 27 observações (linhas) e 4 variáveis (colunas).
 
-Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
-Ao acessar, fazer busca pelo nome da funcao \code{dt_ufRegiao}
+Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub}.
+Ao acessar, fazer busca pelo nome da função \code{dt_ufRegiao}.
 
 Contatos pelo email do Projeto contabiliDados:
 Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}

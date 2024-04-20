@@ -3,25 +3,31 @@
 #' @description
 #'
 #' Esta função consulta informações detalhadas de empresas a partir de uma lista de CNPJs,
-#' utilizando a API "minhareceita.org". A função retorna um DataFrame contendo informações
-#' como UF, CEP, razão social, entre outros. Inclui subfunções para obter dados gerais, CNAEs
-#' secundários e dados societários.
+#' utilizando a API "minhareceita.org".
 #'
 #' @param cnpj Um vetor de CNPJs como caracteres.
 #'
 #' @return Um DataFrame com informações detalhadas das empresas consultadas.
 #'
 #' @details
-#' A função depende das bibliotecas `jsonlite` e `tidyverse`. Certifique-se de que estão instaladas
-#' e carregadas.
+#' A função retorna um DataFrame contendo informações como UF, CEP, razão social,
+#' entre outros. Inclui subfunções para obter dados gerais, CNAEs  secundários e
+#' dados societários.
 #'
-#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
-#' Ao acessar, fazer busca pelo nome da funcao `utl_consultarCNPJ`
+#' @seealso [jsonlite()], [dplyr()]
+#'
+#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub/>.
+#' Ao acessar, fazer busca pelo nome da função `utl_consultarCNPJ`
 #'
 #' Contatos pelo email do Projeto contabiliDados:
 #' Email: <contabilidados@@ufersa.edu.br>
 #' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
+#'
+#' @examples
+#' library(cntdd)
+#'
+#' utl_consultarCNPJ <- function(cnpj = "24529265000140")
 #'
 #' @import dplyr
 #' @import jsonlite

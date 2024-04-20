@@ -2,24 +2,28 @@
 % Please edit documentation in R/stat_geomMean.R
 \name{stat_geomMean}
 \alias{stat_geomMean}
-\title{Media geometrica}
+\title{Média geométrica}
 \usage{
 stat_geomMean(x, dec = 3)
 }
 \arguments{
-\item{x}{Um vetor numerico}
+\item{x}{Um vetor numérico}
 
-\item{dec}{O numero de casas decimais (padrao: 3)}
+\item{dec}{O número de casas decimais (padrão: 3)}
 }
 \description{
-Esta funcao calculara a media geometrica de um vetor numerico.
+Esta função calculará a média geométrica de um vetor numérico.
 }
 \details{
-Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
-Ao acessar, fazer busca pelo nome da funcao \code{utl_tStarSig}
+Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub/}.
+Ao acessar, fazer busca pelo nome da função \code{stat_geomMean}.
 
 Contatos pelo email do Projeto contabiliDados:
 Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
 Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
+}
+\examples{
+stat_geomMean(x = c(4, 10), dec = 3)
+
 }

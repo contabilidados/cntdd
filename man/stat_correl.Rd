@@ -2,7 +2,7 @@
 % Please edit documentation in R/stat_correl.R
 \name{stat_correl}
 \alias{stat_correl}
-\title{Correlacao de Pearson e Spearman}
+\title{Correlação de Pearson e Spearman}
 \usage{
 stat_correl(
   dt = cntdd::dt_contabil[4:8],
@@ -16,26 +16,43 @@ stat_correl(
 \arguments{
 \item{dt}{Um data.frame}
 
-\item{pearsonLower}{Se \code{TRUE} ou \code{T}, a correlacao de Pearson e disposta na diagonal inferior da Matriz e a correlação de Spearman na diagonal superior. Se \code{FALSE} OU \code{F}, a disposicao das correlacoes e inversa. (Padrao: \code{T})}
+\item{pearsonLower}{Se \code{TRUE} ou \code{T}, a correlação de Pearson e disposta na diagonal
+inferior da Matriz e a correlação de Spearman na diagonal superior. Se \code{FALSE} OU \code{F},
+a disposição das correlações é inversa. (Padrão: \code{T})}
 
-\item{ommitLower}{Se \code{TRUE} ou \code{T}, a diagonal INFERIOR e omitida. Se \code{FALSE} OU \code{F}, e mostrada. (Padrao: \code{F})}
+\item{ommitLower}{Se \code{TRUE} ou \code{T}, a diagonal INFERIOR é omitida. Se \code{FALSE} OU \code{F},
+e mostrada. (Padrão: \code{F})}
 
-\item{ommitUpper}{Se \code{TRUE} ou \code{T}, a diagonal SUPERIOR e omitida. Se \code{FALSE} OU \code{F}, e mostrada. (Padrao: \code{F})}
+\item{ommitUpper}{Se \code{TRUE} ou \code{T}, a diagonal SUPERIOR é omitida. Se \code{FALSE} OU \code{F},
+e mostrada. (Padrão: \code{F})}
 
-\item{digits}{Numero de digitos da correlacao (Padrao: \code{2})}
+\item{digits}{Número de dígitos da correlação (Padrão: \code{2})}
 
-\item{decimal}{Caracter para casa decimal (Padrao: \verb{,})}
+\item{decimal}{Caracter para casa decimal (Padrão: \verb{,})}
 }
 \description{
-Gera matriz de correlacao de Pearson e/ou Spearman com suas respectivas
-significancias estatisticas
+Gera matriz de correlação de Pearson e/ou Spearman com suas respectivas
+significâncias estatísticas.
 }
 \details{
-Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
-Ao acessar, fazer busca pelo nome da funcao \code{utl_tStarSig}
+Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub/}.
+Ao acessar, fazer busca pelo nome da função \code{stat_correl}.
 
 Contatos pelo email do Projeto contabiliDados:
 Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
 Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
+}
+\examples{
+library(cntdd)
+
+stat_correl(
+ dt = cntdd::dt_contabil[4:8],
+ pearsonLower = TRUE,
+ ommitLower = FALSE,
+ ommitUpper = FALSE,
+ digits = 2,
+ decimal = ","
+ )
+
 }

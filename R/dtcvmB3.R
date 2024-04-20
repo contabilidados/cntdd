@@ -4,9 +4,9 @@
 #' Lista de empresas cadastradas na CVM com seus respectivos CNPJs, código CVM e
 #' código de negociação na B3. Inclui dados de constituição, setor, dentre outros.
 #'
-#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
-#' Ao acessar, fazer busca pelo nome da funcao `dt_cvmB3`
+#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub>.
+#' Ao acessar, fazer busca pelo nome da função `dt_cvmB3`
 #'
 #' Contatos pelo email do Projeto contabiliDados:
 #' Email: <contabilidados@@ufersa.edu.br>

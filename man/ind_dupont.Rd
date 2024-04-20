@@ -2,7 +2,7 @@
 % Please edit documentation in R/ind_dupont.R
 \name{ind_dupont}
 \alias{ind_dupont}
-\title{Analise Dupont (ROE desmembrado)}
+\title{Análise Dupont (ROE desmembrado)}
 \usage{
 ind_dupont(
   indicador = "ROE_Dupont",
@@ -18,47 +18,64 @@ ind_dupont(
 \arguments{
 \item{indicador}{Um vetor tipo character com o nome do indicador}
 
-\item{periodo}{Vetor numerico indicando o periodo da analise}
+\item{periodo}{Vetor numérico indicando o período da análise}
 
-\item{lucLiq}{Vetor com os valores do lucro liquido da organizacao}
+\item{lucLiq}{Vetor com os valores do lucro líquido da empresa}
 
-\item{patLiq}{vetor com os valores do patrimonio liquido da organizacao}
+\item{patLiq}{vetor com os valores do patrimônio líquido da empresa}
 
 \item{ativoTotal}{Vetor com os valores do ativo total da empresa}
 
 \item{receitaTotal}{Vetor com os valores da receita total da empresa}
 
-\item{plot}{Mostra grafico? (TRUE/FALSE)}
+\item{plot}{Mostra gráfico? (TRUE/FALSE)}
 
-\item{relatorio}{Se \code{TRUE}, Mostra relatorio do indicador. Se \code{FALSE}, mostra apenas o vetor com resultados do indicador (TRUE/FALSE)}
+\item{relatorio}{Se \code{TRUE}, Mostra relatório do indicador. Se \code{FALSE}, mostra
+apenas o vetor com resultados do indicador (TRUE/FALSE)}
 }
 \description{
-Essa funcao calcula o Indice de Retorno sobre o Ativo baseado em vetores relativos as
-contas de Lucro Liquido e Ativo Total.
+Essa função calcula o Índice de Retorno sobre o Patrimônio Líquido, baseado
+em vetores relativos as contas de Lucro Liquido, receita, Ativo Total e
+endividamento.
 }
 \details{
 Apresenta como resultado uma lista com 5 itens:
 \enumerate{
-\item \strong{Grafico} se o parametro \code{plot} for \code{TRUE} ou \code{T}, mostra um grafico com a
-evolucao do ROE da empresa durante os periodos. Se for \code{FALSE} ou \code{F},
-o grafico nao e apresentado;
+\item \strong{Gráfico} se o parâmetro \code{plot} for \code{TRUE} ou \code{T}, mostra um gráfico com a
+evolução do ROE da empresa durante os períodos. Se for \code{FALSE} ou \code{F},
+o gráfico não é apresentado;
 \item \strong{Contas} que corresponde ao banco de dados com as contas informadas para
-calculo do indicador;
-\item \strong{Indice} o indice de Retorno sobre o patrimonio liquido dos periodos informados;
-\item \strong{Analise Vertical} Analise Vertical das contas informadas no item 1. Conta de resultado
-terao sua analise vertical em relacao a receita total e contas patrimoniais terao
-sua analise vertical em relacao ao ativo total;
-\item \strong{Analise Horizontal} Analise Horizontal das contas informadas no item 1.
+cálculo do indicador;
+\item \strong{Índice} o índice de Retorno sobre o patrimônio líquido dos períodos informados;
+\item \strong{Análise Vertical} Análise Vertical das contas informadas no item 2.
+Contas de resultado terão suas análises verticais em relação à receita total e
+contas patrimoniais terão suas análises verticais em relação ao ativo total;
+\item \strong{Análise Horizontal} Análise Horizontal das contas informadas no item 2.
 }
 
-Todos os itens da lista sao bancos de dados no formato tibble que podem ser
-usados individualmente durante o processo de analise de dados.
+Todos os itens da lista são bancos de dados no formato tibble que podem ser
+usados individualmente durante o processo de análise de dados.
 
-Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
-Ao acessar, fazer busca pelo nome da funcao \code{ind_roa}
+Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub/}.
+Ao acessar, fazer busca pelo nome da função \code{ind_dupont}
 
 Contatos pelo email do Projeto contabiliDados:
 Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
 Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
+}
+\examples{
+library(cntdd)
+
+ind_dupont(
+ indicador = "ROE_Dupont",
+ periodo = 2021:2022,
+ lucLiq = c(80,100),
+ patLiq = c(180,190),
+ ativoTotal = c(200,300),
+ receitaTotal = c(300,500),
+ plot = TRUE,
+ relatorio = TRUE
+ )
+
 }

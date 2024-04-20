@@ -2,39 +2,39 @@
 #'
 #' @description
 #' Essa função calcula o Índice de Liquidez Seca baseado em vetores relativos as
-#' contas de ativo circulante e passivo circulante.
+#' contas de ativo circulante, estoques e passivo circulante.
 #'
 #' @details
 #' Apresenta como resultado uma lista com 5 itens:
 #'
-#' 1. **Grafico** se o parâmetro `plot` for `TRUE` ou `T`, mostra um gráfico com a
+#' 1. **Gráfico** se o parâmetro `plot` for `TRUE` ou `T`, mostra um gráfico com a
 #' evolução da Liquidez Seca da empresa durante os períodos. Se for `FALSE` ou `F`,
 #' o gráfico não é apresentado;
 #'
 #' 2.  **Contas** que corresponde ao banco de dados com as contas informadas para
 #' cálculo do indicador;
 #'
-#' 3.  **Índice** o indice de Liquidez Seca dos periodos informados;
+#' 3.  **Índice** o índice de Liquidez Seca dos períodos informados;
 #'
-#' 4.  **Análise Vertical** Análise Vertical das contas informadas no item 2. Contas de resultado
-#' terão suas análises verticais em relação à receita total e contas patrimoniais terão
-#' suas analises verticais em relação ao ativo total;
+#' 4.  **Análise Vertical** Análise Vertical das contas informadas no item 2.
+#' Contas de resultado terão suas análises verticais em relação à receita total e
+#' contas patrimoniais terão suas análises verticais em relação ao ativo total;
 #'
 #' 5.  **Análise Horizontal** Análise Horizontal das contas informadas no item 2.
 #'
 #' Todos os itens da lista são bancos de dados no formato tibble que podem ser
-#' usados individualmente durante o processo de analise de dados.
+#' usados individualmente durante o processo de análise de dados.
 #'
-#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
-#' Ao acessar, fazer busca pelo nome da funcao `ind_roa`
+#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub/>.
+#' Ao acessar, fazer busca pelo nome da função `ind_liqSeca`
 #'
 #' Contatos pelo email do Projeto contabiliDados:
 #' Email: <contabilidados@@ufersa.edu.br>
 #' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
 #'
 #' @param indicador Um vetor tipo character com o nome do indicador
-#' @param periodo Vetor numérico indicando o periodo da analise
+#' @param periodo Vetor numérico indicando o período da análise
 #' @param cxEquiv Vetor com os valores do caixa e equivalentes de caixa (Ativo Circulante)
 #' @param estoque Vetor com os valores do estoque (Ativo Circulante)
 #' @param ctaRecCP Vetor com os valores do contas a receber (Ativo Circulante)
@@ -43,11 +43,11 @@
 #' @param dividasCP Vetor com os valores de empréstimos e financiamentos de curto prazo (Passivo Circulante)
 #' @param outPasCirc Vetor com os valores de outros passivos circulantes (Passivo Circulante)
 #' @param atvTotal Vetor com os valores do Ativo Total
-#' @param plot Mostra grafico? (TRUE/FALSE)
-#' @param relatorio Se `TRUE`, Mostra relatorio do indicador. Se `FALSE`, mostra apenas o vetor com resultados do indicador (TRUE/FALSE)
+#' @param plot Mostra gráfico? (TRUE/FALSE)
+#' @param relatorio Se `TRUE`, Mostra relatório do indicador. Se `FALSE`,
+#' mostra apenas o vetor com resultados do indicador (TRUE/FALSE)
 #'
 #' @examples
-#'
 #' library(cntdd)
 #'
 #' ind_liqSeca(
@@ -66,9 +66,10 @@
 #' )
 #'
 #' @import ggplot2
-#' @import readxl
 #' @import dplyr
 #' @import tidyr
+#' @importFrom lubridate year
+#' @importFrom stats na.omit
 #' @export
 
 ind_liqSeca <-

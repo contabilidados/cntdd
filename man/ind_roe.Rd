@@ -2,7 +2,7 @@
 % Please edit documentation in R/ind_roe.R
 \name{ind_roe}
 \alias{ind_roe}
-\title{Indice de Retorno sobre o Patrimonio Liquido (ROE)}
+\title{Índice de Retorno sobre o Patrimônio Líquido (ROE)}
 \usage{
 ind_roe(
   indicador = "Roe",
@@ -18,47 +18,63 @@ ind_roe(
 \arguments{
 \item{indicador}{Um vetor tipo character com o nome do indicador}
 
-\item{periodo}{Vetor numerico indicando o periodo da analise}
+\item{periodo}{Vetor numérico indicando o período da análise}
 
-\item{lucLiq}{Vetor com os valores do lucro liquido da empresa}
+\item{lucLiq}{Vetor com os valores do lucro líquido da empresa}
 
-\item{patLiq}{Vetor com os valores do patrimonio liquido da empresa}
+\item{patLiq}{Vetor com os valores do patrimônio líquido da empresa}
 
 \item{receitaTotal}{Vetor com os valores da receita total da empresa}
 
 \item{passivoTotal}{Vetor com os valores do passivo total da empresa}
 
-\item{plot}{Mostra grafico? (TRUE/FALSE)}
+\item{plot}{Mostra gráfico? (TRUE/FALSE)}
 
-\item{relatorio}{Se \code{TRUE}, Mostra relatorio do indicador. Se \code{FALSE}, mostra apenas o vetor com resultados do indicador (TRUE/FALSE)}
+\item{relatorio}{Se \code{TRUE}, Mostra relatório do indicador. Se \code{FALSE},
+mostra apenas o vetor com resultados do indicador (TRUE/FALSE)}
 }
 \description{
-Essa funcao calcula o Indice de Retorno sobre o Patrimonio Liquido baseado em vetores relativos as
-contas de lucro liquido e patrimonio liquido.
+Essa função calcula o Índice de Retorno sobre o Patrimônio Líquido baseado em
+vetores relativos às contas de lucro líquido e patrimônio líquido.
 }
 \details{
 Apresenta como resultado uma lista com 5 itens:
 \enumerate{
-\item \strong{Grafico} se o parametro \code{plot} for \code{TRUE} ou \code{T}, mostra um grafico com a
-evolucao do ROE da empresa durante os periodos. Se for \code{FALSE} ou \code{F},
-o grafico nao e apresentado;
+\item \strong{Gráfico} se o parâmetro \code{plot} for \code{TRUE} ou \code{T}, mostra um gráfico com a
+evolução do ROE da empresa durante os períodos. Se for \code{FALSE} ou \code{F},
+o gráfico não é apresentado;
 \item \strong{Contas} que corresponde ao banco de dados com as contas informadas para
-calculo do indicador;
-\item \strong{Indice} o indice de Retorno sobre o Patrimonio Liquido dos periodos informados;
-\item \strong{Analise Vertical} Analise Vertical das contas informadas no item 1. Conta de resultado
-terao sua analise vertical em relacao a receita total e contas patrimoniais terao
-sua analise vertical em relacao ao ativo total;
-\item \strong{Analise Horizontal} Analise Horizontal das contas informadas no item 1.
+cálculo do indicador;
+\item \strong{Índice} o ROE dos períodos informados;
+\item \strong{Análise Vertical} Análise Vertical das contas informadas no item 2.
+Contas de resultado terão suas análises verticais em relação à receita total e
+contas patrimoniais terão suas análises verticais em relação ao ativo total;
+\item \strong{Análise Horizontal} Análise Horizontal das contas informadas no item 2.
 }
 
-Todos os itens da lista sao bancos de dados no formato tibble que podem ser
-usados individualmente durante o processo de analise de dados.
+Todos os itens da lista são bancos de dados no formato tibble que podem ser
+usados individualmente durante o processo de análise de dados.
 
-Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
-Ao acessar, fazer busca pelo nome da funcao \code{ind_roe}
+Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub/}.
+Ao acessar, fazer busca pelo nome da função \code{ind_roe}
 
 Contatos pelo email do Projeto contabiliDados:
 Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
 Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
+}
+\examples{
+library(cntdd)
+
+ind_roe(
+ indicador = "Roe",
+ periodo = 2021:2022,
+ lucLiq = c(8,14),
+ patLiq = c(150,200),
+ receitaTotal = c(300,500),
+ passivoTotal = c(400,500),
+ plot = TRUE,
+ relatorio = TRUE
+ )
+
 }

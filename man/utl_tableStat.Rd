@@ -2,35 +2,46 @@
 % Please edit documentation in R/utl_tableStat.R
 \name{utl_tableStat}
 \alias{utl_tableStat}
-\title{Tabela de estatistica por grupos}
+\title{Tabela de estatística por grupos}
 \usage{
 utl_tableStat(bd, grp1, n_grp1, grp2, n_grp2, value, ...)
 }
 \arguments{
 \item{bd}{Um data.frame}
 
-\item{grp1}{String informando o nome da coluna referente a variavel 1}
+\item{grp1}{String informando o nome da coluna referente a variável 1}
 
-\item{n_grp1}{Numero de grupos da variavel 1}
+\item{n_grp1}{Número de grupos da variável 1}
 
-\item{grp2}{String informando o nome da coluna referente a variavel 2}
+\item{grp2}{String informando o nome da coluna referente a variável 2}
 
-\item{n_grp2}{Numero de grupos da variavel 2}
+\item{n_grp2}{Número de grupos da variável 2}
 
-\item{value}{Variavel do banco de dados da qual se pretende retirar a estatisca descritiva}
+\item{value}{Variável do banco de dados da qual se pretende retirar a estatística descritiva}
 
-\item{...}{Informar qual estatistica descritiva (mean, sd)}
+\item{...}{Informar qual estatística descritiva (mean, sd)}
 }
 \description{
-Calcula a estatistica descritiva de uma variavel numerica baseada em grupos de duas variaveis.
-trata-se de uma analise tridimensional
+Calcula a estatistica descritiva de uma variável numérica baseada em grupos de duas variaveis.
+trata-se de uma análise tridimensional.
 }
 \details{
-Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
-Ao acessar, fazer busca pelo nome da funcao \code{utl_tStarSig}
+Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub/}.
+Ao acessar, fazer busca pelo nome da função \code{utl_tableStat}.
 
 Contatos pelo email do Projeto contabiliDados:
 Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
 Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
+}
+\examples{
+library(cntdd)
+library(dplyr)
+library(tidyr)
+
+dt <- na.omit(cntdd::dt_contabil)
+
+utl_tableStat(bd = dt,
+grp1 = "estoques", n_grp1 = 2, grp2 = "flxCxInvest", n_grp2 = 2, value = "receita", mean)
+
 }

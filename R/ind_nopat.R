@@ -1,50 +1,65 @@
 #' Lucro Operacional Liquido após os impostos (NOPAT)
 #'
 #' @description
-#' Essa funcao calcula o Lucro Operacional Liquido após os impostos (NOPAT -
+#' Essa função calcula o Lucro Operacional Liquido após os impostos (NOPAT -
 #' Net operating profit after tax).
 #'
 #' @details
 #' Apresenta como resultado uma lista com 5 itens:
 #'
-#' 1. **Grafico** se o parametro `plot` for `TRUE` ou `T`, mostra um grafico com a
-#' evolucao do NOPAT da empresa durante os periodos. Se for `FALSE` ou `F`,
-#' o grafico nao e apresentado;
+#' 1. **Gráfico** se o parâmetro `plot` for `TRUE` ou `T`, mostra um gráfico com a
+#' evolução do NOPAT da empresa durante os períodos. Se for `FALSE` ou `F`,
+#' o gráfico nao é apresentado;
 #'
 #' 2.  **Contas** que corresponde ao banco de dados com as contas informadas para
-#' calculo do indicador;
+#' cálculo do indicador;
 #'
-#' 3.  **Indice** o lucro operacional liquido dos periodos informados;
+#' 3.  **Índice** o NOPAT dos períodos informados;
 #'
-#' 4.  **Analise Vertical** Analise Vertical das contas informadas no item 1. Contas de resultado
-#' terao sua analise vertical em relacao a receita total e contas patrimoniais terao
-#' sua analise vertical em relacao ao ativo total;
+#' 4.  **Análise Vertical** Análise Vertical das contas informadas no item 2.
+#' Contas de resultado terão suas análises verticais em relação à receita total e
+#' contas patrimoniais terão suas análises verticais em relação ao ativo total;
 #'
-#' 5.  **Analise Horizontal** Analise Horizontal das contas informadas no item 1.
+#' 5.  **Análise Horizontal** Análise Horizontal das contas informadas no item 2.
 #'
-#' Todos os itens da lista sao bancos de dados no formato tibble que podem ser
-#' usados individualmente durante o processo de analise de dados.
+#' Todos os itens da lista são bancos de dados no formato tibble que podem ser
+#' usados individualmente durante o processo de análise de dados.
 #'
-#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
-#' Ao acessar, fazer busca pelo nome da funcao `ind_roa`
+#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub/>.
+#' Ao acessar, fazer busca pelo nome da funcao `ind_nopat`
 #'
 #' Contatos pelo email do Projeto contabiliDados:
 #' Email: <contabilidados@@ufersa.edu.br>
 #' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
 #'
 #' @param indicador Um vetor tipo character com o nome do indicador
-#' @param periodo Vetor numerico indicando o periodo da analise
+#' @param periodo Vetor numérico indicando o período da análise
 #' @param ebit Vetor com os valores do Lucro antes dos Juros e Impostos (EBIT) da empresa
-#' @param ir Vetor com o percentual do imposto de renda (padrao: 34%)
+#' @param ir Vetor com o percentual do imposto de renda (padrão: 34%)
 #' @param receitaLiquida Vetor com os valores da receita liquida da empresa
-#' @param plot Mostra grafico? (TRUE/FALSE)
-#' @param relatorio Se `TRUE`, Mostra relatorio do indicador. Se `FALSE`, mostra apenas o vetor com resultados do indicador (TRUE/FALSE)
+#' @param plot Mostra gráfico? (TRUE/FALSE)
+#' @param relatorio Se `TRUE`, Mostra relatório do indicador. Se `FALSE`,
+#' mostra apenas o vetor com resultados do indicador (TRUE/FALSE)
+#'
+#' @examples
+#' library(cntdd)
+#'
+#' ind_nopat(
+#'  indicador = "nopat",
+#'  periodo = 2021:2022,
+#'  ebit = c(150,200),
+#'  receitaLiquida = c(290, 230),
+#'  ir = 0.34,
+#'  plot = TRUE,
+#'  relatorio = TRUE
+#'  )
 #'
 #' @import ggplot2
-#' @import readxl
 #' @import dplyr
 #' @import tidyr
+#' @importFrom lubridate year
+#' @importFrom stats na.omit
 #' @export
 
 ind_nopat <-

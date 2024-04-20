@@ -1,19 +1,22 @@
-#' Media geometrica
+#' Média geométrica
 #'
 #' @description
-#' Esta funcao calculara a media geometrica de um vetor numerico.
+#' Esta função calculará a média geométrica de um vetor numérico.
 #'
 #' @details
-#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
-#' Ao acessar, fazer busca pelo nome da funcao `utl_tStarSig`
+#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub/>.
+#' Ao acessar, fazer busca pelo nome da função `stat_geomMean`.
 #'
 #' Contatos pelo email do Projeto contabiliDados:
 #' Email: <contabilidados@@ufersa.edu.br>
 #' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
 #'
-#' @param x Um vetor numerico
-#' @param dec O numero de casas decimais (padrao: 3)
+#' @param x Um vetor numérico
+#' @param dec O número de casas decimais (padrão: 3)
+#'
+#' @examples
+#' stat_geomMean(x = c(4, 10), dec = 3)
 #'
 #' @export
 

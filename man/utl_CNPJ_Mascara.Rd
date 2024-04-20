@@ -2,27 +2,35 @@
 % Please edit documentation in R/utl_cnpjMascara.R
 \name{utl_CNPJ_Mascara}
 \alias{utl_CNPJ_Mascara}
-\title{Mascara CNPJ}
+\title{Máscara CNPJ}
 \usage{
-utl_CNPJ_Mascara(cnpj, completo = T)
+utl_CNPJ_Mascara(cnpj = "21350241000322", completo = T)
 }
 \arguments{
-\item{cnpj}{string com numero do CNPJ}
+\item{cnpj}{string com número do CNPJ}
 
-\item{completo}{Se \code{TRUE} ou \code{T}, o output mostrar o CNPJ no formato 99.999.999/0001-99. Se \code{FALSE} ou \code{F}, o output sera no formato 99999999000199.}
+\item{completo}{Se \code{TRUE} ou \code{T}, o output mostrar o CNPJ no formato 99.999.999/0001-99.
+Se \code{FALSE} ou \code{F}, o output será no formato 99999999000199.}
 }
 \description{
-Gera numero CNPJ no formato desejado.
+Gera número CNPJ no formato desejado.
 }
 \details{
-Essa funcao formata o numero do CNPJ completo (99.999.999/0001-99) ou
-simplificado (999999990000199), baseado em string com numero do CNPJ.
+Essa função formata string com numero do CNPJ que possua até 14 caracteres com
+o número do CNPJ completo (99.999.999/0001-99) ou simplificado (999999990000199).
 
-Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
-Ao acessar, fazer busca pelo nome da funcao \code{utl_tStarSig}
+Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub/}.
+Ao acessar, fazer busca pelo nome da função \code{utl_CNPJ_Mascara}
 
 Contatos pelo email do Projeto contabiliDados:
 Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
 Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
+}
+\examples{
+library(cntdd)
+
+utl_CNPJ_Mascara(cnpj = "21350241000322", completo = TRUE)
+
+
 }

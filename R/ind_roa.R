@@ -1,56 +1,72 @@
-#' Indice de Retorno sobre o Ativo (ROA)
+#' Índice de Retorno sobre o Ativo (ROA)
 #'
 #' @description
 #'
-#' Essa funcao calcula o Indice de Retorno sobre o Ativo baseado em vetores relativos as
-#' contas de Lucro e Ativo Total. O usuario definira se usara lucro liquido ou
+#' Essa função calcula o Índice de Retorno sobre o Ativo baseado em vetores relativos às
+#' contas de Lucro e Ativo Total. O usuário definirá se usará lucro líquido ou
 #' lucro operacional, conforme literatura de interesse.
 #'
 #' @details
 #' Apresenta como resultado uma lista com 5 itens:
 #'
-#' 1. **Grafico** se o parametro `plot` for `TRUE` ou `T`, mostra um grafico com a
-#' evolucao do ROIC da empresa durante os periodos. Se for `FALSE` ou `F`,
-#' o grafico nao e apresentado;
+#' 1. **Gráfico** se o parâmetro `plot` for `TRUE` ou `T`, mostra um gráfico com a
+#' evolução do ROA da empresa durante os períodos. Se for `FALSE` ou `F`,
+#' o gráfico não é apresentado;
 #'
 #' 2.  **Contas** que corresponde ao banco de dados com as contas informadas para
-#' calculo do indicador;
+#' cálculo do indicador;
 #'
-#' 3.  **Indice** o indice de Retorno sobre o Capital Investido dos periodos informados;
+#' 3.  **Índice** o ROA dos períodos informados;
 #'
-#' 4.  **Analise Vertical** Analise Vertical das contas informadas no item 1. Conta de resultado
-#' terao sua analise vertical em relacao a receita total e contas patrimoniais terao
-#' sua analise vertical em relacao ao ativo total;
+#' 4.  **Análise Vertical** Análise Vertical das contas informadas no item 2.
+#' Contas de resultado terão suas analises verticais em relação à receita total e
+#' contas patrimoniais terão suas analises verticais em relação ao ativo total;
 #'
-#' 5.  **Analise Horizontal** Analise Horizontal das contas informadas no item 1.
+#' 5.  **Análise Horizontal** Análise Horizontal das contas informadas no item 2.
 #'
-#' Todos os itens da lista sao bancos de dados no formato tibble que podem ser
-#' usados individualmente durante o processo de analise de dados.
+#' Todos os itens da lista são bancos de dados no formato tibble que podem ser
+#' usados individualmente durante o processo de análise de dados.
 #'
-#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
-#' Ao acessar, fazer busca pelo nome da funcao `ind_roa`
+#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub/>.
+#' Ao acessar, fazer busca pelo nome da função `ind_roa`
 #'
 #' Contatos pelo email do Projeto contabiliDados:
 #' Email: <contabilidados@@ufersa.edu.br>
 #' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
 #'
 #' @param indicador Um vetor tipo character com o nome do indicador
-#' @param periodo Vetor numerico indicando o periodo da analise
-#' @param lucro Vetor com os valores do lucro liquido da organizacao
-#' @param patLiq vetor com os valores do Patrimônio Liquido da organizacao
-#' @param ativoCirculante Vetor com os valores do ativo circulante da organizacao
-#' @param ativoNCirculante Vetor com os valores do ativo nao circulante da organizacao
-#' @param receitaTotal Vetor com os valores da receita liquida da organizacao
-#' @param plot Mostra grafico? (TRUE/FALSE)
-#' @param relatorio Se `TRUE`, Mostra relatorio do indicador. Se `FALSE`, mostra apenas o vetor com resultados do indicador (TRUE/FALSE)
+#' @param periodo Vetor numérico indicando o período da análise
+#' @param lucro Vetor com os valores do lucro líquido da empresa
+#' @param patLiq vetor com os valores do Patrimônio Líquido da empresa
+#' @param ativoCirculante Vetor com os valores do ativo circulante da empresa
+#' @param ativoNCirculante Vetor com os valores do ativo não circulante da empresa
+#' @param receitaTotal Vetor com os valores da receita líquida da empresa
+#' @param plot Mostra gráfico? (TRUE/FALSE)
+#' @param relatorio Se `TRUE`, Mostra relatório do indicador. Se `FALSE`,
+#' mostra apenas o vetor com resultados do indicador (TRUE/FALSE)
+#'
+#' @examples
+#' library(cntdd)
+#'
+#' ind_roa(
+#'  indicador = "ROA",
+#'  periodo = 2021:2022,
+#'  lucro = c(8,10),
+#'  patLiq = c(100,150),
+#'  ativoCirculante = c(200,300),
+#'  ativoNCirculante = c(250,500),
+#'  receitaTotal = c(300,500),
+#'  plot = TRUE,
+#'  relatorio = TRUE
+#'  )
 #'
 #' @import ggplot2
-#' @import readxl
 #' @import dplyr
 #' @import tidyr
+#' @importFrom lubridate year
+#' @importFrom stats na.omit
 #' @export
-
 
 ind_roa <-
   function(

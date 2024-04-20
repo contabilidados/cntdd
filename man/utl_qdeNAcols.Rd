@@ -4,22 +4,46 @@
 \alias{utl_qdeNAcols}
 \title{Contador de valores nulos em colunas}
 \usage{
-utl_qdeNAcols(dt, ...)
+utl_qdeNAcols(dt, nomeVariavel, ...)
 }
 \arguments{
 \item{dt}{Um data.frame}
 
+\item{nomeVariavel}{String contendo o nome da coluna que receberá a quantidade de NAs}
+
 \item{...}{Um vetor que irá receber os nomes das colunas que terão os valores nulos contabilizados}
 }
 \description{
-Faz a contagem de valores nulos/inexistentes em cada coluna.
+Faz a contagem de valores nulos/inexistentes em cada coluna de um data.frame.
 }
 \details{
-Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{http://contabilidados.com.br}.
-Ao acessar, fazer busca pelo nome da funcao \code{utl_tStarSig}
+Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub/}.
+Ao acessar, fazer busca pelo nome da função \code{utl_qdeNAcols}.
 
 Contatos pelo email do Projeto contabiliDados:
 Email: \href{mailto:contabilidados@ufersa.edu.br}{contabilidados@ufersa.edu.br}
 Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabilidados
+}
+\examples{
+library(cntdd)
+library(dplyr)
+
+df <- data.frame(X1 = c(NA, 1:2, NA), X2 = c(NA, NA, 2, 4), X3 = c(NA, 4, 1, NA))
+
+## Escolha das colunas utilizando a função starts_with
+utl_qdeNAcols(df, "qdeNAcomX", starts_with(c("X")))
+
+## Escolha das colunas informando o nome diretamente
+utl_qdeNAcols(df, "qdeNAx1ax3", c("X1", "X2", "X3"))
+
+## Escolha das colunas informando o inicio da coluna e a sequência de números
+utl_qdeNAcols(df, "qdeNA", num_range("X", 1:3))
+
+## Escolha das colunas informando o número das colunas. Nesse caso, a primeira e a terceira coluna
+utl_qdeNAcols(df, "qdeNA", c(1,3))
+
+## Escolha das colunas informando todo o banco de dados
+utl_qdeNAcols(df, "qdeNAtodas", everything())
+
 }

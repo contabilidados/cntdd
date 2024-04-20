@@ -1,28 +1,36 @@
-#' Tabela de estatistica por grupos
+#' Tabela de estatística por grupos
 #'
 #' @description
-#' Calcula a estatistica descritiva de uma variavel numerica baseada em grupos de duas variaveis.
-#' trata-se de uma analise tridimensional
+#' Calcula a estatistica descritiva de uma variável numérica baseada em grupos de duas variaveis.
+#' trata-se de uma análise tridimensional.
 #'
 #' @details
-#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
-#' Ao acessar, fazer busca pelo nome da funcao `utl_tStarSig`
+#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub/>.
+#' Ao acessar, fazer busca pelo nome da função `utl_tableStat`.
 #'
 #' Contatos pelo email do Projeto contabiliDados:
 #' Email: <contabilidados@@ufersa.edu.br>
 #' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
 #'
 #' @param bd Um data.frame
-#' @param grp1 String informando o nome da coluna referente a variavel 1
-#' @param n_grp1 Numero de grupos da variavel 1
-#' @param grp2 String informando o nome da coluna referente a variavel 2
-#' @param n_grp2 Numero de grupos da variavel 2
-#' @param value Variavel do banco de dados da qual se pretende retirar a estatisca descritiva
-#' @param ... Informar qual estatistica descritiva (mean, sd)
+#' @param grp1 String informando o nome da coluna referente a variável 1
+#' @param n_grp1 Número de grupos da variável 1
+#' @param grp2 String informando o nome da coluna referente a variável 2
+#' @param n_grp2 Número de grupos da variável 2
+#' @param value Variável do banco de dados da qual se pretende retirar a estatística descritiva
+#' @param ... Informar qual estatística descritiva (mean, sd)
 #'
-#' @import ggplot2
-#' @import readxl
+#' @examples
+#' library(cntdd)
+#' library(dplyr)
+#' library(tidyr)
+#'
+#' dt <- na.omit(cntdd::dt_contabil)
+#'
+#' utl_tableStat(bd = dt,
+#' grp1 = "estoques", n_grp1 = 2, grp2 = "flxCxInvest", n_grp2 = 2, value = "receita", mean)
+#'
 #' @import dplyr
 #' @import tidyr
 #' @export
@@ -44,3 +52,5 @@ utl_tableStat <- function(bd, grp1, n_grp1, grp2, n_grp2, value, ...){
   return(result)
 
 }
+
+

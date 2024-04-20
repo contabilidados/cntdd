@@ -1,32 +1,51 @@
-#' Teste de Medias ou Medianas
+#' Teste de Médias ou Medianas
 #'
 #' @description
-#' Esta funcao realiza o teste de diferenca de medias ou mediana de dois vetores numericos
+#' Esta função realiza o teste de diferença de médias ou mediana de dois vetores numéricos
 #' e apresenta os resultados em uma tabela.
 #'
 #' @details
-#' A escolha entre o teste de media ou media e realizada de forma automatica, de acordo com a distribuicao
-#' das variaveis numericas informadas.
+#' A escolha entre o teste de média ou mediana é realizada de forma automática,
+#' de acordo com a distribuição das variáveis numéricas informadas.
 #'
-#' Informacoes adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <http://contabilidados.com.br>.
-#' Ao acessar, fazer busca pelo nome da funcao `utl_tStarSig`
+#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub/>.
+#' Ao acessar, fazer busca pelo nome da função `stat_meanTest`.
 #'
 #' Contatos pelo email do Projeto contabiliDados:
 #' Email: <contabilidados@@ufersa.edu.br>
 #' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
 #'
-#' @param value_Y Um vetor numerico representando o primeiro grupo
-#' @param name_Y Um nome para o vetor numerico que representa o primeiro grupo
-#' @param value_X Um vetor numerico representando o segundo grupo
-#' @param name_X Um nome para o vetor numerico que representa o segundo grupo
-#' @param pvalor O valor cretico a ser considerado nos testes. O padrao e 5%
+#' @param value_Y Um vetor numérico representando o primeiro grupo
+#' @param name_Y Um nome para o vetor numérico que representa o primeiro grupo
+#' @param value_X Um vetor numérico representando o segundo grupo
+#' @param name_X Um nome para o vetor numérico que representa o segundo grupo
+#' @param pvalor O valor crítico a ser considerado nos testes. O padrão é 5%
 #'
 #' @returns
-#' Um data.frame com a analise sobre o teste de media dos dois grupos de valores.
+#' Um data.frame com a análise sobre o teste de média/mediana dos dois grupos de valores.
+#'
+#' @examples
+#' library(cntdd)
+#' library(dplyr)
+#' library(nortest)
+#'
+#' dt <- na.omit(cntdd::dt_contabil)
+#'
+#' dt <- cntdd::utl_createGroup(
+#'  bd = dt, col_Value = "receita", col_Grp = "grp.Receita",
+#'  n_grp = 2) %>%
+#'  select(grp.Receita, caixaEquiv)
+#'
+#'  grupo1 <- dt %>% filter(grp.Receita == "receita_1") %>% select(caixaEquiv) %>% pull()
+#'  grupo2 <- dt %>% filter(grp.Receita == "receita_2") %>% select(caixaEquiv) %>% pull()
+#'
+#'  stat_meanTest(
+#'    value_Y = grupo1, name_Y = "Menor Receita",
+#'    value_X = grupo2, name_X = "Maior Receita"
+#'    )
 #'
 #' @import ggplot2
-#' @import readxl
 #' @import dplyr
 #' @importFrom stats var.test
 #' @importFrom stats t.test
