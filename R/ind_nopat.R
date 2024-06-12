@@ -7,9 +7,9 @@
 #' @details
 #' Apresenta como resultado uma lista com 5 itens:
 #'
-#' 1. **Gráfico** se o parâmetro `plot` for `TRUE` ou `T`, mostra um gráfico com a
-#' evolução do NOPAT da empresa durante os períodos. Se for `FALSE` ou `F`,
-#' o gráfico nao é apresentado;
+#' 1. **Gráfico** se o parâmetro `relatorio` for `TRUE` ou `T`, mostra um gráfico com a
+#' evolução do ativo cíclico da empresa durante os períodos. Se for `FALSE` ou `F`,
+#' o gráfico não é apresentado;
 #'
 #' 2.  **Contas** que corresponde ao banco de dados com as contas informadas para
 #' cálculo do indicador;
@@ -38,24 +38,46 @@
 #' @param ebit Vetor com os valores do Lucro antes dos Juros e Impostos (EBIT) da empresa
 #' @param ir Vetor com o percentual do imposto de renda (padrão: 34%)
 #' @param receitaLiquida Vetor com os valores da receita liquida da empresa
-#' @param plot Mostra gráfico? (TRUE/FALSE)
-#' @param relatorio Se `TRUE`, Mostra relatório do indicador. Se `FALSE`,
-#' mostra apenas o vetor com resultados do indicador (TRUE/FALSE)
+#' @param relatorio Se `TRUE`, Mostra relatório do indicador. Se `FALSE`, mostra
+#' apenas o vetor com resultados do indicador (TRUE/FALSE)
+#' @param titulo Título do gráfico
+#' @param subtitulo Subtítulo do gráfico
+#' @param rodape Rodapé do gráfico
+#' @param corFundo Cor de fundo para os valores (Padrão: Laranja)
+#' @param corLinhaTendencia Cor da linha de tendência entre os valores (Padrão: Laranja)
+#' @param tamanhoValores Tamanho da fonte dos valores apresentados (Padrão: 6)
+#' @param tamanhoTempo Tamanho da fonte dos rótulos relativo aos períodos de tempo (Padrão: 10)
+#' @param tamanhoVariavel Tamanho da fonte do texto relativo à variável analisada (Padrão: 4)
+#' @param tamanhoTitulo Tamanho da fonte do título (Padrão: 14)
+#' @param tamanhoSubTitulo Tamanho da fonte do subtítulo (Padrão: 10)
+#' @param tamanhoRodape Tamanho da fonte do rodapé (Padrão: 8)
+#' @param corRodape Cor da fonte do rodapé (Padrão: Cinza)
 #'
 #' @examples
 #' library(cntdd)
 #'
 #' ind_nopat(
-#'  indicador = "nopat",
+#'  indicador = "NOPAT",
 #'  periodo = 2021:2022,
 #'  ebit = c(150,200),
 #'  receitaLiquida = c(290, 230),
 #'  ir = 0.34,
-#'  plot = TRUE,
-#'  relatorio = TRUE
+#'  relatorio = TRUE,
+#'  titulo = "Evolucao do NOPAT",
+#'  subtitulo = "",
+#'  rodape = "",
+#'  corFundo = "orange",
+#'  corLinhaTendencia = "orange",
+#'  tamanhoValores = 6,
+#'  tamanhoTempo = 10,
+#'  tamanhoVariavel = 4,
+#'  tamanhoTitulo = 14,
+#'  tamanhoSubTitulo = 10,
+#'  tamanhoRodape = 8,
+#'  corRodape = "gray"
 #'  )
 #'
-#' @import ggplot2
+#' @importFrom CGPfunctions newggslopegraph
 #' @import dplyr
 #' @import tidyr
 #' @importFrom lubridate year
@@ -64,23 +86,62 @@
 
 ind_nopat <-
   function(
-    indicador = "nopat",
+    indicador = "NOPAT",
     periodo = (year(Sys.Date())-2):(year(Sys.Date())-1),
     ebit = c(150,200),
     receitaLiquida = c(290, 230),
     ir = 0.34,
-    plot = T,
-    relatorio = T
+    relatorio = T,
+    titulo = "Evolucao do NOPAT",
+    subtitulo = "",
+    rodape = paste0("@", year(Sys.Date()), " contabiliDados"),
+    corFundo = "orange",
+    corLinhaTendencia = "orange",
+    tamanhoValores = 6,
+    tamanhoTempo = 10,
+    tamanhoVariavel = 4,
+    tamanhoTitulo = 14,
+    tamanhoSubTitulo = 10,
+    tamanhoRodape = 8,
+    corRodape = "gray"
     ){
 
   ratio <-
-    ebit * (1 - ir)
+    round(ebit * (1 - ir), 4)
 
-  dt <- data.frame(Periodo = periodo, ratio = ratio)
-  names(dt)[2] <- indicador
 
-  if(plot & relatorio){
-    print(ind_plots(dt, indicador))
+  dtGraf <-
+    data.frame(
+      periodo = factor(periodo, ordered = T),
+      indicador = indicador,
+      ratio = ratio
+    )
+
+  if(relatorio){
+    grafico <-
+      newggslopegraph(
+        dtGraf, periodo, ratio, indicador,
+        Title = titulo,
+        SubTitle = subtitulo,
+        Caption = rodape,
+        DataLabelFillColor = corFundo,
+        DataLabelPadding = 0.4, DataLabelLineSize = 0,
+        WiderLabels = F, LineThickness = 1, LineColor = corLinhaTendencia,
+        XTextSize = tamanhoTempo, YTextSize = tamanhoVariavel, TitleTextSize = tamanhoTitulo,
+        SubTitleTextSize = tamanhoSubTitulo, CaptionTextSize = tamanhoRodape,
+        TitleJustify = "left", SubTitleJustify = "left",
+        CaptionJustify = "right", DataTextSize = tamanhoValores,
+        ThemeChoice = "bw"
+      ) +
+      theme(
+        panel.background = element_blank(),
+        panel.border = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        plot.caption = element_text(color = corRodape)
+      )
+  } else {
+    grafico <- NULL
   }
 
   dtGeral <-
@@ -131,7 +192,8 @@ ind_nopat <-
     list(
       Contas = contas, `Indice` = ratio,
       `Analise Vertical` = bdAV,
-      `Analise Horizontal` = bdAH)
+      `Analise Horizontal` = bdAH,
+      plot = grafico)
 
   apenasVetor <-
     ratio %>%

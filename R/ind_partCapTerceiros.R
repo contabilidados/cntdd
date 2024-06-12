@@ -1,0 +1,221 @@
+#' Participação do Capital de Terceiros (PCT)
+#'
+#' @description
+#' Essa função calcula a Participação do Capital de Terceiros baseado em vetores
+#' relativos as contas de passivo circulante, passivo não circulante e Patrimônio
+#' líquido.
+#'
+#' @details
+#' Apresenta como resultado uma lista com 5 itens:
+#'
+#' 1. **Gráfico** se o parâmetro `relatorio` for `TRUE` ou `T`, mostra um gráfico com a
+#' evolução do ativo cíclico da empresa durante os períodos. Se for `FALSE` ou `F`,
+#' o gráfico não é apresentado;
+#'
+#' 2.  **Contas** que corresponde ao banco de dados com as contas informadas para
+#' cálculo do indicador;
+#'
+#' 3.  **Índice** a PCT dos períodos informados;
+#'
+#' 4.  **Análise Vertical** Análise Vertical das contas informadas no item 2.
+#' Contas de resultado terão suas análises verticais em relação à receita total e
+#' contas patrimoniais terão suas análises verticais em relação ao ativo total;
+#'
+#' 5.  **Análise Horizontal** Análise Horizontal das contas informadas no item 2.
+#'
+#' Todos os itens da lista são bancos de dados no formato tibble que podem ser
+#' usados individualmente durante o processo de análise de dados.
+#'
+#' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub/>.
+#' Ao acessar, fazer busca pelo nome da função `ind_partCapTerceiros`
+#'
+#' Contatos pelo email do Projeto contabiliDados:
+#' Email: <contabilidados@@ufersa.edu.br>
+#' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
+#'
+#' @param indicador Um vetor tipo character com o nome do indicador
+#' @param periodo Vetor numérico indicando o período da análise
+#' @param passivoCirculante Vetor com os valores do passivo circulante da empresa
+#' @param passivoNaoCirculante Vetor com os valores do passivo não circulante da empresa
+#' @param patLiq Vetor com os valores do patrimônio líquido da empresa
+#' @param atvTotal Vetor com os valores do Ativo Total
+#' @param relatorio Se `TRUE`, Mostra relatório do indicador. Se `FALSE`, mostra
+#' apenas o vetor com resultados do indicador (TRUE/FALSE)
+#' @param titulo Título do gráfico
+#' @param subtitulo Subtítulo do gráfico
+#' @param rodape Rodapé do gráfico
+#' @param corFundo Cor de fundo para os valores (Padrão: Laranja)
+#' @param corLinhaTendencia Cor da linha de tendência entre os valores (Padrão: Laranja)
+#' @param tamanhoValores Tamanho da fonte dos valores apresentados (Padrão: 6)
+#' @param tamanhoTempo Tamanho da fonte dos rótulos relativo aos períodos de tempo (Padrão: 10)
+#' @param tamanhoVariavel Tamanho da fonte do texto relativo à variável analisada (Padrão: 4)
+#' @param tamanhoTitulo Tamanho da fonte do título (Padrão: 14)
+#' @param tamanhoSubTitulo Tamanho da fonte do subtítulo (Padrão: 10)
+#' @param tamanhoRodape Tamanho da fonte do rodapé (Padrão: 8)
+#' @param corRodape Cor da fonte do rodapé (Padrão: Cinza)
+#'
+#' @examples
+#' library(cntdd)
+#'
+#' ind_partCapTerceiros(
+#'  indicador = "Partic. Capital Terceiros",
+#'  periodo = 2021:2022,
+#'  passivoCirculante = c(8,10),
+#'  passivoNaoCirculante = c(150,200),
+#'  patLiq = c(400, 300),
+#'  atvTotal = c(558,510),
+#'  relatorio = TRUE,
+#'  titulo = "Evolucao da Partic. Capital Terceiros",
+#'  subtitulo = "",
+#'  rodape = "",
+#'  corFundo = "orange",
+#'  corLinhaTendencia = "orange",
+#'  tamanhoValores = 6,
+#'  tamanhoTempo = 10,
+#'  tamanhoVariavel = 4,
+#'  tamanhoTitulo = 14,
+#'  tamanhoSubTitulo = 10,
+#'  tamanhoRodape = 8,
+#'  corRodape = "gray"
+#' )
+#'
+#' @importFrom CGPfunctions newggslopegraph
+#' @import dplyr
+#' @import tidyr
+#' @importFrom lubridate year
+#' @importFrom stats na.omit
+#' @export
+
+ind_partCapTerceiros <-
+  function(
+    indicador = "Partic. Capital Terceiros",
+    periodo = 2021:2022,
+    passivoCirculante = c(8,10),
+    passivoNaoCirculante = c(150,200),
+    patLiq = c(400, 300),
+    atvTotal = c(558,510),
+    relatorio = T,
+    titulo = "Evolucao da Partic. Capital Terceiros",
+    subtitulo = "",
+    rodape = paste0("@", year(Sys.Date()), " contabiliDados"),
+    corFundo = "orange",
+    corLinhaTendencia = "orange",
+    tamanhoValores = 6,
+    tamanhoTempo = 10,
+    tamanhoVariavel = 4,
+    tamanhoTitulo = 14,
+    tamanhoSubTitulo = 10,
+    tamanhoRodape = 8,
+    corRodape = "gray"
+    ){
+
+  ratio <-
+    round((passivoCirculante + passivoNaoCirculante) / patLiq, 4)
+
+
+  dtGraf <-
+    data.frame(
+      periodo = factor(periodo, ordered = T),
+      indicador = indicador,
+      ratio = ratio
+    )
+
+  if(relatorio){
+    grafico <-
+      newggslopegraph(
+        dtGraf, periodo, ratio, indicador,
+        Title = titulo,
+        SubTitle = subtitulo,
+        Caption = rodape,
+        DataLabelFillColor = corFundo,
+        DataLabelPadding = 0.4, DataLabelLineSize = 0,
+        WiderLabels = F, LineThickness = 1, LineColor = corLinhaTendencia,
+        XTextSize = tamanhoTempo, YTextSize = tamanhoVariavel, TitleTextSize = tamanhoTitulo,
+        SubTitleTextSize = tamanhoSubTitulo, CaptionTextSize = tamanhoRodape,
+        TitleJustify = "left", SubTitleJustify = "left",
+        CaptionJustify = "right", DataTextSize = tamanhoValores,
+        ThemeChoice = "bw"
+      ) +
+      theme(
+        panel.background = element_blank(),
+        panel.border = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        plot.caption = element_text(color = corRodape)
+      )
+  } else {
+    grafico <- NULL
+  }
+
+  dtGeral <-
+    data.frame(
+      periodo              = periodo,
+      passivoCirculante    = passivoCirculante,
+      passivoNaoCirculante = passivoNaoCirculante,
+      patLiq               = patLiq,
+      atvTotal             = atvTotal
+    ) %>%
+    mutate(
+      ratio = ratio
+    ) %>%
+    arrange(periodo) %>%
+    mutate(
+      AH.passivoCirculante    = round(passivoCirculante / lag(passivoCirculante) - 1, 4),
+      AH.passivoNaoCirculante    = round(passivoNaoCirculante / lag(passivoNaoCirculante) - 1, 4),
+      AH.patLiq     = round(patLiq / lag(patLiq) - 1, 4),
+      AH.atvTotal     = round(atvTotal / lag(atvTotal) - 1, 4),
+      AV.passivoCirculante    = passivoCirculante / atvTotal,
+      AV.passivoNaoCirculante    = passivoNaoCirculante / atvTotal,
+      AV.patLiq = patLiq / atvTotal
+    ) %>%
+    rename_with(~ indicador, all_of("ratio"))
+
+  dtGeral %>%
+    select(periodo:atvTotal) %>%
+    pivot_longer(cols = -periodo, names_to = "conta", values_to = "value") %>%
+    na.omit() %>%
+    pivot_wider(names_from = "periodo", values_from = "value") -> contas
+
+  dtGeral %>%
+    select(periodo, {{indicador}}) %>%
+    pivot_longer(cols = -periodo, names_to = "conta", values_to = "value") %>%
+    na.omit() %>%
+    pivot_wider(names_from = "periodo", values_from = "value") -> ratio
+
+  dtGeral %>%
+    select(periodo, starts_with("AV.")) %>%
+    pivot_longer(cols = -periodo, names_to = "conta", values_to = "value") %>%
+    mutate(value = eval(parse(text = "showPercent(value)"))) %>%
+    na.omit() %>%
+    pivot_wider(names_from = "periodo", values_from = "value") -> bdAV
+
+  dtGeral %>%
+    select(periodo, starts_with("AH.")) %>%
+    pivot_longer(cols = -periodo, names_to = "conta", values_to = "value") %>%
+    mutate(value = eval(parse(text = "showPercent(value)"))) %>%
+    na.omit() %>%
+    pivot_wider(names_from = "periodo", values_from = "value") -> bdAH
+
+
+  listaRelatorio <-
+    list(
+      Contas = contas, `Indice` = ratio,
+      `Analise Vertical` = bdAV,
+      `Analise Horizontal` = bdAH,
+      plot = grafico)
+
+  apenasVetor <-
+    ratio %>%
+    pivot_longer(-1, names_to = 'ano', values_to = "valor") %>%
+    select(3) %>% pull() %>% round(3)
+  names(apenasVetor) <- names(ratio)[-1]
+
+  if(relatorio){
+    return(listaRelatorio)
+  } else {
+    return(apenasVetor)
+  }
+
+}
+

@@ -2,56 +2,34 @@
 % Please edit documentation in R/ind_analiseCiclo.R
 \name{ind_analiseCiclo}
 \alias{ind_analiseCiclo}
-\title{Análise Dupont (ROE desmembrado)}
+\title{Ciclo Operacional e Financeiro}
 \usage{
 ind_analiseCiclo(
-  intervalo = 2009:2011,
-  patrimonioLiquido = c(200, 150, 175),
-  ativoTotal = c(300, 500, 600),
-  receita = c(500, 450, 400),
-  lucroLiquido = c(8, 10, 14),
-  plot = T,
-  relatorio = T
+  periodo = (year(Sys.Date()) - 2):(year(Sys.Date()) - 1),
+  pmrv = c(60, 75),
+  pmre = c(45, 20),
+  pmpc = c(50, 100),
+  periodoGrafico = year(Sys.Date()) - 1
 )
 }
 \arguments{
-\item{intervalo}{Vetor numérico indicando o período da análise}
+\item{periodo}{Vetor numérico indicando o período da análise}
 
-\item{patrimonioLiquido}{Vetor com os valores do patrimônio líquido da empresa}
+\item{pmrv}{Vetor com os valores do prazo médio do recebimento de vendas}
 
-\item{ativoTotal}{Vetor com os valores do ativo total da empresa}
+\item{pmre}{Vetor com os valores do prazo médio da renovação dos estoques}
 
-\item{receita}{Vetor com os valores da receita líquida da empresa}
+\item{pmpc}{Vetor com os valores do prazo médio do pagamento de compras}
 
-\item{lucroLiquido}{Vetor com os valores do lucro líquido da empresa}
-
-\item{plot}{Mostra gráfico? (TRUE/FALSE)}
-
-\item{relatorio}{Se \code{TRUE}, Mostra relatório do indicador. Se \code{FALSE}, mostra
-apenas o vetor com resultados do indicador (TRUE/FALSE)}
+\item{periodoGrafico}{Vetor com um dos periodos informado no parâmetro \code{periodo} a ser considerado na análise}
 }
 \description{
-Essa função calcula o Índice de Retorno sobre o Patrimônio Líquido, baseado
-em vetores relativos as contas de Lucro Liquido, receita, Ativo Total e
-endividamento.
+Essa função dá suporte na análise dos ciclos operacional e financeiro das empresas.
 }
 \details{
-Apresenta como resultado uma lista com 5 itens:
-\enumerate{
-\item \strong{Gráfico} se o parâmetro \code{plot} for \code{TRUE} ou \code{T}, mostra um gráfico com a
-evolução do ROE da empresa durante os períodos. Se for \code{FALSE} ou \code{F},
-o gráfico não é apresentado;
-\item \strong{Contas} que corresponde ao banco de dados com as contas informadas para
-cálculo do indicador;
-\item \strong{Índice} o índice de Retorno sobre o patrimônio líquido dos períodos informados;
-\item \strong{Análise Vertical} Análise Vertical das contas informadas no item 2.
-Contas de resultado terão suas análises verticais em relação à receita total e
-contas patrimoniais terão suas análises verticais em relação ao ativo total;
-\item \strong{Análise Horizontal} Análise Horizontal das contas informadas no item 2.
-}
-
-Todos os itens da lista são bancos de dados no formato tibble que podem ser
-usados individualmente durante o processo de análise de dados.
+Apresenta como resultado um gráfico de barras com a representçaão gráfica
+do prazo médio de renovação dos estoques, prazo médio de recebimento de vendas,
+prazo médio de pagamento de compras, ciclo operacional e ciclo financeiro.
 
 Informações adicionais sobre como usar o pacote, orientamos acessar o menu
 \code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub/}.
@@ -64,17 +42,15 @@ Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabili
 \examples{
 library(cntdd)
 
-ind_analiseDupont(
- intervalo = 2009:2011,
- patrimonioLiquido = c(200, 150, 175),
- ativoTotal = c(300, 500, 600),
- receita = c(500, 450, 400),
- lucroLiquido = c(8, 10, 14),
- plot = TRUE,
- relatorio = TRUE
+ind_analiseCiclo(
+ periodo = 2022:2023,
+ pmrv = c(60, 75),
+ pmre = c(45, 20),
+ pmpc = c(50, 100),
+ periodoGrafico = 2023
  )
 
 }
 \seealso{
-\code{\link[=ind_roe]{ind_roe()}}, \code{\link[=ind_roa]{ind_roa()}}, \code{\link[=ind_nivelEndividamento]{ind_nivelEndividamento()}}, \code{\link[=ind_giro]{ind_giro()}}, \code{\link[=ind_ros]{ind_ros()}}, \code{\link[=ind_pmre]{ind_pmre()}}
+\code{\link[=ind_pmre]{ind_pmre()}}, \code{\link[=ind_pmrv]{ind_pmrv()}}, \code{\link[=ind_pmpc]{ind_pmpc()}}, \code{\link[=ind_cicloOperacional]{ind_cicloOperacional()}}, \code{\link[=ind_cicloFinanceiro]{ind_cicloFinanceiro()}}
 }

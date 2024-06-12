@@ -5,13 +5,24 @@
 \title{Lucro Operacional Liquido após os impostos (NOPAT)}
 \usage{
 ind_nopat(
-  indicador = "nopat",
+  indicador = "NOPAT",
   periodo = (year(Sys.Date()) - 2):(year(Sys.Date()) - 1),
   ebit = c(150, 200),
   receitaLiquida = c(290, 230),
   ir = 0.34,
-  plot = T,
-  relatorio = T
+  relatorio = T,
+  titulo = "Evolucao do NOPAT",
+  subtitulo = "",
+  rodape = paste0("@", year(Sys.Date()), " contabiliDados"),
+  corFundo = "orange",
+  corLinhaTendencia = "orange",
+  tamanhoValores = 6,
+  tamanhoTempo = 10,
+  tamanhoVariavel = 4,
+  tamanhoTitulo = 14,
+  tamanhoSubTitulo = 10,
+  tamanhoRodape = 8,
+  corRodape = "gray"
 )
 }
 \arguments{
@@ -25,10 +36,32 @@ ind_nopat(
 
 \item{ir}{Vetor com o percentual do imposto de renda (padrão: 34\%)}
 
-\item{plot}{Mostra gráfico? (TRUE/FALSE)}
+\item{relatorio}{Se \code{TRUE}, Mostra relatório do indicador. Se \code{FALSE}, mostra
+apenas o vetor com resultados do indicador (TRUE/FALSE)}
 
-\item{relatorio}{Se \code{TRUE}, Mostra relatório do indicador. Se \code{FALSE},
-mostra apenas o vetor com resultados do indicador (TRUE/FALSE)}
+\item{titulo}{Título do gráfico}
+
+\item{subtitulo}{Subtítulo do gráfico}
+
+\item{rodape}{Rodapé do gráfico}
+
+\item{corFundo}{Cor de fundo para os valores (Padrão: Laranja)}
+
+\item{corLinhaTendencia}{Cor da linha de tendência entre os valores (Padrão: Laranja)}
+
+\item{tamanhoValores}{Tamanho da fonte dos valores apresentados (Padrão: 6)}
+
+\item{tamanhoTempo}{Tamanho da fonte dos rótulos relativo aos períodos de tempo (Padrão: 10)}
+
+\item{tamanhoVariavel}{Tamanho da fonte do texto relativo à variável analisada (Padrão: 4)}
+
+\item{tamanhoTitulo}{Tamanho da fonte do título (Padrão: 14)}
+
+\item{tamanhoSubTitulo}{Tamanho da fonte do subtítulo (Padrão: 10)}
+
+\item{tamanhoRodape}{Tamanho da fonte do rodapé (Padrão: 8)}
+
+\item{corRodape}{Cor da fonte do rodapé (Padrão: Cinza)}
 }
 \description{
 Essa função calcula o Lucro Operacional Liquido após os impostos (NOPAT -
@@ -37,9 +70,9 @@ Net operating profit after tax).
 \details{
 Apresenta como resultado uma lista com 5 itens:
 \enumerate{
-\item \strong{Gráfico} se o parâmetro \code{plot} for \code{TRUE} ou \code{T}, mostra um gráfico com a
-evolução do NOPAT da empresa durante os períodos. Se for \code{FALSE} ou \code{F},
-o gráfico nao é apresentado;
+\item \strong{Gráfico} se o parâmetro \code{relatorio} for \code{TRUE} ou \code{T}, mostra um gráfico com a
+evolução do ativo cíclico da empresa durante os períodos. Se for \code{FALSE} ou \code{F},
+o gráfico não é apresentado;
 \item \strong{Contas} que corresponde ao banco de dados com as contas informadas para
 cálculo do indicador;
 \item \strong{Índice} o NOPAT dos períodos informados;
@@ -64,13 +97,24 @@ Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabili
 library(cntdd)
 
 ind_nopat(
- indicador = "nopat",
+ indicador = "NOPAT",
  periodo = 2021:2022,
  ebit = c(150,200),
  receitaLiquida = c(290, 230),
  ir = 0.34,
- plot = TRUE,
- relatorio = TRUE
+ relatorio = TRUE,
+ titulo = "Evolucao do NOPAT",
+ subtitulo = "",
+ rodape = "",
+ corFundo = "orange",
+ corLinhaTendencia = "orange",
+ tamanhoValores = 6,
+ tamanhoTempo = 10,
+ tamanhoVariavel = 4,
+ tamanhoTitulo = 14,
+ tamanhoSubTitulo = 10,
+ tamanhoRodape = 8,
+ corRodape = "gray"
  )
 
 }

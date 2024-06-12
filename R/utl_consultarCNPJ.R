@@ -31,6 +31,8 @@
 #'
 #' @import dplyr
 #' @import jsonlite
+#' @importFrom pbapply pblapply
+#' @importFrom purrr pluck
 #' @export
 
 utl_consultarCNPJ <- function(cnpj = "24529265000140") {
@@ -180,6 +182,15 @@ utl_consultarCNPJ <- function(cnpj = "24529265000140") {
   return(df)
 }
 
-
-
+globalVariables(
+  c(
+    "%||%", "bairro", "capital_social", "cep", "cnaes_sec_codigo",
+    "cnaes_sec_descricao", "data_inicio_atividade", "detectCores",
+    "logradouro", "municipio", "natureza_juridica", "nome_fantasia",
+    "numero", "porte", "qsa_codigo_faixa_etaria", "qsa_nome_socio", "qsa_pais",
+    "qsa_codigo_qualificacao_representante_legal", "qsa_codigo_qualificacao_socio",
+    "qsa_data_entrada_sociedade", "qsa_faixa_etaria", "qsa_identificador_de_socio",
+    "qsa_nome_socio qsa_pais", "qsa_qualificacao_representante_legal",
+    "qsa_qualificacao_socio", "razao_social", "uf")
+)
 
