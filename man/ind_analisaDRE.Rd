@@ -2,7 +2,7 @@
 % Please edit documentation in R/ind_analisaDRE.R
 \name{ind_analisaDRE}
 \alias{ind_analisaDRE}
-\title{dRE Detalhada}
+\title{DRE Detalhada}
 \usage{
 ind_analisaDRE(
   empresa = "Empresa",
@@ -16,12 +16,12 @@ ind_analisaDRE(
   dividendos = 10,
   aliquotaIR = 0.34,
   verDados = F,
-  fontBar = 4,
+  fontBar = 3,
   colorBar1 = "#9ecae1",
   colorBar2 = "#3182bd",
   colorBar3 = "#e34a33",
   colorBar4 = "#fee8c8",
-  ajustLabel = 10
+  ajustLabel = 8
 )
 }
 \arguments{
@@ -75,7 +75,7 @@ formação do lucro da empresa. Se for \code{TRUE} ou \code{T}, mostra o data.fr
 as contas que compõem o gráfico.
 
 Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub/}.
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.com.br/}.
 Ao acessar, fazer busca pelo nome da função \code{ind_analisaDRE}
 
 Contatos pelo email do Projeto contabiliDados:

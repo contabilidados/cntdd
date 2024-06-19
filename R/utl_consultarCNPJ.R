@@ -27,12 +27,13 @@
 #' @examples
 #' library(cntdd)
 #'
-#' utl_consultarCNPJ <- function(cnpj = "24529265000140")
+#' # utl_consultarCNPJ(cnpj = "24529265000140")
 #'
 #' @import dplyr
 #' @import jsonlite
 #' @importFrom pbapply pblapply
 #' @importFrom purrr pluck
+#' @importFrom parallel detectCores
 #' @export
 
 utl_consultarCNPJ <- function(cnpj = "24529265000140") {

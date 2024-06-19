@@ -22,6 +22,7 @@
 #' utl_baixaBCB(codSerie = 433, inicio = "01/01/2003", fim = "31/12/2017")
 #'
 #' @import jsonlite
+#'
 #' @export
 
 utl_baixaBCB <- function(codSerie = 433, inicio = "01/01/2003", fim = "31/12/2017"){
@@ -34,5 +35,6 @@ utl_baixaBCB <- function(codSerie = 433, inicio = "01/01/2003", fim = "31/12/201
       inicio, "&dataFinal=", fim
     )
   )
-
 }
+
+

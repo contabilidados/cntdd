@@ -17,7 +17,7 @@ relativos a cada mês do ano.
 }
 \details{
 Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub}.
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.com.br/}.
 Ao acessar, fazer busca pelo nome da função \code{dt_meses}
 
 Contatos pelo email do Projeto contabiliDados:

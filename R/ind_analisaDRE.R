@@ -1,4 +1,4 @@
-#' dRE Detalhada
+#' DRE Detalhada
 #'
 #' @description
 #' Essa função ajuda na análise da Demonstração do Resultado do Exercício (DRE),
@@ -15,7 +15,7 @@
 #' as contas que compõem o gráfico.
 #'
 #' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub/>.
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.com.br/>.
 #' Ao acessar, fazer busca pelo nome da função `ind_analisaDRE`
 #'
 #' Contatos pelo email do Projeto contabiliDados:
@@ -66,6 +66,7 @@
 #'
 #' @import ggplot2
 #' @import dplyr
+#' @import scales
 #' @importFrom lubridate year
 #' @importFrom tidyr pivot_longer
 #' @export
@@ -76,8 +77,8 @@ ind_analisaDRE <-
     empresa = "Empresa", periodo = (year(Sys.Date())-1),
     receita = 150, custo = 30, despSemDep = 20, depreciacao = 10,
     juros = 35, ircsll = 15, dividendos = 10, aliquotaIR = 0.34, verDados = F,
-    fontBar = 4, colorBar1 = "#9ecae1", colorBar2 = "#3182bd",
-    colorBar3 = "#e34a33", colorBar4 = "#fee8c8", ajustLabel = 10
+    fontBar = 3, colorBar1 = "#9ecae1", colorBar2 = "#3182bd",
+    colorBar3 = "#e34a33", colorBar4 = "#fee8c8", ajustLabel = 8
   ) {
 
     lucroBruto = receita - custo
@@ -190,6 +191,9 @@ ind_analisaDRE <-
             "EBIT", "NOPAT", "Lucro antes\ndos Impostos",
             "Lucro\nLiquido", "Lucros\nRetidos")
       ) +
+      scale_y_continuous(
+        labels = scales::label_number(accuracy=0.1, scale_cut=scales::cut_short_scale())
+      ) +
       annotate("text", x = "Lucro Bruto", y = textos[1],
                label = c("Custo"), size = fontBar, color = "#3182bd", angle = 0) +
       annotate("text", x = "EBITDA", y = textos[2],
@@ -222,3 +226,4 @@ ind_analisaDRE <-
   }
 
 globalVariables(c("contas", "barra", "grupos", "valor"))
+

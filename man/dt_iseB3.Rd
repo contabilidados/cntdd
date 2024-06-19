@@ -17,7 +17,7 @@ da Plataforma ESG Workspace.
 }
 \details{
 Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub}.
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.com.br/}.
 Ao acessar, fazer busca pelo nome da funcao \code{dt_contabil}
 
 Contatos pelo email do Projeto contabiliDados:

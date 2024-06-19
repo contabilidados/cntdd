@@ -5,7 +5,7 @@
 #' código de negociação na B3. Inclui dados de constituição, setor, dentre outros.
 #'
 #' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub>.
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.com.br/>.
 #' Ao acessar, fazer busca pelo nome da função `dt_cvmB3`
 #'
 #' Contatos pelo email do Projeto contabiliDados:

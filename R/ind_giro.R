@@ -23,7 +23,7 @@
 #' usados individualmente durante o processo de análise de dados.
 #'
 #' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub/>.
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.com.br/>.
 #' Ao acessar, fazer busca pelo nome da função `ind_giro`
 #'
 #' Contatos pelo email do Projeto contabiliDados:
@@ -53,7 +53,7 @@
 #' library(cntdd)
 #'
 #' ind_giro(
-#'  indicador = "ROS",
+#'  indicador = "Giro do Ativo",
 #'  periodo = 2021:2022,
 #'  receitaLiquida = c(500, 450),
 #'  atvTotal = c(300, 500),

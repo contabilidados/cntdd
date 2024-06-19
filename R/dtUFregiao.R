@@ -8,7 +8,7 @@
 #' Data.frame com 27 observações (linhas) e 4 variáveis (colunas).
 #'
 #' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub>.
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.com.br/>.
 #' Ao acessar, fazer busca pelo nome da função `dt_ufRegiao`.
 #'
 #' Contatos pelo email do Projeto contabiliDados:

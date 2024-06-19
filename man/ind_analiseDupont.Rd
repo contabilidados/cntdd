@@ -42,7 +42,7 @@ usados individualmente durante o processo de análise de dados.
 }
 
 Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub/}.
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.com.br/}.
 Ao acessar, fazer busca pelo nome da função \code{ind_dupont}
 
 Contatos pelo email do Projeto contabiliDados:

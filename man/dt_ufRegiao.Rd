@@ -18,7 +18,7 @@ Federativa (UF), capital e região. Útil para associação com outras bases.
 Data.frame com 27 observações (linhas) e 4 variáveis (colunas).
 
 Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub}.
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.com.br/}.
 Ao acessar, fazer busca pelo nome da função \code{dt_ufRegiao}.
 
 Contatos pelo email do Projeto contabiliDados:

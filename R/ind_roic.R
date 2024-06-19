@@ -25,7 +25,7 @@
 #' usados individualmente durante o processo de análise de dados.
 #'
 #' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub/>.
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.com.br/>.
 #' Ao acessar, fazer busca pelo nome da funcao `ind_roic`
 #'
 #' Contatos pelo email do Projeto contabiliDados:

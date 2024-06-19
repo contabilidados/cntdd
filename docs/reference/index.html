@@ -25,22 +25,6 @@
       <ul class="nav navbar-nav"><li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/legacy.html">Legacy theming with bslib and thematic</a>
-    </li>
-    <li>
-      <a href="../articles/teste123.html">Usando Liquidez Seca</a>
-    </li>
-    <li>
-      <a href="../articles/usandoTeste.html">Usando a função stat_geom Mean</a>
-    </li>
-  </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="http://github.com/contabilidados/cntdd/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
@@ -66,11 +50,15 @@
       </tr></tbody><tbody><tr><td>
           <p><code><a href="dt_contabil.html">dt_contabil</a></code> </p>
         </td>
-        <td><p>Dados Contabeis</p></td>
+        <td><p>Dados Contábeis</p></td>
       </tr><tr><td>
           <p><code><a href="dt_cvmB3.html">dt_cvmB3</a></code> </p>
         </td>
         <td><p>Dados cadastrais das empresas da CVM</p></td>
+      </tr><tr><td>
+          <p><code><a href="dt_iseB3.html">dt_iseB3</a></code> </p>
+        </td>
+        <td><p>Conjunto de Dados ISE B3 (2021-2023)</p></td>
       </tr><tr><td>
           <p><code><a href="dt_meses.html">dt_meses</a></code> </p>
         </td>
@@ -78,7 +66,39 @@
       </tr><tr><td>
           <p><code><a href="dt_ufRegiao.html">dt_ufRegiao</a></code> </p>
         </td>
-        <td><p>Dados Unidades Federativas</p></td>
+        <td><p>Dados das Unidades Federativas</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_analisaDRE.html">ind_analisaDRE()</a></code> </p>
+        </td>
+        <td><p>DRE Detalhada</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_analiseCiclo.html">ind_analiseCiclo()</a></code> </p>
+        </td>
+        <td><p>Ciclo Operacional e Financeiro</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_analiseDupont.html">ind_analiseDupont()</a></code> </p>
+        </td>
+        <td><p>ROE desmembrado (Dupont)</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_analiseEfeitoTesoura.html">ind_analiseEfeitoTesoura()</a></code> </p>
+        </td>
+        <td><p>Efeito Tesoura</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_analiseVH.html">ind_analiseVH()</a></code> </p>
+        </td>
+        <td><p>Análise Vertical e Horizontal</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_ativoCiclico.html">ind_ativoCiclico()</a></code> </p>
+        </td>
+        <td><p>Ativo Cíclico</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_ativoFinanceiro.html">ind_ativoFinanceiro()</a></code> </p>
+        </td>
+        <td><p>Ativo Financeiro</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_capitalCircLiquido.html">ind_capitalCircLiquido()</a></code> </p>
+        </td>
+        <td><p>Capital Circulante Líquido (CCL)</p></td>
       </tr><tr><td>
           <p><code><a href="ind_capitalInvestido.html">ind_capitalInvestido()</a></code> </p>
         </td>
@@ -86,59 +106,151 @@
       </tr><tr><td>
           <p><code><a href="ind_capitalOperLiquido.html">ind_capitalOperLiquido()</a></code> </p>
         </td>
-        <td><p>Capital Operacional Liquido (COL)</p></td>
+        <td><p>Capital Operacional Líquido (COL)</p></td>
       </tr><tr><td>
-          <p><code><a href="ind_dupont.html">ind_dupont()</a></code> </p>
+          <p><code><a href="ind_cicloFinanceiro.html">ind_cicloFinanceiro()</a></code> </p>
         </td>
-        <td><p>Indice de Retorno sobre o Ativo (ROA)</p></td>
+        <td><p>Ciclo Financeiro</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_cicloOperacional.html">ind_cicloOperacional()</a></code> </p>
+        </td>
+        <td><p>Ciclo Operacional</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_composicaoEndividamento.html">ind_composicaoEndividamento()</a></code> </p>
+        </td>
+        <td><p>Composição do Endividamento (CE)</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_custoCapital.html">ind_custoCapital()</a></code> </p>
+        </td>
+        <td><p>Custo de Capital da Empresa</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_endividamentoFinanceiro.html">ind_endividamentoFinanceiro()</a></code> </p>
+        </td>
+        <td><p>Endividamento Financeiro sobre o Ativo Total (EFAT)</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_eva.html">ind_eva()</a></code> </p>
+        </td>
+        <td><p>Valor Econômico Agregado (EVA)</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_evaPercentual.html">ind_evaPercentual()</a></code> </p>
+        </td>
+        <td><p>Valor Econômico Agregado (EVA) - Percentual</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_giro.html">ind_giro()</a></code> </p>
+        </td>
+        <td><p>Giro do Ativo</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_imobilizacaoPL.html">ind_imobilizacaoPL()</a></code> </p>
+        </td>
+        <td><p>Imobilização do Patrimônio Líquido</p></td>
       </tr><tr><td>
           <p><code><a href="ind_liqCorrente.html">ind_liqCorrente()</a></code> </p>
         </td>
-        <td><p>Indice de Liquidez Corrente</p></td>
+        <td><p>Índice de Liquidez Corrente</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_liqGeral.html">ind_liqGeral()</a></code> </p>
+        </td>
+        <td><p>Índice de Liquidez Geral</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_liqImediata.html">ind_liqImediata()</a></code> </p>
+        </td>
+        <td><p>Índice de Liquidez Imediata</p></td>
       </tr><tr><td>
           <p><code><a href="ind_liqSeca.html">ind_liqSeca()</a></code> </p>
         </td>
-        <td><p>Indice de Liquidez Seca</p></td>
+        <td><p>Índice de Liquidez Seca</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_necessidadeCapGiro.html">ind_necessidadeCapGiro()</a></code> </p>
+        </td>
+        <td><p>Necessidade de Capital de Giro (NCG)</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_nivelEndividamento.html">ind_nivelEndividamento()</a></code> </p>
+        </td>
+        <td><p>Nível de Endividamento do Ativo Total</p></td>
       </tr><tr><td>
           <p><code><a href="ind_nopat.html">ind_nopat()</a></code> </p>
         </td>
         <td><p>Lucro Operacional Liquido após os impostos (NOPAT)</p></td>
       </tr><tr><td>
+          <p><code><a href="ind_partCapTerceiros.html">ind_partCapTerceiros()</a></code> </p>
+        </td>
+        <td><p>Participação do Capital de Terceiros (PCT)</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_passivoCiclico.html">ind_passivoCiclico()</a></code> </p>
+        </td>
+        <td><p>Passivo Cíclico</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_passivoFinanceiro.html">ind_passivoFinanceiro()</a></code> </p>
+        </td>
+        <td><p>Passivo Financeiro</p></td>
+      </tr><tr><td>
           <p><code><a href="ind_passivoOneroso.html">ind_passivoOneroso()</a></code> </p>
         </td>
         <td><p>Passivo Oneroso</p></td>
       </tr><tr><td>
+          <p><code><a href="ind_pmpc.html">ind_pmpc()</a></code> </p>
+        </td>
+        <td><p>Prazo Médio de Pagamento de Compras</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_pmre.html">ind_pmre()</a></code> </p>
+        </td>
+        <td><p>Prazo Médio de Renovação dos Estoques</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_pmrv.html">ind_pmrv()</a></code> </p>
+        </td>
+        <td><p>Prazo Médio de Rececimento de Vendas</p></td>
+      </tr><tr><td>
           <p><code><a href="ind_roa.html">ind_roa()</a></code> </p>
         </td>
-        <td><p>Indice de Retorno sobre o Ativo (ROA)</p></td>
+        <td><p>Índice de Retorno sobre o Ativo (ROA)</p></td>
       </tr><tr><td>
           <p><code><a href="ind_roe.html">ind_roe()</a></code> </p>
         </td>
-        <td><p>Indice de Retorno sobre o Patrimonio Liquido (ROE)</p></td>
+        <td><p>Índice de Retorno sobre o Patrimônio Líquido (ROE)</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_roic.html">ind_roic()</a></code> </p>
+        </td>
+        <td><p>Retorno sobre Capital Investido (ROIC)</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_ros.html">ind_ros()</a></code> </p>
+        </td>
+        <td><p>Índice de Retorno sobre as Vendas (ROS)</p></td>
+      </tr><tr><td>
+          <p><code><a href="ind_saldoTesouraria.html">ind_saldoTesouraria()</a></code> </p>
+        </td>
+        <td><p>Saldo de Tesouraria (ST)</p></td>
       </tr><tr><td>
           <p><code><a href="ind_wacc.html">ind_wacc()</a></code> </p>
         </td>
-        <td><p>Custo Medio de Capital Ponderado (WACC ou CMPC)</p></td>
+        <td><p>Custo Médio Ponderado de Capital (WACC ou CMPC)</p></td>
       </tr><tr><td>
           <p><code><a href="stat_correl.html">stat_correl()</a></code> </p>
         </td>
-        <td><p>Correlacao de Pearson e Spearman</p></td>
+        <td><p>Correlação de Pearson e Spearman</p></td>
       </tr><tr><td>
           <p><code><a href="stat_geomMean.html">stat_geomMean()</a></code> </p>
         </td>
-        <td><p>Media geometrica</p></td>
+        <td><p>Média geométrica</p></td>
       </tr><tr><td>
           <p><code><a href="stat_meanTest.html">stat_meanTest()</a></code> </p>
         </td>
-        <td><p>Teste de Medias ou Medianas</p></td>
+        <td><p>Teste de Médias ou Medianas</p></td>
       </tr><tr><td>
           <p><code><a href="stat_testaIndependencia.html">stat_testaIndependencia()</a></code> </p>
         </td>
-        <td><p>Teste de Independencia</p></td>
+        <td><p>Teste de Independência</p></td>
+      </tr><tr><td>
+          <p><code><a href="utl_ajustaContaInflacao.html">utl_ajustaContaInflacao()</a></code> </p>
+        </td>
+        <td><p>Ajuste de Valores pela Inflação</p></td>
+      </tr><tr><td>
+          <p><code><a href="utl_baixaBCB.html">utl_baixaBCB()</a></code> </p>
+        </td>
+        <td><p>Baixa dados Banco Central</p></td>
       </tr><tr><td>
           <p><code><a href="utl_CNPJ_Mascara.html">utl_CNPJ_Mascara()</a></code> </p>
         </td>
-        <td><p>Mascara CNPJ</p></td>
+        <td><p>Máscara CNPJ</p></td>
       </tr><tr><td>
           <p><code><a href="utl_consultarCNPJ.html">utl_consultarCNPJ()</a></code> </p>
         </td>
@@ -162,11 +274,11 @@
       </tr><tr><td>
           <p><code><a href="utl_tableStat.html">utl_tableStat()</a></code> </p>
         </td>
-        <td><p>Tabela de estatistica por grupos</p></td>
+        <td><p>Tabela de estatística por grupos</p></td>
       </tr><tr><td>
           <p><code><a href="utl_tStarSig.html">utl_tStarSig()</a></code> </p>
         </td>
-        <td><p>Formata significancia</p></td>
+        <td><p>Formata significância</p></td>
       </tr></tbody></table></div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

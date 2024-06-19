@@ -39,7 +39,7 @@ um gráfico com a evoluçaõd do CCL e da NCG, evidenciando (ou não) a ocorrên
 do efeito tesoura.
 
 Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub/}.
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.com.br/}.
 Ao acessar, fazer busca pelo nome da função \code{ind_necessidadeCapGiro}
 
 Contatos pelo email do Projeto contabiliDados:

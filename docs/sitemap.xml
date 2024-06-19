@@ -37,6 +37,9 @@
     <loc>http://contabilidados.github.io/cntdd/reference/dt_cvmB3.html</loc>
   </url>
   <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/dt_iseB3.html</loc>
+  </url>
+  <url>
     <loc>http://contabilidados.github.io/cntdd/reference/dt_meses.html</loc>
   </url>
   <url>
@@ -52,31 +55,127 @@
     <loc>http://contabilidados.github.io/cntdd/reference/index.html</loc>
   </url>
   <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_analisaDRE.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_analiseCiclo.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_analiseDupont.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_analiseEfeitoTesoura.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_analiseHorizontal.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_analiseVertical.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_analiseVH.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_ativoCiclico.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_ativoFinanceiro.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_capitalCircLiquido.html</loc>
+  </url>
+  <url>
     <loc>http://contabilidados.github.io/cntdd/reference/ind_capitalInvestido.html</loc>
   </url>
   <url>
     <loc>http://contabilidados.github.io/cntdd/reference/ind_capitalOperLiquido.html</loc>
   </url>
   <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_cicloFinanceiro.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_cicloOperacional.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_composicaoEndividamento.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_custoCapital.html</loc>
+  </url>
+  <url>
     <loc>http://contabilidados.github.io/cntdd/reference/ind_dupont.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_endividamentoFinanceiro.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_eva.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_evaPercentual.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_giro.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_imobilizacaoPL.html</loc>
   </url>
   <url>
     <loc>http://contabilidados.github.io/cntdd/reference/ind_liqCorrente.html</loc>
   </url>
   <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_liqGeral.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_liqImediata.html</loc>
+  </url>
+  <url>
     <loc>http://contabilidados.github.io/cntdd/reference/ind_liqSeca.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_necessidadeCapGiro.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_nivelEndividamento.html</loc>
   </url>
   <url>
     <loc>http://contabilidados.github.io/cntdd/reference/ind_nopat.html</loc>
   </url>
   <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_partCapTerceiros.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_passivoCiclico.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_passivoFinanceiro.html</loc>
+  </url>
+  <url>
     <loc>http://contabilidados.github.io/cntdd/reference/ind_passivoOneroso.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_pmpc.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_pmre.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_pmrv.html</loc>
   </url>
   <url>
     <loc>http://contabilidados.github.io/cntdd/reference/ind_roa.html</loc>
   </url>
   <url>
     <loc>http://contabilidados.github.io/cntdd/reference/ind_roe.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_roic.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_ros.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/ind_saldoTesouraria.html</loc>
   </url>
   <url>
     <loc>http://contabilidados.github.io/cntdd/reference/ind_wacc.html</loc>
@@ -92,6 +191,12 @@
   </url>
   <url>
     <loc>http://contabilidados.github.io/cntdd/reference/stat_testaIndependencia.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/utl_ajustaContaInflacao.html</loc>
+  </url>
+  <url>
+    <loc>http://contabilidados.github.io/cntdd/reference/utl_baixaBCB.html</loc>
   </url>
   <url>
     <loc>http://contabilidados.github.io/cntdd/reference/utl_CNPJ_Mascara.html</loc>

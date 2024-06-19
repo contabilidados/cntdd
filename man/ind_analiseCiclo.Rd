@@ -32,7 +32,7 @@ do prazo médio de renovação dos estoques, prazo médio de recebimento de vend
 prazo médio de pagamento de compras, ciclo operacional e ciclo financeiro.
 
 Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.quarto.pub/}.
+\code{cntdd} do Blog do Projeto contabiliDados: \url{https://contabilidados.com.br/}.
 Ao acessar, fazer busca pelo nome da função \code{ind_dupont}
 
 Contatos pelo email do Projeto contabiliDados:

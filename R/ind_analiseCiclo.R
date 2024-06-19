@@ -9,7 +9,7 @@
 #' prazo médio de pagamento de compras, ciclo operacional e ciclo financeiro.
 #'
 #' Informações adicionais sobre como usar o pacote, orientamos acessar o menu
-#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.quarto.pub/>.
+#' `cntdd` do Blog do Projeto contabiliDados: <https://contabilidados.com.br/>.
 #' Ao acessar, fazer busca pelo nome da função `ind_dupont`
 #'
 #' Contatos pelo email do Projeto contabiliDados:
