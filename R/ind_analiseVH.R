@@ -60,11 +60,11 @@ ind_analiseVH <- function(
     .dt %>%
     group_by(pick({{ .colEmpresa }})) %>%
     mutate(
-      across(match(.contas, names(.dt)),
+      across(all_of(names(.dt)[match(.contas, names(.dt))]),
              ~ .x / {{.contaReferenciaAV}}, .names = "AV_{.col}")
     ) %>%
     mutate(
-      across(match(.contas, names(.dt)),
+      across(all_of(names(.dt)[match(.contas, names(.dt))]),
              ~ .x / dplyr::lag(.x) - 1, .names = "AH_{.col}")
     )
 
