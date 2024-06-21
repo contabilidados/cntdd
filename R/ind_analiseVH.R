@@ -58,6 +58,7 @@ ind_analiseVH <- function(
     .output = "AVAH"){
   res <-
     .dt %>%
+    arrange({{ .colEmpresa }}, {{ .colPeriodo }}) %>%
     group_by(pick({{ .colEmpresa }})) %>%
     mutate(
       across(all_of(names(.dt)[match(.contas, names(.dt))]),

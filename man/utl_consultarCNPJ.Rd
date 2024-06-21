@@ -24,7 +24,7 @@ dados societários.
 \examples{
 library(cntdd)
 
-utl_consultarCNPJ(cnpj = "24529265000140")
+# utl_consultarCNPJ(cnpj = "24529265000140")
 
 }
 \seealso{

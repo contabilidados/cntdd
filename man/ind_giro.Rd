@@ -91,7 +91,7 @@ Siga-nos no Instagram: \url{https://www.instagram.com/contabilidados} @contabili
 library(cntdd)
 
 ind_giro(
- indicador = "ROS",
+ indicador = "Giro do Ativo",
  periodo = 2021:2022,
  receitaLiquida = c(500, 450),
  atvTotal = c(300, 500),
