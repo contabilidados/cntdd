@@ -1,18 +1,23 @@
 #' Consulta de informações de CNPJ via API "minhareceita.org
 #'
 #' @description
-#'
 #' Esta função consulta informações detalhadas de empresas a partir de uma lista de CNPJs,
-#' utilizando a API "minhareceita.org".
+#' utilizando a API "minhareceita.org". A função retorna um DataFrame contendo informações
+#' como UF, CEP, razão social, entre outros. Inclui subfunções para obter dados gerais,
+#' CNAEs secundários e dados societários.
 #'
-#' @param cnpj Um vetor de CNPJs como caracteres.
+#' @param cnpj_lista Um vetor de CNPJs como caracteres.
 #'
 #' @return Um DataFrame com informações detalhadas das empresas consultadas.
 #'
 #' @details
-#' A função retorna um DataFrame contendo informações como UF, CEP, razão social,
-#' entre outros. Inclui subfunções para obter dados gerais, CNAEs  secundários e
-#' dados societários.
+#' A função utiliza várias subfunções para:
+#' - **Dados Gerais**: Coletar informações como UF, CEP, razão social, porte, etc.
+#' - **CNAEs Secundários**: Obter códigos e descrições de atividades econômicas secundárias.
+#' - **Dados Societários**: Coletar informações sobre sócios e qualificações.
+#'
+#' Em caso de erros na consulta, como problemas de conexão ou dados ausentes, a função
+#' retorna um DataFrame vazio e continua a consulta para os próximos CNPJs.
 #'
 #' @seealso [jsonlite()], [dplyr()]
 #'
@@ -21,22 +26,28 @@
 #' Ao acessar, fazer busca pelo nome da função `utl_consultarCNPJ`
 #'
 #' Contatos pelo email do Projeto contabiliDados:
-#' Email: <contabilidados@@ufersa.edu.br>
+#' Email: <contabilidados@ufersa.edu.br>
 #' Siga-nos no Instagram: <https://www.instagram.com/contabilidados> @contabilidados
 #'
 #' @examples
 #' library(cntdd)
 #'
-#' # utl_consultarCNPJ(cnpj = "24529265000140")
+#' utl_consultarCNPJ(cnpj_lista  = "24529265000140")
 #'
 #' @import dplyr
 #' @import jsonlite
 #' @importFrom pbapply pblapply
 #' @importFrom purrr pluck
 #' @importFrom parallel detectCores
+#' @encoding UTF-8
 #' @export
 
-utl_consultarCNPJ <- function(cnpj = "24529265000140") {
+
+
+utl_consultarCNPJ <- function(cnpj_lista = "24529265000140") {
+  message("Para visualizar o Layout dos dados abertos do CNPJ acesse: https://www.gov.br/receitafederal/dados/cnpj-metadados.pdf")
+  message("Consultando informações de CNPJ via API minhareceita.org")
+
   # Configurar o número de núcleos
   num_cores <- detectCores() - 1
 
@@ -134,7 +145,7 @@ utl_consultarCNPJ <- function(cnpj = "24529265000140") {
   }
 
   # Executando todas as consultas em paralelo com barra de progresso única
-  resultados <- pblapply(cnpj, obter_dados, cl = num_cores)
+  resultados <- pblapply(cnpj_lista , obter_dados, cl = num_cores)
 
   df_resultado <- bind_rows(resultados)
 
@@ -142,6 +153,7 @@ utl_consultarCNPJ <- function(cnpj = "24529265000140") {
   temp <- df_resultado %>%
     group_by(cnpj) %>%
     summarise(
+      cnpj = paste(unique(cnpj), collapse = ", "),
       cnaes_sec_descricao = paste(unique(cnaes_sec_descricao), collapse = ", "),
       cnaes_sec_codigo = paste(unique(cnaes_sec_codigo), collapse = ", "),
       qsa_nome_socio = paste(unique(qsa_nome_socio), collapse = ", "),
@@ -191,7 +203,6 @@ globalVariables(
     "numero", "porte", "qsa_codigo_faixa_etaria", "qsa_nome_socio", "qsa_pais",
     "qsa_codigo_qualificacao_representante_legal", "qsa_codigo_qualificacao_socio",
     "qsa_data_entrada_sociedade", "qsa_faixa_etaria", "qsa_identificador_de_socio",
-    "qsa_nome_socio qsa_pais", "qsa_qualificacao_representante_legal",
-    "qsa_qualificacao_socio", "razao_social", "uf")
+    "qsa_nome_socio", "qsa_pais", "qsa_qualificacao_representante_legal",
+    "qsa_qualificacao_socio", "razao_social", "uf", "cnpj", "cnpj_lista")
 )
-
