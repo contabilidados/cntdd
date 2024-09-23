@@ -20,4 +20,4 @@ Suggests:
     knitr,
     rmarkdown,
     utils
-Imports: dplyr, ggplot2, sandwich, tidyr, rstatix, Hmisc, jsonlite, stats, nortest, stringr, scales, lubridate, CGPfunctions, ggpubr, ggrepel, pbapply, purrr
+Imports: dplyr, ggplot2, sandwich, tidyr, rstatix, Hmisc, jsonlite, stats, nortest, stringr, scales, lubridate, CGPfunctions, ggpubr, ggrepel, pbapply, purrr, parallel
