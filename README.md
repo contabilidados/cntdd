@@ -1,118 +1,279 @@
+# cntdd <img src="man/figures/logo.png" align="right" height="139" alt="" />
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/cntdd)](https://CRAN.R-project.org/package=cntdd)
+[![R-CMD-check](https://github.com/contabilidados/cntdd/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/contabilidados/cntdd/actions/workflows/R-CMD-check.yaml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+<!-- badges: end -->
 
-# O projeto **contabiliDados**
+> **cntdd** é um pacote R desenvolvido pelo projeto **contabiliDados** (UFERSA) com utilitários para pesquisa, ensino e análise em contabilidade e finanças. O pacote reúne funções para cálculo de indicadores econômico-financeiros, análises gráficas, testes estatísticos, manipulação de dados cadastrais e integração com APIs públicas brasileiras.
 
-<a href="links/team.html" target="_blank">Equipe</a>
+---
 
-**Resumo**
+## Instalação
 
-O processo de registro contábil acarreta na geração de um vasto banco de
-dados empresarial que pode ser usado internamente (gestores) ou
-externamente (investidores) para o processo decisório. O uso desses
-bancos de dados como fonte de informação tem sido cada vez explorado por
-profissionais contábeis, sendo uma nova habilidade a ser requerida para
-o profissional. Nesse contexto, a eficiência do processo decisório passa
-pela aplicação de métodos e técnicas que transformem dados brutos em
-informações úteis. O acesso aos dados brutos tem sido facilitados com a
-disseminação e ampliação do número de bancos de dados disponíveis na
-web. Esse projeto se direciona, portanto, na pesquisa de técnicas que
-viabilizem a extração de dados disponíveis, especialmente na web (web
-scraping), com o intuito de mapear formas de se ampliar o portfólio
-decisório.
+### Versão de desenvolvimento (GitHub)
 
-**Introdução/Justificativa**
+```r
+# install.packages("remotes")
+remotes::install_github("contabilidados/cntdd")
+```
 
-A contabilidade registra todos os fatos financeiros que acontecem
-durante a existência das empresas, mantendo a memória de todo o processo
-decisório das empresas. Constitui-se em um imenso banco de dados capaz
-de revelar estratégias exitosas e fracassadas nos diferentes momentos da
-economia. A habilidade em tornar eficaz o uso desses dados com foco na
-decisão (SILVA; PONTES; VILLELA, 2010) tem se tornado uma exigência
-corriqueira para os profissionais contábeis. Portanto, estudar técnicas
-capazes de estruturar dados disponíveis e transformá-los em informações
-úteis ao processo decisório fortalece o currículo dos discentes que
-tenham contato com as técnicas e com a compreensão da existência de
-inúmeras possibilidades de se atuar no mercado contábil voltado ao
-processo decisório.
+---
 
-A precisão das informações e a criação de modelos preditivos modificaram
-a forma de enxergar a contabilidade como setor que apenas registra os
-fatos contábeis, sendo tema de discussão recente na mudanças das
-diretrizes curriculares do curso. Como a contabilidade passa, cada vez
-mais, a se tornar parte da gestão estratégica para a tomada de decisão
-(MACHADO; RAPÉ; SOUZA, 2019), a compreensão de conceitos e técnicas
-voltadas a analytics, big data e ciência de dados preenche lacunas
-profissionais atuais e, como pressupõe esse projeto, demandas futuras
-também.
+## Visão Geral
 
-Com o avanço tecnológico e a consequente propagação da informação em
-tempo real, os profissionais contábeis se depararam com novos desafios
-para dar suporte ao processo decisório das empresas (KOUNROUZAN, 2005).
-Com a disseminação de plataformas de programação gratuitas, associadas
-ao poder computacional, manipular grandes bases de dados se tornou
-viáveis e até, condição indispensável para a competição entre as
-empresas. A área contábil se interessa, portanto, em ter profissionais
-que compreendam além dos números contábeis, focando em diversos cenários
-possíveis por meio de manipulação dos dados a sua disposição.
+O `cntdd` organiza suas funções em quatro grupos principais:
 
-Uma das formas de orientar a condição esse projeto é basear as análises
-na descoberta de conhecimento (FAYAD et. al, 1996), observando o
-processode geração de conhecimento por meio de dados. O Knowledge
-Discovery in Database (KDD) relaciona dados brutos, processados, criação
-de padrões e consequente descoberta de conhecimento com os dados. Embora
-se concentre na literatura de mineração de dados, esse processo se
-aplica a todo o processo de análise de dados contábeis.
+| Prefixo | Grupo | Descrição |
+|---------|-------|-----------|
+| `ind_` | Indicadores | Cálculo e visualização de índices econômico-financeiros |
+| `stat_` | Estatística | Testes estatísticos e medidas descritivas |
+| `utl_` | Utilitários | Manipulação de dados, CNPJs e integração com APIs |
+| `dt_` | Dados | Datasets de referência incluídos no pacote |
 
-Esse projeto se justifica em várias frentes, tendo a inclusão da análise
-no processo ensino-aprendizagem o seu principal foco. Considerando a
-novidade do assunto análise de dados para a área contábil, mas que tanto
-o Conselho Federal de Contabilidade como as atuais exigências em vagas
-de empregos da área contábil já demandam essa habilidade, o contato de
-alunos e professores com a área de análise de dados fomentará novas
-discussões no curso, tornando a formação profissional atual e atrativa
-para o mercado de trabalho.
+---
 
-**Objetivos**
+## Funções por Grupo
 
--   Mapear e registrar de fontes de dados contábeis disponíveis;
--   Gerar padrões com dados contábeis (insights);
--   Documentar o processo de coleta, transformação e geração de padrões
-    para geração do conhecimento em dados contábeis.
+### 📊 Indicadores Econômico-Financeiros (`ind_`)
 
-**Metodologia**
+#### Análises Integradas
 
-O projeto possui o caráter exploratório, buscando o conhecimento advindo
-do processo de coleta, transformação e criação de padrões dos dados
-contábeis. As etapas metodológicas a serem seguidas são:
+| Função | Descrição |
+|--------|-----------|
+| `ind_analisaDRE()` | Visualiza as etapas do lucro na DRE (Lucro Bruto → EBITDA → EBIT → NOPAT → Lucro Líquido → Lucros Retidos) |
+| `ind_analiseCiclo()` | Representa graficamente os ciclos operacional e financeiro |
+| `ind_analiseDupont()` | Desmembra o ROE pela análise Dupont (ROE = ROS × Giro × Endividamento) |
+| `ind_analiseEfeitoTesoura()` | Analisa o efeito tesoura comparando a NCG e o saldo de tesouraria |
+| `ind_analiseVH()` | Realiza análises vertical e horizontal das demonstrações contábeis |
 
-1.  **SELEÇÃO**, na qual os dados contábeis a serem trabalhados serão
-    buscados na literatura e em plataformas web.
-2.  **PROCESSAMENTO**, na qual serão avaliadas as inconsistências dos
-    bancos de dados e realizados os respectivos tratamentos.
-3.  **TRANSFORMAÇÃO**, na qual serão criadas rotinas para gerar
-    informações úteis para o processo decisório.
-4.  **ANÁLISE**, na qual serão buscados padrões nas informações obtidas,
-    podendo constituir um política ou estratégia da empresa descoberta
-    por meio dos dados.
-5.  **AVALIAÇÃO**, na qual serão medidos os desempenhos das modelagens
-    utilizadas na definição dos padrões. É a etapa responsável por criar
-    mecanismos de se ter um parâmetro para saber sobre a efetiva
-    descoberta de conhecimento com os dados contábeis.
+#### Liquidez
 
-**Referências** FAYYAD, U.M., PIATETSKY-SHAPIRO, G., SMYTH, P. From data
-mining to knowledge discovery in databases. **Artificial Intelligence
-Magazine**, v. 17, n. 3, p. 37-54, 1996.
+| Função | Descrição |
+|--------|-----------|
+| `ind_liqCorrente()` | Liquidez Corrente (AC / PC) |
+| `ind_liqSeca()` | Liquidez Seca ((AC − Estoques) / PC) |
+| `ind_liqImediata()` | Liquidez Imediata (Disponível / PC) |
+| `ind_liqGeral()` | Liquidez Geral ((AC + RLP) / (PC + PNC)) |
 
-KOUNROUZAN, M. C. O perfil do profissional contábil. 2005. Disponível
-em: <https://www.oswaldocruz.br/download/artigos/social17.pdf>. Acesso
-em: 03 nov. 2020.
+#### Endividamento e Estrutura de Capital
 
-MACHADO, J. R.; RAPÉ, S. F. DE L.; SOUZA, S. R. Contabilidade Gerencial
-e Sua Importância Para a Gestão e Tomada De Decisão Das Empresas
-Contemporâneas. **OPET - Revista de ciências contabeis e
-administração**, n. 11, p. 1–11, jan./dez. 2019.
+| Função | Descrição |
+|--------|-----------|
+| `ind_nivelEndividamento()` | Nível de endividamento (AT / PL) |
+| `ind_composicaoEndividamento()` | Composição do endividamento (PC / PT) |
+| `ind_partCapTerceiros()` | Participação de capital de terceiros (PT / PL) |
+| `ind_imobilizacaoPL()` | Imobilização do patrimônio líquido |
+| `ind_endividamentoFinanceiro()` | Endividamento financeiro líquido |
+| `ind_passivoOneroso()` | Passivo oneroso (dívidas com encargos financeiros) |
+| `ind_passivoFinanceiro()` | Passivo financeiro de curto e longo prazo |
 
-SILVA, A. M. H. L. DA; PONTES, A. V. V.; VILLELA, S. M. Contabilidade
-gerencial aliada à mineração de dados resumo. **Revista Eletrônica da
-Faculdade Metodista** **Granbery**. n. 9, p. 1–15, jul./dez. 2010.
+#### Rentabilidade
+
+| Função | Descrição |
+|--------|-----------|
+| `ind_roe()` | ROE — Retorno sobre o Patrimônio Líquido |
+| `ind_roa()` | ROA — Retorno sobre o Ativo Total |
+| `ind_roic()` | ROIC — Retorno sobre o Capital Investido |
+| `ind_ros()` | ROS — Margem Líquida (Retorno sobre as Vendas) |
+| `ind_giro()` | Giro do Ativo (Receita / AT) |
+| `ind_nopat()` | NOPAT — Lucro Operacional Líquido após Impostos |
+| `ind_eva()` | EVA® — Economic Value Added (valor absoluto) |
+| `ind_evaPercentual()` | EVA® Percentual em relação ao capital investido |
+
+#### Custo de Capital
+
+| Função | Descrição |
+|--------|-----------|
+| `ind_wacc()` | WACC — Custo Médio Ponderado de Capital |
+| `ind_custoCapital()` | Custo do capital próprio e de terceiros |
+| `ind_capitalInvestido()` | Capital Investido total na empresa |
+| `ind_capitalOperLiquido()` | Capital Operacional Líquido |
+| `ind_capitalCircLiquido()` | Capital Circulante Líquido (CCL = AC − PC) |
+
+#### Análise Dinâmica (Modelo Fleuriet)
+
+| Função | Descrição |
+|--------|-----------|
+| `ind_necessidadeCapGiro()` | NCG — Necessidade de Capital de Giro |
+| `ind_saldoTesouraria()` | Saldo de Tesouraria |
+| `ind_ativoCiclico()` | Ativo Cíclico (operacional de curto prazo) |
+| `ind_ativoFinanceiro()` | Ativo Financeiro (errático) |
+| `ind_passivoCiclico()` | Passivo Cíclico (operacional de curto prazo) |
+
+#### Prazos Médios
+
+| Função | Descrição |
+|--------|-----------|
+| `ind_pmrv()` | PMRV — Prazo Médio de Recebimento de Vendas |
+| `ind_pmre()` | PMRE — Prazo Médio de Renovação de Estoques |
+| `ind_pmpc()` | PMPC — Prazo Médio de Pagamento de Compras |
+| `ind_cicloOperacional()` | Ciclo Operacional (PMRE + PMRV) |
+| `ind_cicloFinanceiro()` | Ciclo Financeiro (CO − PMPC) |
+
+---
+
+### 📐 Estatística (`stat_`)
+
+| Função | Descrição |
+|--------|-----------|
+| `stat_correl()` | Matriz de correlação de Pearson e/ou Spearman com significâncias |
+| `stat_geomMean()` | Média geométrica |
+| `stat_meanTest()` | Teste de comparação de médias (paramétrico e não-paramétrico) |
+| `stat_testaAssociacao()` | Teste de associação entre variáveis categóricas |
+| `stat_testaIndependencia()` | Teste de independência (qui-quadrado) |
+
+---
+
+### 🔧 Utilitários (`utl_`)
+
+| Função | Descrição |
+|--------|-----------|
+| `utl_consultarCNPJ()` | Consulta dados cadastrais de CNPJs via API `minhareceita.org` |
+| `utl_cnpjMascara()` | Aplica máscara de formatação ao CNPJ (XX.XXX.XXX/XXXX-XX) |
+| `utl_limpaCNPJ()` | Remove formatação e caracteres especiais de CNPJs |
+| `utl_baixaBCB()` | Baixa séries temporais da API do Banco Central do Brasil (SGS/BCB) |
+| `utl_ajustaContaInflacao()` | Deflaciona valores de contas contábeis por um índice de inflação |
+| `utl_createGroup()` | Cria agrupamentos personalizados em data frames |
+| `utl_qdeNAcols()` | Conta a quantidade de valores `NA` por coluna |
+| `utl_tableStat()` | Gera tabela de estatísticas descritivas formatada |
+| `utl_t_starSig()` | Retorna símbolos de significância estatística (*, **, ***) |
+| `robError()` | Tratamento robusto de erros em loops e pipelines |
+
+---
+
+### 📦 Datasets (`dt_`)
+
+| Dataset | Descrição |
+|---------|-----------|
+| `dt_contabil` | Dados contábeis de exemplo para uso nas funções do pacote |
+| `dt_cvmB3` | Cadastro de empresas listadas na B3 conforme a CVM |
+| `dt_iseB3` | Empresas integrantes do Índice de Sustentabilidade Empresarial (ISE B3) |
+| `dt_meses` | Tabela de referência de meses em português e inglês |
+| `dt_ufRegiao` | Tabela de UFs brasileiras com suas respectivas regiões geográficas |
+
+---
+
+## Exemplos de Uso
+
+### Analisar a DRE de uma empresa
+
+```r
+library(cntdd)
+
+ind_analisaDRE(
+  empresa    = "Empresa XYZ",
+  periodo    = 2023,
+  receita    = 800,
+  custo      = 200,
+  despSemDep = 150,
+  depreciacao = 50,
+  juros      = 30,
+  ircsll     = 80,
+  dividendos = 40
+)
+```
+
+### Calcular e visualizar o ciclo financeiro
+
+```r
+ind_analiseCiclo(
+  periodo        = 2021:2023,
+  pmrv           = c(60, 65, 75),
+  pmre           = c(45, 40, 20),
+  pmpc           = c(50, 55, 100),
+  periodoGrafico = 2023
+)
+```
+
+### Análise Dupont
+
+```r
+ind_analiseDupont(
+  intervalo         = 2020:2023,
+  patrimonioLiquido = c(200, 210, 225, 240),
+  ativoTotal        = c(500, 520, 540, 560),
+  receita           = c(800, 820, 850, 900),
+  lucroLiquido      = c(40, 45, 50, 55),
+  apenasDados       = FALSE
+)
+```
+
+### Baixar série do Banco Central (IPCA)
+
+```r
+# Código 433 = IPCA (índice geral)
+ipca <- utl_baixaBCB(codSerie = 433, inicio = "01/01/2015", fim = "31/12/2023")
+head(ipca)
+```
+
+### Consultar CNPJ
+
+```r
+utl_consultarCNPJ(cnpj_lista = "24529265000140")
+```
+
+### Deflacionar valores contábeis
+
+```r
+utl_ajustaContaInflacao(
+  periodo        = 2019:2023,
+  vrConta        = c(100, 110, 120, 130, 140),
+  indiceInflacao = c(4.31, 4.52, 10.06, 5.79, 4.62),
+  periodoBase    = 2023,
+  apenasVetor    = TRUE
+)
+```
+
+### Matriz de correlação
+
+```r
+stat_correl(
+  dt           = dt_contabil[4:8],
+  pearsonLower = TRUE,
+  digits       = 2,
+  decimal      = ","
+)
+```
+
+---
+
+## Dependências
+
+O `cntdd` importa os seguintes pacotes:
+
+`dplyr`, `ggplot2`, `tidyr`, `scales`, `lubridate`, `stringr`, `Hmisc`, `jsonlite`, `rstatix`, `nortest`, `sandwich`, `stats`, `CGPfunctions`, `ggpubr`, `ggrepel`, `pbapply`, `purrr`, `parallel`
+
+---
+
+## Sobre o Projeto contabiliDados
+
+O **contabiliDados** é um projeto de pesquisa e extensão vinculado à [Universidade Federal Rural do Semi-Árido (UFERSA)](https://ufersa.edu.br/), com foco em análise de dados aplicada à contabilidade e finanças. O projeto explora técnicas de KDD (*Knowledge Discovery in Databases*) para transformar dados contábeis brutos em informações úteis ao processo decisório.
+
+- 🌐 Blog: <https://contabilidados.com.br/>
+- 📧 Email: <contabilidados@ufersa.edu.br>
+- 📸 Instagram: [@contabilidados](https://www.instagram.com/contabilidados)
+- 🐛 Reporte problemas: <https://github.com/contabilidados/cntdd/issues>
+
+---
+
+## Citação
+
+Se você usar o `cntdd` em publicações científicas, por favor cite:
+
+```bibtex
+@misc{cntdd,
+  author = {{contabiliDados - UFERSA}},
+  title  = {cntdd: Utilitários para pesquisa em contabilidade e finanças},
+  year   = {2024},
+  url    = {https://github.com/contabilidados/cntdd}
+}
+```
+
+---
+
+## Licença
+
+MIT © contabiliDados / UFERSA. Veja o arquivo [LICENSE](LICENSE) para detalhes.
