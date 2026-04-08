@@ -7,6 +7,14 @@
 [![GitHub stars](https://img.shields.io/github/stars/contabilidados/cntdd?style=social)](https://github.com/contabilidados/cntdd/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+<!-- Vinculação institucional à UFERSA -->
+[![Institution](https://img.shields.io/badge/UFERSA-Projeto%20contabiliDados-green)](https://ufersa.edu.br/)
+
+<!-- Blog do projeto -->
+[![Blog](https://img.shields.io/badge/Blog-contabilidados.com.br-blue)](https://contabilidados.com.br/)
+
+<!-- Instagram -->
+[![Instagram](https://img.shields.io/badge/Instagram-%40contabilidados-E4405F?logo=instagram&logoColor=white)](https://www.instagram.com/contabilidados)
 <!-- badges: end -->
 
 > **cntdd** é um pacote R desenvolvido pelo projeto **contabiliDados** (UFERSA) com utilitários para pesquisa, ensino e análise em contabilidade e finanças. O pacote reúne funções para cálculo de indicadores econômico-financeiros, análises gráficas, testes estatísticos, manipulação de dados cadastrais e integração com APIs públicas brasileiras.
