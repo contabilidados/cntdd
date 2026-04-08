@@ -7,12 +7,35 @@
 [![GitHub stars](https://img.shields.io/github/stars/contabilidados/cntdd?style=social)](https://github.com/contabilidados/cntdd/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![INPI Registro](https://img.shields.io/badge/INPI-BR512024004498--1-brightgreen)](https://www.gov.br/inpi/pt-br)
 [![Institution](https://img.shields.io/badge/UFERSA-Projeto%20contabiliDados-green)](https://ufersa.edu.br/)
 [![Blog](https://img.shields.io/badge/Blog-contabilidados.com.br-blue)](https://contabilidados.com.br/)
 [![Instagram](https://img.shields.io/badge/Instagram-%40contabilidados-E4405F?logo=instagram&logoColor=white)](https://www.instagram.com/contabilidados)
 <!-- badges: end -->
 
 > **cntdd** é um pacote R desenvolvido pelo projeto **contabiliDados** (UFERSA) com utilitários para pesquisa, ensino e análise em contabilidade e finanças. O pacote reúne funções para cálculo de indicadores econômico-financeiros, análises gráficas, testes estatísticos, manipulação de dados cadastrais e integração com APIs públicas brasileiras.
+
+---
+
+## Registro de Propriedade Intelectual
+
+O `cntdd` possui registro oficial de programa de computador junto ao **Instituto Nacional da Propriedade Industrial (INPI)**, expedido pela Diretoria de Patentes, Programas de Computador e Topografias de Circuitos.
+
+| Campo | Informação |
+|---|---|
+| **Número do Processo** | BR512024004498-1 |
+| **Titular** | Universidade Federal Rural do Semi-Árido — UFERSA |
+| **Autores** | Kleber Formiga Mirada; Alexsandro Gonçalves da Silva Prado; Yuri Gomes Paiva Azevedo |
+| **Data de Criação** | 16/08/2022 |
+| **Data de Publicação** | 23/09/2024 |
+| **Data de Expedição** | 26/11/2024 |
+| **Validade** | 50 anos a partir de 1° de janeiro de 2025 |
+| **Linguagem** | R |
+| **Campo de Aplicação** | FN-06 |
+| **Tipo de Programa** | AP-05 |
+| **Algoritmo Hash** | SHA-512 |
+
+> Registro concedido em conformidade com o §2°, art. 2° da Lei 9.609, de 19 de fevereiro de 1998.
 
 ---
 
@@ -273,7 +296,8 @@ Se você usar o `cntdd` em publicações científicas, por favor cite:
   author = {{contabiliDados - UFERSA}},
   title  = {cntdd: Utilitários para pesquisa em contabilidade e finanças},
   year   = {2024},
-  url    = {https://github.com/contabilidados/cntdd}
+  url    = {https://github.com/contabilidados/cntdd},
+  note   = {Registro INPI n° BR512024004498-1}
 }
 ```
 
@@ -282,3 +306,5 @@ Se você usar o `cntdd` em publicações científicas, por favor cite:
 ## Licença
 
 MIT © contabiliDados / UFERSA. Veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+O `cntdd` é um software registrado junto ao INPI (Processo n° BR512024004498-1), expedido em 26/11/2024, com validade de 50 anos a partir de 1° de janeiro de 2025, em conformidade com a Lei 9.609/1998.
