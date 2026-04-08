@@ -1,8 +1,10 @@
 # cntdd <img src="man/figures/logo.png" align="right" height="139" alt="" />
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/cntdd)](https://CRAN.R-project.org/package=cntdd)
-[![R-CMD-check](https://github.com/contabilidados/cntdd/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/contabilidados/cntdd/actions/workflows/R-CMD-check.yaml)
+[![R version](https://img.shields.io/badge/R-%3E%3D%203.5-blue)](https://cran.r-project.org/)
+[![Functions](https://img.shields.io/badge/functions-60-informational)](https://github.com/contabilidados/cntdd)
+[![Last commit](https://img.shields.io/github/last-commit/contabilidados/cntdd)](https://github.com/contabilidados/cntdd/commits)
+[![GitHub stars](https://img.shields.io/github/stars/contabilidados/cntdd?style=social)](https://github.com/contabilidados/cntdd/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
